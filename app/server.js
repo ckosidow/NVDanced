@@ -17,11 +17,9 @@ app.use(cookieParser());
 
 app.get('/login', function (req, res) {
     console.log("logging into spotify");
-    var scopes = 'user-read-private user-read-email';
     res.redirect('https://accounts.spotify.com/authorize' +
         '?response_type=code' +
         '&client_id=f3336aca34094fbabfed8ae3e5d7879c' +
-        (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
         '&redirect_uri=' + encodeURIComponent('http://localhost:8080/auth'));
 });
 
@@ -37,21 +35,20 @@ app.get("/song1", function (req, res) {
     var options = {
         url: 'https://api.spotify.com/v1/audio/3n3Ppam7vgaVa1iaRUc9Lp?market=ES',
         headers: {
-            Authorization: 'Bearer ' + auth,
-            Accepts: 'application/json'
+            'Authorization': 'Bearer ' + auth
         }
     };
 
-    request.get(options, function (err, res, body) {
+    request.get(options, function (err, resp, body) {
         var data = '';
 
         // A chunk of data has been recieved.
-        res.on('data', function (chunk) {
+        resp.on('data', function (chunk) {
             data += chunk;
         });
 
         // The whole response has been received. Print out the result.
-        res.on('end', function () {
+        resp.on('end', function () {
             console.log(JSON.parse(data));
         });
     }).on("error", function (err) {
