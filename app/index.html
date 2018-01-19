@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <ul class="menu">
+    <li><a href="#!/view1">view1</a></li>
+    <li><a href="#!/view2">view2</a></li>
+    <li><a href="/song1">Song 1</a></li>
+    <li><a href="/login">Login</a></li>
+  </ul>
+
+  <div ng-app="myApp" ng-controller="myCtrl">
+      {{myWelcome}}
+  </div>
+
+  <div ng-view></div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="view1/view1.js"></script>
+  <script src="view2/view2.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+    <script>
+        var options = {
+            url: 'https://api.spotify.com/v1/audio/3n3Ppam7vgaVa1iaRUc9Lp?market=ES',
+            headers: {
+                Authorization: 'Bearer BQCPR-lWXgcFwxcqQFpXP_KvxljWckA1sfHAfou_86IOPc0LfhGBop29up9WdJXbkobD2GVF_s6oqGjpG2PiNvefDCj7-xqVm409hnBFKf6ozYodZfyBrCsCZCtMtEGEDW0_k9iD3CbKwAi3MhXZ17lYxlE'
+            }
+        };
+        
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope, $http) {
+            $http.get('https://api.spotify.com/v1/audio/3n3Ppam7vgaVa1iaRUc9Lp?market=ES', options)
+                .then(function(response) {
+                    $scope.myWelcome = response.data;
+                });
+        });
+    </script>
+</body>
+</html>
