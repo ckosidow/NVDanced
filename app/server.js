@@ -4,8 +4,9 @@ var app = express();                               // create our app w/ express
 var morgan = require('morgan');             // log requests to the console (express4)
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var cookieParser = require('cookie-parser');
-var https = require("https");
 var request = require("request");
+var clientId = 'f3336aca34094fbabfed8ae3e5d7879c';
+var clientSecret = 'a42a086eb56e49e288124c16411d22a6';
 
 // configuration =================
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
@@ -16,41 +17,48 @@ app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse applicati
 app.use(cookieParser());
 
 app.get('/login', function (req, res) {
-    console.log("logging into spotify");
     res.redirect('https://accounts.spotify.com/authorize' +
         '?response_type=code' +
-        '&client_id=f3336aca34094fbabfed8ae3e5d7879c' +
-        '&redirect_uri=' + encodeURIComponent('http://localhost:8080/auth'));
+        '&client_id=' + clientId +
+        '&redirect_uri=' + encodeURIComponent('http://localhost:8080/token'));
 });
 
-app.get("/auth", function (req, res) {
-    res.cookie("auth", req.param("code"));
+app.get("/token", function (req, res) {
+    request.post('https://accounts.spotify.com/api/token', {
+        form: {
+            code: req.param("code"),
+            grant_type: "authorization_code",
+            redirect_uri: 'http://localhost:8080/token'
+        },
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: 'Basic ' + new Buffer(clientId + ':' + clientSecret).toString('base64')
+        }
+    }, function (err, resp, body) {
+        var auth = JSON.parse(body);
 
-    res.sendfile("./app/index.html");
+        res.cookie("auth", auth.access_token);
+
+        res.sendfile("./app/index.html");
+    }).on("error", function (err) {
+        console.log("Error: " + err.message);
+
+        res.sendfile("./app/index.html");
+    });
 });
 
 app.get("/song1", function (req, res) {
     var auth = req.cookies['auth'];
 
     var options = {
-        url: 'https://api.spotify.com/v1/audio/3n3Ppam7vgaVa1iaRUc9Lp?market=ES',
         headers: {
+            'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + auth
         }
     };
 
-    request.get(options, function (err, resp, body) {
-        var data = '';
-
-        // A chunk of data has been recieved.
-        resp.on('data', function (chunk) {
-            data += chunk;
-        });
-
-        // The whole response has been received. Print out the result.
-        resp.on('end', function () {
-            console.log(JSON.parse(data));
-        });
+    request.get('https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl?market=ES', options, function (err, resp, body) {
+        console.log(JSON.parse(body));
     }).on("error", function (err) {
         console.log("Error: " + err.message);
     });
