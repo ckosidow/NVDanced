@@ -76,7 +76,6 @@ app.get("/song1", function (req, res) {
 
 app.get("/me", function (req, res) {
     var auth = req.cookies['auth'];
-    var me;
 
     var options = {
         headers: {
@@ -86,10 +85,19 @@ app.get("/me", function (req, res) {
     };
 
     request.get('https://api.spotify.com/v1/me', options, function (err, resp, body) {
-        me = JSON.parse(body);
+        var me = JSON.parse(body);
 
-        res.render("me", {
-            me: me
+        request.get('https://api.spotify.com/v1/me/playlists', options, function (err, resp, body) {
+            var playlists = JSON.parse(body);
+
+            res.render("me", {
+                me: me,
+                playlists: playlists.items
+            });
+        }).on('error', function (err) {
+            console.log("Error: " + err.message);
+
+            res.render("me");
         });
     }).on("error", function (err) {
         console.log("Error: " + err.message);

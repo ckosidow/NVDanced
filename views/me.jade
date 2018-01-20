@@ -7,3 +7,10 @@ html
         !{me.display_name}
         br
         img(src="#{me.images[0].url}")
+
+        - for (var i = 0; i < playlists.length; ++i) {
+            br
+            !{playlists[i].name}
+            br
+            img(src="#{playlists[i].images[0].url}")
+        - }
