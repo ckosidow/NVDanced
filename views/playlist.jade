@@ -1,0 +1,16 @@
+html
+    head
+        title Playlist
+        include ./includes/head.jade
+    body
+        include ./includes/nav.jade
+
+        !{playlist.name}
+        br
+        img(src="#{playlist.images[0].url}")
+
+        ul
+            each track in playlist.tracks.items
+                li
+                    img(src="#{track.track.album.images[2].url}")
+                    !{track.track.name}

@@ -74,6 +74,30 @@ app.get("/song1", function (req, res) {
     });
 });
 
+app.get('/playlist', function (req, res) {
+    var auth = req.cookies['auth'];
+    var userId = req.query.user_id;
+    var playlistId = req.query.playlist_id;
+    var options = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + auth
+        }
+    };
+
+    request.get('https://api.spotify.com/v1/users/' + userId + '/playlists/' + playlistId, options, function (err, resp, body) {
+        var playlist = JSON.parse(body);
+
+        res.render("playlist", {
+            playlist: playlist
+        });
+    }).on('error', function (err) {
+        console.log("Error: " + err.message);
+
+        res.render("playlist");
+    });
+});
+
 app.get("/me", function (req, res) {
     var auth = req.cookies['auth'];
 

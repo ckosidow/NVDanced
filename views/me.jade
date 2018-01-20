@@ -8,9 +8,9 @@ html
         br
         img(src="#{me.images[0].url}")
 
-        - for (var i = 0; i < playlists.length; ++i) {
+        each playlist in playlists
             br
-            !{playlists[i].name}
+            !{playlist.name}
             br
-            img(src="#{playlists[i].images[0].url}")
-        - }
+            a(href="/playlist?user_id=#{playlist.owner.id}&playlist_id=#{playlist.id}")
+                img(src="#{playlist.images[0].url}")
