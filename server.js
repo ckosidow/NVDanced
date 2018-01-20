@@ -1,7 +1,8 @@
 // set up ========================
 var express = require('express');
 var app = express();                               // create our app w/ express
-var morgan = require('morgan');             // log requests to the console (express4)
+var path = require("path");
+var logger = require('morgan');             // log requests to the console (express4)
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var cookieParser = require('cookie-parser');
 var request = require("request");
@@ -10,11 +11,14 @@ var clientSecret = 'a42a086eb56e49e288124c16411d22a6';
 
 // configuration =================
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
-app.use(morgan('dev'));                                         // log every request to the console
-app.use(bodyParser.urlencoded({'extended': 'true'}));            // parse application/x-www-form-urlencoded
+app.use(logger('dev'));                                         // log every request to the console
+app.use(bodyParser.urlencoded({extended: false}));            // parse application/x-www-form-urlencoded
 app.use(bodyParser.json());                                     // parse application/json
-app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse application/vnd.api+json as json
 app.use(cookieParser());
+
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "jade");
 
 app.get('/login', function (req, res) {
     res.redirect('https://accounts.spotify.com/authorize' +
@@ -39,11 +43,11 @@ app.get("/token", function (req, res) {
 
         res.cookie("auth", auth.access_token);
 
-        res.sendfile("./app/index.html");
+        res.render("index");
     }).on("error", function (err) {
         console.log("Error: " + err.message);
 
-        res.sendfile("./app/index.html");
+        res.render("index");
     });
 });
 
@@ -58,14 +62,44 @@ app.get("/song1", function (req, res) {
     };
 
     request.get('https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl?market=ES', options, function (err, resp, body) {
-        console.log(JSON.parse(body));
+        var song = JSON.parse(body);
+
+        res.render("song", {
+            song: song
+        });
     }).on("error", function (err) {
         console.log("Error: " + err.message);
+
+        res.render("song");
+    });
+});
+
+app.get("/me", function (req, res) {
+    var auth = req.cookies['auth'];
+    var me;
+
+    var options = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + auth
+        }
+    };
+
+    request.get('https://api.spotify.com/v1/me', options, function (err, resp, body) {
+        me = JSON.parse(body);
+
+        res.render("me", {
+            me: me
+        });
+    }).on("error", function (err) {
+        console.log("Error: " + err.message);
+
+        res.render("me");
     });
 });
 
 app.get("*", function (req, res) {
-    res.sendfile("./app/index.html");
+    res.render("index");
 });
 
 // listen (start app with node server.js) ======================================

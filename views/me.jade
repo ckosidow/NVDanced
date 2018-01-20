@@ -1,0 +1,9 @@
+html
+    head
+        title Me
+        include ./includes/head.jade
+    body
+        include ./includes/nav.jade
+        !{me.display_name}
+        br
+        img(src="#{me.images[0].url}")

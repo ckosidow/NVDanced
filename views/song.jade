@@ -1,0 +1,12 @@
+html
+    head
+        title Song
+        include ./includes/head.jade
+    body
+        include ./includes/nav.jade
+
+        !{song.album.name} - !{song.album.artists[0].name}
+        br
+        img(src="#{song.album.images[1].url}")
+        br
+        !{song.name}
