@@ -6,8 +6,8 @@ var logger = require('morgan');             // log requests to the console (expr
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var cookieParser = require('cookie-parser');
 var request = require("request");
-var clientId = 'f3336aca34094fbabfed8ae3e5d7879c';
-var clientSecret = 'a42a086eb56e49e288124c16411d22a6';
+var clientId = process.argv[2];
+var clientSecret = process.argv[3];
 
 // configuration =================
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
@@ -24,7 +24,7 @@ app.get('/login', function (req, res) {
     res.redirect('https://accounts.spotify.com/authorize' +
         '?response_type=code' +
         '&client_id=' + clientId +
-        '&redirect_uri=' + encodeURIComponent('http://conor:8080/token'));
+        '&redirect_uri=' + encodeURIComponent('http://192.168.0.29:8080/token'));
 });
 
 app.get("/token", function (req, res) {
@@ -32,7 +32,7 @@ app.get("/token", function (req, res) {
         form: {
             code: req.param("code"),
             grant_type: "authorization_code",
-            redirect_uri: 'http://conor:8080/token'
+            redirect_uri: 'http://192.168.0.29:8080/token'
         },
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -189,5 +189,5 @@ app.get("*", function (req, res) {
 });
 
 // listen (start app with node server.js) ======================================
-app.listen(8080);
+app.listen(8080, '0.0.0.0');
 console.log("App listening on port 8080");

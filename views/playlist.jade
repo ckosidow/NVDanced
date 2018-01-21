@@ -15,5 +15,7 @@ html
                     !{dance}
             each track in playlist.tracks.items
                 li
-                    img(src="#{track.track.album.images[2].url}")
+                    - if (typeof track.track.album.images[2] !== 'undefined') {
+                        img(src="#{track.track.album.images[2].url}")
+                    - }
                     !{track.track.name}
