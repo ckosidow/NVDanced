@@ -5,11 +5,14 @@ html
     body
         include ./includes/nav.jade
 
-        !{playlist.name}
+        !{playlist.name} - !{overall}
         br
         img(src="#{playlist.images[0].url}")
 
         ul
+            each dance in danceability
+                li
+                    !{dance}
             each track in playlist.tracks.items
                 li
                     img(src="#{track.track.album.images[2].url}")

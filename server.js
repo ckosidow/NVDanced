@@ -24,7 +24,7 @@ app.get('/login', function (req, res) {
     res.redirect('https://accounts.spotify.com/authorize' +
         '?response_type=code' +
         '&client_id=' + clientId +
-        '&redirect_uri=' + encodeURIComponent('http://localhost:8080/token'));
+        '&redirect_uri=' + encodeURIComponent('http://conor:8080/token'));
 });
 
 app.get("/token", function (req, res) {
@@ -32,7 +32,7 @@ app.get("/token", function (req, res) {
         form: {
             code: req.param("code"),
             grant_type: "authorization_code",
-            redirect_uri: 'http://localhost:8080/token'
+            redirect_uri: 'http://conor:8080/token'
         },
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -87,9 +87,30 @@ app.get('/playlist', function (req, res) {
 
     request.get('https://api.spotify.com/v1/users/' + userId + '/playlists/' + playlistId, options, function (err, resp, body) {
         var playlist = JSON.parse(body);
+        var tracks = playlist.tracks.items;
+        var ids = [];
 
-        res.render("playlist", {
-            playlist: playlist
+        for (var i = 0; i < tracks.length; i++) {
+            ids.push(tracks[i].track.id);
+        }
+
+        request.get('https://api.spotify.com/v1/audio-features?ids=' + ids, options, function (err, resp, body) {
+            var features = JSON.parse(body).audio_features;
+            var danceability = [];
+            var overall = 0;
+
+            for (var i = 0; i < features.length; i++) {
+                if (features[i]) {
+                    overall += features[i].danceability;
+                    danceability.push('%' + (features[i].danceability * 100).toFixed(2));
+                }
+            }
+
+            res.render("playlist", {
+                playlist: playlist,
+                danceability: danceability,
+                overall: '%' + ((overall / features.length) * 100).toFixed(2)
+            });
         });
     }).on('error', function (err) {
         console.log("Error: " + err.message);
@@ -127,6 +148,39 @@ app.get("/me", function (req, res) {
         console.log("Error: " + err.message);
 
         res.render("me");
+    });
+});
+
+app.get("/other", function (req, res) {
+    var auth = req.cookies['auth'];
+    var userId = req.query.user_id;
+
+    var options = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + auth
+        }
+    };
+
+    request.get('https://api.spotify.com/v1/users/' + userId, options, function (err, resp, body) {
+        var me = JSON.parse(body);
+
+        request.get('https://api.spotify.com/v1/users/' + userId + '/playlists?limit=50', options, function (err, resp, body) {
+            var playlists = JSON.parse(body);
+
+            res.render("other", {
+                other: me,
+                playlists: playlists.items
+            });
+        }).on('error', function (err) {
+            console.log("Error: " + err.message);
+
+            res.render("other");
+        });
+    }).on("error", function (err) {
+        console.log("Error: " + err.message);
+
+        res.render("other");
     });
 });
 

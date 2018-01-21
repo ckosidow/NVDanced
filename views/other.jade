@@ -1,0 +1,16 @@
+html
+    head
+        title Other
+        include ./includes/head.jade
+    body
+        include ./includes/nav.jade
+        !{other.display_name}
+        br
+        img(src="#{other.images[0].url}")
+
+        each playlist in playlists
+            br
+            !{playlist.name}
+            br
+            a(href="/playlist?user_id=#{playlist.owner.id}&playlist_id=#{playlist.id}")
+                img(src="#{playlist.images[0].url}")
