@@ -5,17 +5,14 @@ html
     body
         include ./includes/nav.jade
 
-        !{playlist.name} - !{overall}
+        !{playlist.name} - !{overallDance} - !{overallPop}
         br
-        img(src="#{playlist.images[0].url}")
+        img(src="#{playlist.images[1].url}")
 
         ul
-            each dance in danceability
-                li
-                    !{dance}
             each track in playlist.tracks.items
                 li
                     - if (typeof track.track.album.images[2] !== 'undefined') {
                         img(src="#{track.track.album.images[2].url}")
                     - }
-                    !{track.track.name}
+                    !{track.track.name} - !{track.track.danceability} - !{track.track.popularity}

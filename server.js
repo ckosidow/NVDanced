@@ -51,7 +51,7 @@ app.get("/token", function (req, res) {
     });
 });
 
-app.get("/song1", function (req, res) {
+app.get("/song", function (req, res) {
     var auth = req.cookies['auth'];
 
     var options = {
@@ -89,27 +89,34 @@ app.get('/playlist', function (req, res) {
         var playlist = JSON.parse(body);
         var tracks = playlist.tracks.items;
         var ids = [];
+        var overallPop = 0;
 
         for (var i = 0; i < tracks.length; i++) {
             ids.push(tracks[i].track.id);
+
+            overallPop += tracks[i].track.popularity;
         }
 
         request.get('https://api.spotify.com/v1/audio-features?ids=' + ids, options, function (err, resp, body) {
             var features = JSON.parse(body).audio_features;
-            var danceability = [];
-            var overall = 0;
+            var overallDance = 0;
 
             for (var i = 0; i < features.length; i++) {
                 if (features[i]) {
-                    overall += features[i].danceability;
-                    danceability.push('%' + (features[i].danceability * 100).toFixed(2));
+                    for (var j = 0; j < tracks.length; j++) {
+                        if (features[i].id === tracks[j].track.id) {
+                            tracks[j].track.danceability = '%' + (features[i].danceability * 100).toFixed(2);
+                        }
+                    }
+
+                    overallDance += features[i].danceability;
                 }
             }
-
+            
             res.render("playlist", {
                 playlist: playlist,
-                danceability: danceability,
-                overall: '%' + ((overall / features.length) * 100).toFixed(2)
+                overallDance: '%' + ((overallDance / features.length) * 100).toFixed(2),
+                overallPop: (overallPop / tracks.length).toFixed(2)
             });
         });
     }).on('error', function (err) {
