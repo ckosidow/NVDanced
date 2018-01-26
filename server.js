@@ -6,8 +6,8 @@ var logger = require('morgan');             // log requests to the console (expr
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var cookieParser = require('cookie-parser');
 var request = require("request");
-var clientId = process.argv[2];
-var clientSecret = process.argv[3];
+var clientId = process.env.clientId;
+var clientSecret = process.env.clientSecret;
 
 // configuration =================
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
@@ -24,7 +24,7 @@ app.get('/login', function (req, res) {
     res.redirect('https://accounts.spotify.com/authorize' +
         '?response_type=code' +
         '&client_id=' + clientId +
-        '&redirect_uri=' + encodeURIComponent('http://localhost:8080/token'));
+        '&redirect_uri=' + encodeURIComponent(process.env.redirect));
 });
 
 app.get("/token", function (req, res) {
@@ -32,7 +32,7 @@ app.get("/token", function (req, res) {
         form: {
             code: req.param("code"),
             grant_type: "authorization_code",
-            redirect_uri: 'http://localhost:8080/token'
+            redirect_uri: process.env.redirect
         },
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
