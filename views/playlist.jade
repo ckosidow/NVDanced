@@ -5,14 +5,22 @@ html
     body
         include ./includes/nav.jade
 
-        !{playlist.name} - !{overallDance} - !{overallPop}
+        span
+            !{playlist.name} - Danceability: %!{overallDance} - Popularity: !{overallPop}
         br
-        img(src="#{playlist.images[1].url}")
+        - if (playlist.images[1]) {
+            img(src="#{playlist.images[1].url}")
+        - } else if (playlist.images[0]) {
+            img(src="#{playlist.images[0].url}")
+        - } else {
+            img(src="#")
+        - }
 
         ul
             each track in playlist.tracks.items
                 li
-                    - if (typeof track.track.album.images[2] !== 'undefined') {
+                    - if (track.track.album.images[2]) {
                         img(src="#{track.track.album.images[2].url}")
                     - }
-                    !{track.track.name} - !{track.track.danceability} - !{track.track.popularity}
+                    !{track.track.name} - danceability: !{track.track.danceability} - popularity: !{track.track.popularity} - tempo:
+                    !{track.track.tempo}

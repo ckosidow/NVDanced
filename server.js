@@ -24,7 +24,7 @@ app.get('/login', function (req, res) {
     res.redirect('https://accounts.spotify.com/authorize' +
         '?response_type=code' +
         '&client_id=' + clientId +
-        '&redirect_uri=' + encodeURIComponent('http://192.168.0.29:8080/token'));
+        '&redirect_uri=' + encodeURIComponent('http://localhost:8080/token'));
 });
 
 app.get("/token", function (req, res) {
@@ -32,7 +32,7 @@ app.get("/token", function (req, res) {
         form: {
             code: req.param("code"),
             grant_type: "authorization_code",
-            redirect_uri: 'http://192.168.0.29:8080/token'
+            redirect_uri: 'http://localhost:8080/token'
         },
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -105,7 +105,9 @@ app.get('/playlist', function (req, res) {
                 if (features[i]) {
                     for (var j = 0; j < tracks.length; j++) {
                         if (features[i].id === tracks[j].track.id) {
-                            tracks[j].track.danceability = '%' + (features[i].danceability * 100).toFixed(2);
+                            tracks[j].track.danceability = (features[i].danceability * 100).toFixed(2);
+                            tracks[j].track.tempo = features[i].tempo;
+                            break;
                         }
                     }
 
@@ -115,7 +117,7 @@ app.get('/playlist', function (req, res) {
             
             res.render("playlist", {
                 playlist: playlist,
-                overallDance: '%' + ((overallDance / features.length) * 100).toFixed(2),
+                overallDance: ((overallDance / features.length) * 100).toFixed(2),
                 overallPop: (overallPop / tracks.length).toFixed(2)
             });
         });
