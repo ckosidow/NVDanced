@@ -1,0 +1,8 @@
+nav .header .home-menu {
+    background-color: #30ff8f;
+    color: black;
+}
+
+nav .header .home-menu * {
+    color: black;
+}

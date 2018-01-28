@@ -10,6 +10,12 @@ var clientId = process.env.clientId;
 var clientSecret = process.env.clientSecret;
 
 // configuration =================
+app.use(require("node-sass-middleware")({
+    src: path.join(__dirname, "/public"),
+    dest: path.join(__dirname, "/public"),
+    indentedSyntax: true,
+    sourceMap: true
+}));
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
 app.use(logger('dev'));                                         // log every request to the console
 app.use(bodyParser.urlencoded({extended: false}));            // parse application/x-www-form-urlencoded
