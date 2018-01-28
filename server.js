@@ -42,6 +42,7 @@ app.get("/token", function (req, res) {
         var auth = JSON.parse(body);
 
         res.cookie("auth", auth.access_token);
+        res.cookie("refresh", auth.refresh_token);
 
         res.render("index");
     }).on("error", function (err) {
@@ -50,6 +51,31 @@ app.get("/token", function (req, res) {
         res.render("index");
     });
 });
+
+function refresh(req, fn) {
+    request.post('https://accounts.spotify.com/api/token', {
+        form: {
+            code: req.param("refresh"),
+            grant_type: "authorization_code",
+            redirect_uri: process.env.redirect
+        },
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: 'Basic ' + new Buffer(clientId + ':' + clientSecret).toString('base64')
+        }
+    }, function (err, resp, body) {
+        var auth = JSON.parse(body);
+
+        resp.cookie("auth", auth.access_token);
+        resp.cookie("refresh", auth.refresh_token);
+
+        fn();
+    }).on("error", function (err) {
+        console.log("Error: " + err.message);
+
+        fn();
+    });
+}
 
 app.get("/song", function (req, res) {
     var auth = req.cookies['auth'];
@@ -149,12 +175,12 @@ app.get("/me", function (req, res) {
                 playlists: playlists.items
             });
         }).on('error', function (err) {
-            console.log("Error: " + err.message);
+            console.error("Error: " + err.message);
 
             res.render("me");
         });
     }).on("error", function (err) {
-        console.log("Error: " + err.message);
+        console.error("Error: " + err.message);
 
         res.render("me");
     });
@@ -193,8 +219,12 @@ app.get("/other", function (req, res) {
     });
 });
 
-app.get("*", function (req, res) {
-    res.render("index");
+app.get('/index', function (req, res) {
+    res.render('index');
+});
+
+app.get('/', function (req, res) {
+    res.render('index');
 });
 
 // listen (start app with node server.js) ======================================
