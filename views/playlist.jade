@@ -15,8 +15,9 @@ html
                     img(src="#")
                 - }
             div.pure-u-1.pure-u-sm-2-5.pure-u-md-1-2
-                h3
-                    !{playlist.name}
+                h3 !{playlist.name}
+                p By:&nbsp;
+                    a(href="/other?user_id=#{playlist.owner.id}") !{playlist.owner.display_name}
                 p Danceability: %!{overallDance}
                 p Popularity: !{overallPop}
 
