@@ -9,8 +9,9 @@ var request = require("request");
 
 var index = require("./routes/index");
 var login = require("./routes/login");
-var personal = require("./routes/personal");
+var me = require("./routes/me");
 var playlist = require("./routes/playlist");
+var other = require("./routes/other");
 
 // configuration =================
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
@@ -25,7 +26,8 @@ app.set("view engine", "jade");
 
 app.use("/", index);
 app.use("/login", login);
-app.use("/me", personal);
+app.use("/me", me);
+app.use("/other", other);
 app.use("/playlist", playlist);
 
 function refresh(req, fn) {
@@ -73,39 +75,6 @@ app.get("/song", function (req, res) {
         console.log("Error: " + err.message);
 
         res.render("song");
-    });
-});
-
-app.get("/other", function (req, res) {
-    var auth = req.cookies['auth'];
-    var userId = req.query.user_id;
-
-    var options = {
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + auth
-        }
-    };
-
-    request.get('https://api.spotify.com/v1/users/' + userId, options, function (err, resp, body) {
-        var me = JSON.parse(body);
-
-        request.get('https://api.spotify.com/v1/users/' + userId + '/playlists?limit=50', options, function (err, resp, body) {
-            var playlists = JSON.parse(body);
-
-            res.render("other", {
-                other: me,
-                playlists: playlists.items
-            });
-        }).on('error', function (err) {
-            console.log("Error: " + err.message);
-
-            res.render("other");
-        });
-    }).on("error", function (err) {
-        console.log("Error: " + err.message);
-
-        res.render("other");
     });
 });
 

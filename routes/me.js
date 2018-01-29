@@ -13,19 +13,19 @@ router.get("/", function (req, res) {
     };
 
     request.get('https://api.spotify.com/v1/me', options, function (err, resp, body) {
-        var me = JSON.parse(body);
+        var user = JSON.parse(body);
 
         request.get('https://api.spotify.com/v1/me/playlists', options, function (err, resp, body) {
             var playlists = JSON.parse(body);
 
-            res.render("me", {
-                me: me,
+            res.render("user", {
+                user: user,
                 playlists: playlists.items
             });
         }).on('error', function (err) {
             console.error("Error: " + err.message);
 
-            res.render("me");
+            res.render("user");
         });
     }).on("error", function (err) {
         console.error("Error: " + err.message);

@@ -1,6 +1,6 @@
 html
     head
-        title Me
+        title User
         include ./includes/head.jade
     body
         include ./includes/nav.jade
@@ -10,8 +10,8 @@ html
                 div.pure-g
                     div.pure-u-1-4
                         h3
-                            !{me.display_name}
-                        img(src="#{me.images[0].url}")
+                            !{user.display_name}
+                        img(src="#{user.images[0].url}")
 
                 div.pure-g
                     each playlist in playlists
