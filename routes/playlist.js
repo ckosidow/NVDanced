@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require("request");
 
-router.get('/playlist', function (req, res) {
+router.get('/', function (req, res) {
     var auth = req.cookies['auth'];
     var userId = req.query.user_id;
     var playlistId = req.query.playlist_id;
@@ -15,6 +15,15 @@ router.get('/playlist', function (req, res) {
 
     request.get('https://api.spotify.com/v1/users/' + userId + '/playlists/' + playlistId, options, function (err, resp, body) {
         var playlist = JSON.parse(body);
+
+        if (!playlist || !playlist.tracks) {
+            console.log("Error: no playlsist found");
+
+            res.render("index");
+
+            return null;
+        }
+
         var tracks = playlist.tracks.items;
         var ids = [];
         var overallPop = 0;
