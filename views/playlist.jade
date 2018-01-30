@@ -5,9 +5,9 @@ html
     body
         include ./includes/nav.jade
 
-        content
+        main
             div.pure-g
-                div.pure-u-1.pure-u-sm-3-5.pure-u-md-1-2
+                div.pure-u-1.pure-u-sm-3-5.pure-u-md-1-2.pure-u-lg-1-3
                     - if (playlist.images[1]) {
                         img(src="#{playlist.images[1].url}")
                     - } else if (playlist.images[0]) {
@@ -15,7 +15,7 @@ html
                     - } else {
                         img(src="#")
                     - }
-                div.pure-u-1.pure-u-sm-2-5.pure-u-md-1-2
+                div.pure-u-1.pure-u-sm-2-5.pure-u-md-1-2.pure-u-lg-2-3
                     h3 !{playlist.name}
                     p By:&nbsp;
                         a(href="/other?user_id=#{playlist.owner.id}") !{playlist.owner.display_name}
