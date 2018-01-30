@@ -1,2 +1,2 @@
-nav .header .home-menu{background-color:#00a856}nav .header .home-menu *{color:white}a{text-decoration:none;color:white}a:hover{color:#00a856}body{background-color:#161616;color:white}
+nav .header .home-menu{background-color:#00a856}nav .header .home-menu .pure-menu-link:hover{background-color:#00a856}nav .header .home-menu *{color:white}a{text-decoration:none;color:white}a:hover{color:#00a856}body{background-color:#161616;color:white}
 /*# sourceMappingURL=styles.css.map */

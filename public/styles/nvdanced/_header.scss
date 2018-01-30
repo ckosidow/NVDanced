@@ -5,6 +5,12 @@ nav {
     .home-menu {
       background-color : $primary-color;
 
+      .pure-menu-link {
+        &:hover {
+          background-color : $primary-color;
+        }
+      }
+
       * {
         color: white;
       }
