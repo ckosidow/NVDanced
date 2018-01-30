@@ -15,5 +15,5 @@ body {
 }
 
 main {
-  padding : $std-padding;
+  padding : calc(#{$std-padding} + 63.75px) $std-padding $std-padding $std-padding;
 }

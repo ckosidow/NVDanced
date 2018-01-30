@@ -3,3 +3,19 @@
 .playlist-song {
   padding : 0 calc(3 * #{$std-padding}) $std-padding 0;
 }
+
+.saucin {
+  color : lighten($primary-color, 0);
+}
+
+.caliente {
+  color : lighten($primary-color, 15);
+}
+
+.spicy {
+  color : lighten($primary-color, 30);
+}
+
+.hot {
+  color : lighten($primary-color, 50);
+}

@@ -16,7 +16,7 @@ html
                         img(src="#")
                     - }
                 div.pure-u-1.pure-u-sm-2-5.pure-u-md-1-2.pure-u-lg-2-3
-                    h3 !{playlist.name}
+                    h1 !{playlist.name}
                     p By:&nbsp;
                         a(href="/other?user_id=#{playlist.owner.id}") !{playlist.owner.display_name}
                     p Danceability: %!{overallDance}
@@ -32,6 +32,28 @@ html
                         div.pure-u-3-5
                             h4
                                 a(href="/song?song_id=#{track.track.id}") !{track.track.name}
-                            p Danceability: !{track.track.danceability}
-                            p Popularity: !{track.track.popularity}
+                            p Danceability:&nbsp;
+                                - if (track.track.danceability > 90) {
+                                    span.saucin !{track.track.danceability}
+                                - } else if (track.track.danceability > 80) {
+                                    span.caliente !{track.track.danceability}
+                                - } else if (track.track.danceability > 70) {
+                                    span.spicy !{track.track.danceability}
+                                - } else if (track.track.danceability > 60) {
+                                    span.hot !{track.track.danceability}
+                                - } else {
+                                    !{track.track.danceability}
+                                - }
+                            p Popularity:&nbsp;
+                                - if (track.track.popularity > 90) {
+                                    span.saucin !{track.track.popularity}
+                                - } else if (track.track.popularity > 80) {
+                                    span.caliente !{track.track.popularity}
+                                - } else if (track.track.popularity > 70) {
+                                    span.spicy !{track.track.popularity}
+                                - } else if (track.track.popularity> 60) {
+                                    span.hot !{track.track.popularity}
+                                - } else {
+                                    !{track.track.popularity}
+                                - }
                             p Tempo: !{track.track.tempo}
