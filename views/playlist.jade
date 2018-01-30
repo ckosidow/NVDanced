@@ -19,8 +19,16 @@ html
                     h1 !{playlist.name}
                     p By:&nbsp;
                         a(href="/other?user_id=#{playlist.owner.id}") !{playlist.owner.display_name}
-                    p Danceability: %!{overallDance}
-                    p Popularity: !{overallPop}
+                    p Danceability:&nbsp;
+                        span(class=overallDance >= 80 && 'saucin'
+                                || overallDance >= 70 && 'caliente'
+                                || overallDance >= 60 && 'spicy'
+                                || overallDance >= 50 && 'hot') %!{overallDance}
+                    p Popularity:&nbsp;
+                        span(class=overallPop >= 80 && 'saucin'
+                                || overallPop >= 70 && 'caliente'
+                                || overallPop >= 60 && 'spicy'
+                                || overallPop >= 50 && 'hot') !{overallPop}
 
             div.pure-g
                 each track in playlist.tracks.items
@@ -33,27 +41,13 @@ html
                             h4
                                 a(href="/song?song_id=#{track.track.id}") !{track.track.name}
                             p Danceability:&nbsp;
-                                - if (track.track.danceability > 90) {
-                                    span.saucin !{track.track.danceability}
-                                - } else if (track.track.danceability > 80) {
-                                    span.caliente !{track.track.danceability}
-                                - } else if (track.track.danceability > 70) {
-                                    span.spicy !{track.track.danceability}
-                                - } else if (track.track.danceability > 60) {
-                                    span.hot !{track.track.danceability}
-                                - } else {
-                                    !{track.track.danceability}
-                                - }
+                                span(class=track.track.danceability >= 90 && 'saucin'
+                                        || track.track.danceability >= 80 && 'caliente'
+                                        || track.track.danceability >= 70 && 'spicy'
+                                        || track.track.danceability >= 60 && 'hot') !{track.track.danceability}
                             p Popularity:&nbsp;
-                                - if (track.track.popularity > 90) {
-                                    span.saucin !{track.track.popularity}
-                                - } else if (track.track.popularity > 80) {
-                                    span.caliente !{track.track.popularity}
-                                - } else if (track.track.popularity > 70) {
-                                    span.spicy !{track.track.popularity}
-                                - } else if (track.track.popularity> 60) {
-                                    span.hot !{track.track.popularity}
-                                - } else {
-                                    !{track.track.popularity}
-                                - }
+                                span(class=track.track.popularity >= 90 && 'saucin'
+                                        || track.track.popularity >= 80 && 'caliente'
+                                        || track.track.popularity >= 70 && 'spicy'
+                                        || track.track.popularity >= 60 && 'hot') !{track.track.popularity}
                             p Tempo: !{track.track.tempo}
