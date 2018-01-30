@@ -4,7 +4,10 @@ nav {
   .header {
     .home-menu {
       background-color : $primary-color;
-      color : black;
+
+      * {
+        color: white;
+      }
     }
   }
 }

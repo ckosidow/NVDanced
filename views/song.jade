@@ -1,0 +1,17 @@
+html
+    head
+        title Song
+        include ./includes/head.jade
+    body
+        include ./includes/nav.jade
+            
+        div.pure-g
+            div.pure-u-1-3
+                img(src="#{song.album.images[1].url}")
+            div.pure-u-2-3
+                h3 !{song.name}
+                p Album: !{song.album.name}
+                p Artists:
+                    each artist in song.artists
+                        &nbsp;!{artist.name};
+                p Popularity: !{song.popularity}

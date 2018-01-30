@@ -29,7 +29,8 @@ html
                             img(src="#{track.track.album.images[2].url}")
                         - }
                     div.pure-u-3-4
-                        h4 !{track.track.name}
+                        h4
+                            a(href="/song?song_id=#{track.track.id}") !{track.track.name}
                         p Danceability: !{track.track.danceability}
                         p Popularity: !{track.track.popularity}
                         p Tempo: !{track.track.tempo}

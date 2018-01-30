@@ -12,6 +12,7 @@ var login = require("./routes/login");
 var me = require("./routes/me");
 var playlist = require("./routes/playlist");
 var other = require("./routes/other");
+var song = require("./routes/song");
 
 // configuration =================
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
@@ -29,6 +30,7 @@ app.use("/login", login);
 app.use("/me", me);
 app.use("/other", other);
 app.use("/playlist", playlist);
+app.use("/song", song);
 
 function refresh(req, fn) {
     request.post('https://accounts.spotify.com/api/token', {
@@ -54,29 +56,6 @@ function refresh(req, fn) {
         fn();
     });
 }
-
-app.get("/song", function (req, res) {
-    var auth = req.cookies['auth'];
-
-    var options = {
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + auth
-        }
-    };
-
-    request.get('https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl?market=ES', options, function (err, resp, body) {
-        var song = JSON.parse(body);
-
-        res.render("song", {
-            song: song
-        });
-    }).on("error", function (err) {
-        console.log("Error: " + err.message);
-
-        res.render("song");
-    });
-});
 
 // listen (start app with node server.js) ======================================
 app.listen(8080, '0.0.0.0');
