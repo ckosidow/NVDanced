@@ -15,9 +15,9 @@ html
 
                 div.pure-g
                     each playlist in playlists
-                        div.pure-u-1-2.pure-u-sm-1-3.pure-u-md-1-4.pure-u-lg-1-5
-                            h4(style="text-align: center") !{playlist.name}
-                            p(style="text-align: center")
+                        div.pure-u-1-2.pure-u-sm-1-3.pure-u-md-1-4.pure-u-lg-1-5.user-playlist
+                            h4 !{playlist.name}
+                            p
                                 a(href="/other?user_id=#{playlist.owner.id}") !{playlist.owner.display_name}
                             div(style="width:70%;margin:auto")
                                 a(href="/playlist?user_id=#{playlist.owner.id}&playlist_id=#{playlist.id}")

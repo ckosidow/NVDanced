@@ -1,0 +1,5 @@
+@import "vars";
+
+.playlist-song {
+  padding : 0 calc(3 * #{$std-padding}) $std-padding 0;
+}
