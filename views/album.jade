@@ -1,0 +1,32 @@
+html
+    head
+        title Album
+        include ./includes/head.jade
+    body
+        include ./includes/nav.jade
+
+        main
+            div.pure-g
+                div.pure-u-1.pure-u-sm-3-5.pure-u-md-1-2.pure-u-lg-1-3
+                    img(src="#{album.images[1].url}")
+                div.pure-u-1.pure-u-sm-2-5.pure-u-md-1-2.pure-u-lg-2-3
+                    h1 !{album.name}
+                    p Artists:
+                        each artist in album.artists
+                            &nbsp;!{artist.name};p Danceability:&nbsp;
+                    p Danceability:&nbsp;
+                        span(class=overallDance >= 80 && 'saucin'
+                            || overallDance >= 70 && 'caliente'
+                            || overallDance >= 60 && 'spicy'
+                            || overallDance >= 50 && 'hot') %!{overallDance}
+            div.pure-g
+                each track in tracks
+                    div.pure-u-1.pure-u-sm-1-3.pure-u-lg-1-4.pure-u-xl-1-5.playlist-song
+                        h4
+                            a(href="/song?song_id=#{track.id}") !{track.name}
+                        p Danceability:&nbsp;
+                            span(class=track.danceability >= 90 && 'saucin'
+                            || track.danceability >= 80 && 'caliente'
+                            || track.danceability >= 70 && 'spicy'
+                            || track.danceability >= 60 && 'hot') !{track.danceability}
+                        p Tempo: !{track.tempo}
