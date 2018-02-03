@@ -3,4 +3,9 @@
 .user-playlist {
   text-align : center;
   padding-bottom : calc(5 * #{$std-padding});
+
+  > div {
+    width : 70%;
+    margin : auto;
+  }
 }

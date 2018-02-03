@@ -9,7 +9,7 @@ html
             div.content
                 div.pure-g
                     div.pure-u-1.pure-u-sm-3-5.pure-u-md-1-2.pure-u-lg-1-3
-                        img(src="#{user.images[0].url}")
+                        img(src=user.images[0] ? user.images[0].url : '')
                     div.pure-u-1.pure-u-sm-2-5.pure-u-md-1-2.pure-u-lg-2-3
                         h1 !{user.display_name}
 
@@ -19,10 +19,6 @@ html
                             h4 !{playlist.name}
                             p
                                 a(href="/other?user_id=#{playlist.owner.id}") !{playlist.owner.display_name}
-                            div(style="width:70%;margin:auto")
+                            div
                                 a(href="/playlist?user_id=#{playlist.owner.id}&playlist_id=#{playlist.id}")
-                                    - if (playlist.images[0]) {
-                                        img(src="#{playlist.images[0].url}", width="100%")
-                                    - } else {
-                                        img(src="#")
-                                    - }
+                                    img(src=playlist.images[0] ? playlist.images[0].url : '', width="100%")
