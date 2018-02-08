@@ -13,7 +13,7 @@ html
                     h1 !{album.name}
                     p Artists:
                         each artist in album.artists
-                            &nbsp;!{artist.name};p Danceability:&nbsp;
+                            &nbsp;!{artist.name};
                     p Danceability:&nbsp;
                         span(class=overallDance >= 80 && 'saucin'
                             || overallDance >= 70 && 'caliente'
