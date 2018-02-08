@@ -38,7 +38,7 @@ html
                         div.pure-u-3-5
                             h4
                                 a(href="/song?song_id=#{track.track.id}") !{track.track.name}
-                                &nbsp;-&nbsp;
+                            h5
                                 a(href="/album?album_id=#{track.track.album.id}") !{track.track.album.name}
                             p Danceability:&nbsp;
                                 span(class=track.track.danceability >= 90 && 'saucin'
