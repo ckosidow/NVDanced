@@ -4,6 +4,7 @@ var router = express.Router();
 var request = require("request");
 
 router.get('/', function (req, res) {
+    var test = null;
     var auth = req.cookies['auth'];
     var albumId = req.query.album_id;
     var album;
