@@ -1,0 +1,569 @@
+/* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-size-1 {
+  font-size: 3rem !important;
+}
+
+/* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-size-2 {
+  font-size: 2.5rem !important;
+}
+
+/* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-size-3 {
+  font-size: 2rem !important;
+}
+
+/* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-size-4 {
+  font-size: 1.5rem !important;
+}
+
+/* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-size-5 {
+  font-size: 1.25rem !important;
+}
+
+/* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-size-6 {
+  font-size: 1rem !important;
+}
+
+/* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-size-7 {
+  font-size: 0.75rem !important;
+}
+
+@media screen and (max-width: 768px) {
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-1-mobile {
+    font-size: 3rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-2-mobile {
+    font-size: 2.5rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-3-mobile {
+    font-size: 2rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-4-mobile {
+    font-size: 1.5rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-5-mobile {
+    font-size: 1.25rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-6-mobile {
+    font-size: 1rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-7-mobile {
+    font-size: 0.75rem !important;
+  }
+}
+
+@media screen and (min-width: 769px), print {
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-1-tablet {
+    font-size: 3rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-2-tablet {
+    font-size: 2.5rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-3-tablet {
+    font-size: 2rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-4-tablet {
+    font-size: 1.5rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-5-tablet {
+    font-size: 1.25rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-6-tablet {
+    font-size: 1rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-7-tablet {
+    font-size: 0.75rem !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-1-touch {
+    font-size: 3rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-2-touch {
+    font-size: 2.5rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-3-touch {
+    font-size: 2rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-4-touch {
+    font-size: 1.5rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-5-touch {
+    font-size: 1.25rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-6-touch {
+    font-size: 1rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-7-touch {
+    font-size: 0.75rem !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-1-desktop {
+    font-size: 3rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-2-desktop {
+    font-size: 2.5rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-3-desktop {
+    font-size: 2rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-4-desktop {
+    font-size: 1.5rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-5-desktop {
+    font-size: 1.25rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-6-desktop {
+    font-size: 1rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-7-desktop {
+    font-size: 0.75rem !important;
+  }
+}
+
+@media screen and (min-width: 1216px) {
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-1-widescreen {
+    font-size: 3rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-2-widescreen {
+    font-size: 2.5rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-3-widescreen {
+    font-size: 2rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-4-widescreen {
+    font-size: 1.5rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-5-widescreen {
+    font-size: 1.25rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-6-widescreen {
+    font-size: 1rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-7-widescreen {
+    font-size: 0.75rem !important;
+  }
+}
+
+@media screen and (min-width: 1408px) {
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-1-fullhd {
+    font-size: 3rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-2-fullhd {
+    font-size: 2.5rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-3-fullhd {
+    font-size: 2rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-4-fullhd {
+    font-size: 1.5rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-5-fullhd {
+    font-size: 1.25rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-6-fullhd {
+    font-size: 1rem !important;
+  }
+  /* line 6, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .is-size-7-fullhd {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* line 32, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.has-text-centered {
+  text-align: center !important;
+}
+
+/* line 32, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.has-text-justified {
+  text-align: justify !important;
+}
+
+/* line 32, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.has-text-left {
+  text-align: left !important;
+}
+
+/* line 32, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.has-text-right {
+  text-align: right !important;
+}
+
+@media screen and (max-width: 768px) {
+  /* line 37, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-centered-mobile {
+    text-align: center !important;
+  }
+}
+
+@media screen and (min-width: 769px), print {
+  /* line 40, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-centered-tablet {
+    text-align: center !important;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  /* line 43, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-centered-tablet-only {
+    text-align: center !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  /* line 46, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-centered-touch {
+    text-align: center !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-centered-desktop {
+    text-align: center !important;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1215px) {
+  /* line 52, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-centered-desktop-only {
+    text-align: center !important;
+  }
+}
+
+@media screen and (min-width: 1216px) {
+  /* line 55, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-centered-widescreen {
+    text-align: center !important;
+  }
+}
+
+@media screen and (min-width: 1216px) and (max-width: 1407px) {
+  /* line 58, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-centered-widescreen-only {
+    text-align: center !important;
+  }
+}
+
+@media screen and (min-width: 1408px) {
+  /* line 61, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-centered-fullhd {
+    text-align: center !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* line 37, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-justified-mobile {
+    text-align: justify !important;
+  }
+}
+
+@media screen and (min-width: 769px), print {
+  /* line 40, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-justified-tablet {
+    text-align: justify !important;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  /* line 43, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-justified-tablet-only {
+    text-align: justify !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  /* line 46, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-justified-touch {
+    text-align: justify !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-justified-desktop {
+    text-align: justify !important;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1215px) {
+  /* line 52, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-justified-desktop-only {
+    text-align: justify !important;
+  }
+}
+
+@media screen and (min-width: 1216px) {
+  /* line 55, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-justified-widescreen {
+    text-align: justify !important;
+  }
+}
+
+@media screen and (min-width: 1216px) and (max-width: 1407px) {
+  /* line 58, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-justified-widescreen-only {
+    text-align: justify !important;
+  }
+}
+
+@media screen and (min-width: 1408px) {
+  /* line 61, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-justified-fullhd {
+    text-align: justify !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* line 37, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-left-mobile {
+    text-align: left !important;
+  }
+}
+
+@media screen and (min-width: 769px), print {
+  /* line 40, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-left-tablet {
+    text-align: left !important;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  /* line 43, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-left-tablet-only {
+    text-align: left !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  /* line 46, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-left-touch {
+    text-align: left !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-left-desktop {
+    text-align: left !important;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1215px) {
+  /* line 52, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-left-desktop-only {
+    text-align: left !important;
+  }
+}
+
+@media screen and (min-width: 1216px) {
+  /* line 55, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-left-widescreen {
+    text-align: left !important;
+  }
+}
+
+@media screen and (min-width: 1216px) and (max-width: 1407px) {
+  /* line 58, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-left-widescreen-only {
+    text-align: left !important;
+  }
+}
+
+@media screen and (min-width: 1408px) {
+  /* line 61, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-left-fullhd {
+    text-align: left !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* line 37, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-right-mobile {
+    text-align: right !important;
+  }
+}
+
+@media screen and (min-width: 769px), print {
+  /* line 40, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-right-tablet {
+    text-align: right !important;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  /* line 43, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-right-tablet-only {
+    text-align: right !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  /* line 46, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-right-touch {
+    text-align: right !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-right-desktop {
+    text-align: right !important;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1215px) {
+  /* line 52, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-right-desktop-only {
+    text-align: right !important;
+  }
+}
+
+@media screen and (min-width: 1216px) {
+  /* line 55, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-right-widescreen {
+    text-align: right !important;
+  }
+}
+
+@media screen and (min-width: 1216px) and (max-width: 1407px) {
+  /* line 58, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-right-widescreen-only {
+    text-align: right !important;
+  }
+}
+
+@media screen and (min-width: 1408px) {
+  /* line 61, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+  .has-text-right-fullhd {
+    text-align: right !important;
+  }
+}
+
+/* line 64, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-capitalized {
+  text-transform: capitalize !important;
+}
+
+/* line 67, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-lowercase {
+  text-transform: lowercase !important;
+}
+
+/* line 70, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-uppercase {
+  text-transform: uppercase !important;
+}
+
+/* line 73, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-italic {
+  font-style: italic !important;
+}
+
+/* line 76, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-underlined {
+  text-decoration: underline !important;
+}
+
+/* line 79, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.has-text-weight-light {
+  font-weight: 300 !important;
+}
+
+/* line 81, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.has-text-weight-normal {
+  font-weight: 400 !important;
+}
+
+/* line 83, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.has-text-weight-medium {
+  font-weight: 500 !important;
+}
+
+/* line 85, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.has-text-weight-semibold {
+  font-weight: 600 !important;
+}
+
+/* line 87, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.has-text-weight-bold {
+  font-weight: 700 !important;
+}
+
+/* line 90, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-family-primary {
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+}
+
+/* line 93, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-family-secondary {
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+}
+
+/* line 96, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-family-sans-serif {
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+}
+
+/* line 99, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-family-monospace {
+  font-family: monospace !important;
+}
+
+/* line 102, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/typography.sass */
+.is-family-code {
+  font-family: monospace !important;
+}
+
+/*# sourceMappingURL=typography.css.map */

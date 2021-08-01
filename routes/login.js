@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var request = require("request");
-var clientId = process.env.clientId;
-var clientSecret = process.env.clientSecret;
-var redirect = process.env.redirect;
+const express = require('express');
+const router = express.Router();
+const request = require("request");
+const clientId = process.env.clientId;
+const clientSecret = process.env.clientSecret;
+const redirect = process.env.redirect;
 
 router.get('/', function (req, res, next) {
     res.redirect('https://accounts.spotify.com/authorize' +
@@ -24,16 +24,12 @@ router.get("/token", function (req, res, next) {
             Authorization: 'Basic ' + new Buffer(clientId + ':' + clientSecret).toString('base64')
         }
     }, function (err, resp, body) {
-        var auth = JSON.parse(body);
+        const auth = JSON.parse(body);
 
         res.cookie("auth", auth.access_token);
         res.cookie("refresh", auth.refresh_token);
-
-        res.redirect("../me");
     }).on("error", function (err) {
         console.log("Error: " + err.message);
-
-        res.render("index");
     });
 });
 
