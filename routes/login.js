@@ -28,6 +28,8 @@ router.get("/token", function (req, res, next) {
 
         res.cookie("auth", auth.access_token);
         res.cookie("refresh", auth.refresh_token);
+
+        res.redirect("../#/user");
     }).on("error", function (err) {
         console.log("Error: " + err.message);
     });

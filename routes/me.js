@@ -18,7 +18,7 @@ router.get("/", function (req, res) {
         request.get('https://api.spotify.com/v1/me/playlists', options, function (err, resp, body) {
             const playlists = JSON.parse(body);
 
-            res.end({
+            res.json({
                 user: user,
                 playlists: playlists.items
             });

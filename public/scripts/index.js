@@ -1,9 +1,11 @@
 const user = httpVueLoader('../components/user.vue');
+const login = httpVueLoader('../components/login.vue');
 const home = httpVueLoader('../components/home.vue');
 
 const routes = [
     { path: '/user', name: 'user', component: user },
-    { path: '/home', name: 'home', component: home }
+    { path: '/home', name: 'home', component: home },
+    { path: '/login', name: 'login', component: login }
 ];
 
 const router = new VueRouter({
@@ -11,9 +13,12 @@ const router = new VueRouter({
 });
 
 const app = new Vue({
-    el: "#v-app",
+    router,
+    el: "#app",
+    data: {
+
+    },
     mounted() {
-        console.log("Mount");
-        router.push({name : 'home'});
+        console.log("started");
     }
 });

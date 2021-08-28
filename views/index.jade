@@ -8,18 +8,18 @@ html(lang='en')
         link(rel='stylesheet' href='../styles/css/site.css')
         title N V Danced
     body
-        div#v-app
+        div#app
             nav.navbar.is-primary
                 .navbar-brand
-                    router-link.navbar-item(:to='/') N V Danced
+                    router-link.navbar-item(:to='{name:"home"}') N V Danced
                 .navbar-menu
                     .navbar-start
                     .navbar-end
-                        router-link.navbar-item(:to='/login') Log In
-                        a.navbar-item(href='/me') Me
+                        a.navbar-item(href="/login") Log In
+                        router-link.navbar-item(:to='{name:"user"}') Me
             router-view
-        script(src='https://cdn.jsdelivr.net/npm/vue@2.6.14')
-        script(src='https://unpkg.com/vue-router/dist/vue-router.js')
-        script(src='https://unpkg.com/http-vue-loader')
         script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
+        script(src='https://unpkg.com/http-vue-loader')
+        script(src='https://unpkg.com/vue/dist/vue.js')
+        script(src='https://unpkg.com/vue-router/dist/vue-router.js')
         script(src='../scripts/index.js')
