@@ -17,9 +17,7 @@ router.get('/', function (req, res) {
         var playlist = JSON.parse(body);
 
         if (!playlist || !playlist.tracks) {
-            console.log("Error: no playlsist found");
-
-            res.render("index");
+            console.log("Error: no playlist found");
 
             return null;
         }
@@ -52,7 +50,7 @@ router.get('/', function (req, res) {
                 }
             }
 
-            res.render("playlist", {
+            res.json({
                 playlist: playlist,
                 overallDance: ((overallDance / features.length) * 100).toFixed(2),
                 overallPop: (overallPop / tracks.length).toFixed(2)
@@ -60,8 +58,6 @@ router.get('/', function (req, res) {
         });
     }).on('error', function (err) {
         console.log("Error: " + err.message);
-
-        res.render("playlist");
     });
 });
 
