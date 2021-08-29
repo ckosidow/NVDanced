@@ -19,19 +19,15 @@ router.get("/", function (req, res) {
         request.get('https://api.spotify.com/v1/users/' + userId + '/playlists?limit=50', options, function (err, resp, body) {
             var playlists = JSON.parse(body);
 
-            res.render("user", {
+            res.json({
                 user: user,
-                playlists: playlists.items
+                playlists: playlists
             });
         }).on('error', function (err) {
             console.log("Error: " + err.message);
-
-            res.render("user");
         });
     }).on("error", function (err) {
         console.log("Error: " + err.message);
-
-        res.render("user");
     });
 });
 

@@ -3,7 +3,7 @@
         <div class="columns is-mobile">
             <div class="column is-3">
                 <figure class="image">
-                    <img class="is-96x96" :src="user.images[0].url"/>
+                    <img class="is-96x96" :src="user.images[0] ? user.images[0].url : ''"/>
                 </figure>
             </div>
             <div class="column is-9">
@@ -17,7 +17,7 @@
                 <div class="columns">
                     <div class="column is-3">
                         <figure class="image">
-                            <img class="is-96x96" :src="playlist.images[0].url"/>
+                            <img class="is-96x96" :src="playlist.images[0] ? playlist.images[0].url : ''"/>
                         </figure>
                     </div>
                     <div class="column is-9">
@@ -37,6 +37,7 @@
 </template>
 <script>
     module.exports = {
+        props: ['user_id'],
         data() {
             return {
                 user: null,
@@ -44,13 +45,20 @@
             }
         },
         mounted() {
-            axios.get("/me").then((response) => {
-                this.user = response.data.user;
-                this.playlists = response.data.playlists;
-            });
+            this.updatePage();
         },
         methods: {
-
+            updatePage() {
+                axios.get("/other?user_id=" + this.$route.query.user_id).then((response) => {
+                    this.user = response.data.user;
+                    this.playlists = response.data.playlists;
+                });
+            }
+        },
+        watch:{
+            $route (to, from){
+                this.updatePage();
+            }
         }
     }
 </script>

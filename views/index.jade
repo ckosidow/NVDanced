@@ -14,12 +14,15 @@ html(lang='en')
                     router-link.navbar-item(:to='{name:"home"}') N V Danced
                 .navbar-menu
                     .navbar-start
+                        input.input
                     .navbar-end
-                        a.navbar-item(href="/login") Log In
-                        router-link.navbar-item(:to='{name:"user"}') Me
+                        a.navbar-item(href="/login", v-if="!auth") Log In
+                        a.navbar-item(v-if="auth != null", v-on:click="logOut") Log Out
+                        router-link.navbar-item(:to='{name:"user"}', v-if="auth != null") Me
             router-view
         script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
         script(src='https://unpkg.com/http-vue-loader')
         script(src='https://unpkg.com/vue/dist/vue.js')
         script(src='https://unpkg.com/vue-router/dist/vue-router.js')
+        script(src="https://unpkg.com/vue-cookies@1.7.4/vue-cookies.js")
         script(src='../scripts/index.js')

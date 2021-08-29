@@ -10,7 +10,6 @@
             }
         },
         mounted() {
-            console.log("you're home")
         }
     }
 </script>
