@@ -1,50 +1,68 @@
 <template>
-    <div></div>
-    <!--div.pure-g-->
-        <!--div.pure-u-1.pure-u-sm-3-5.pure-u-md-1-2.pure-u-lg-1-3-->
-            <!-- - if (playlist.images[1]) {-->
-            <!--img(src="#{playlist.images[1].url}")-->
-            <!-- - } else if (playlist.images[0]) {-->
-            <!--img(src="#{playlist.images[0].url}")-->
-            <!-- - } else {-->
-            <!--img(src="#")-->
-            <!-- - }-->
-        <!--div.pure-u-1.pure-u-sm-2-5.pure-u-md-1-2.pure-u-lg-2-3-->
-            <!--h1 !{playlist.name}-->
-            <!--p By:&nbsp;-->
-                <!--a(href="/other?user_id=#{playlist.owner.id}") !{playlist.owner.display_name}-->
-            <!--p Danceability:&nbsp;-->
-                <!--span(class=overallDance >= 80 && 'saucin'-->
-                <!--|| overallDance >= 70 && 'caliente'-->
-                <!--|| overallDance >= 60 && 'spicy'-->
-                <!--|| overallDance >= 50 && 'hot') %!{overallDance}-->
-            <!--p Popularity:&nbsp;-->
-                <!--span(class=overallPop >= 80 && 'saucin'-->
-                <!--|| overallPop >= 70 && 'caliente'-->
-                <!--|| overallPop >= 60 && 'spicy'-->
-                <!--|| overallPop >= 50 && 'hot') !{overallPop}-->
-
-    <!--div.pure-g-->
-        <!--each track in playlist.tracks.items-->
-            <!--div.pure-u-1.pure-u-sm-1-3.pure-u-lg-1-4.pure-u-xl-1-5.playlist-song-->
-                <!--div.pure-u-2-5-->
-                    <!--img(src=track.track.album.images[2] ? track.track.album.images[2].url : '')-->
-                <!--div.pure-u-3-5-->
-                    <!--h4-->
-                        <!--a(href="/song?song_id=#{track.track.id}") !{track.track.name}-->
-                    <!--h5-->
-                        <!--a(href="/album?album_id=#{track.track.album.id}") !{track.track.album.name}-->
-                    <!--p Danceability:&nbsp;-->
-                        <!--span(class=track.track.danceability >= 90 && 'saucin'-->
-                        <!--|| track.track.danceability >= 80 && 'caliente'-->
-                        <!--|| track.track.danceability >= 70 && 'spicy'-->
-                        <!--|| track.track.danceability >= 60 && 'hot') !{track.track.danceability}-->
-                    <!--p Popularity:&nbsp;-->
-                        <!--span(class=track.track.popularity >= 90 && 'saucin'-->
-                        <!--|| track.track.popularity >= 80 && 'caliente'-->
-                        <!--|| track.track.popularity >= 70 && 'spicy'-->
-                        <!--|| track.track.popularity >= 60 && 'hot') !{track.track.popularity}-->
-                    <!--p Tempo: !{track.track.tempo}-->
+    <div class="container pt-5" v-if="playlist">
+        <div class="columns is-mobile">
+            <div class="column is-3">
+                <figure class="image">
+                    <img class="is-96x96"
+                         :src="playlist.images[1] ? playlist.images[1].url : playlist.images[0].url"/>
+                </figure>
+            </div>
+            <div class="column is-6">
+                <h1 class="is-size-1">
+                    {{playlist.name}}
+                </h1>
+                <p>
+                    <router-link :to="{path: '/other?user_id=' + playlist.owner.id}">
+                        {{playlist.owner.display_name}}
+                    </router-link>
+                </p>
+                <p>
+                    Danceability: {{overallDance}}
+                </p>
+                <p>
+                    Popularity: {{overallPop}}
+                </p>
+            </div>
+            <div class="column is-3">
+                <button v-on:click="sortByDanceability">Danceability</button>
+                <button v-on:click="sortByPopularity">Popularity</button>
+                <button v-on:click="sortByBest">Best</button>
+            </div>
+        </div>
+        <div class="columns is-mobile is-multiline">
+            <div class="column is-4" v-for="track in playlist.tracks.items">
+                <div class="columns is-mobile">
+                    <div class="column is-4 is-flex is-justify-content-center">
+                        <figure class="image is-96x96">
+                            <img :src="track.track.album.images[2] ? track.track.album.images[2].url : ''"/>
+                        </figure>
+                    </div>
+                    <div class="column is-8">
+                        <h5 class="is-size-5">
+                            {{track.track.name}}
+                        </h5>
+                        <h6 class="is-size-6">
+                            {{track.track.album.name}}
+                        </h6>
+                        <h6 class="is-size-6">
+                            <span v-for="(artist, i) in track.track.artists">
+                                {{artist.name}}<span v-if="i != track.track.artists.length - 1">, </span>
+                            </span>
+                        </h6>
+                        <p>
+                            Danceability: {{track.track.danceability}}
+                        </p>
+                        <p>
+                            Popularity: {{track.track.popularity}}
+                        </p>
+                        <p>
+                            Tempo: {{track.track.tempo}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 <script>
     module.exports = {
@@ -63,6 +81,22 @@
                 this.overallPop = response.data.overallPop;
             });
         },
-        methods: {}
+        methods: {
+            sortByDanceability() {
+                this.playlist.tracks.items = this.playlist.tracks.items.sort((a, b) => {
+                    return b.track.danceability - a.track.danceability;
+                });
+            },
+            sortByPopularity() {
+                this.playlist.tracks.items = this.playlist.tracks.items.sort((a, b) => {
+                    return b.track.popularity - a.track.popularity;
+                });
+            },
+            sortByBest() {
+                this.playlist.tracks.items = this.playlist.tracks.items.sort((a, b) => {
+                    return (b.track.popularity + b.track.danceability) - (a.track.popularity + a.track.danceability);
+                });
+            }
+        }
     }
 </script>

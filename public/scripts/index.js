@@ -27,6 +27,8 @@ const app = new Vue({
             $cookies.remove('auth');
 
             this.auth = null;
+
+            this.$router.push({name: 'home'});
         }
     },
     mounted() {

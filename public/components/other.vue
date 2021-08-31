@@ -21,9 +21,12 @@
                         </figure>
                     </div>
                     <div class="column is-9">
-                        <h4 class="is-size-4">
-                            {{playlist.name}}
-                        </h4>
+                        <router-link
+                                :to="{path: '/playlist?user_id=' + playlist.owner.id + '&playlist_id=' + playlist.id}">
+                            <h4 class="is-size-4">
+                                {{playlist.name}}
+                            </h4>
+                        </router-link>
                         <p>
                             <router-link :to="{path: '/other?user_id=' + playlist.owner.id}">
                                 {{playlist.owner.display_name}}

@@ -7,19 +7,17 @@ html(lang='en')
         meta(name='viewport' content='width=device-width, initial-scale=1')
         link(rel='stylesheet' href='../styles/css/site.css')
         title N V Danced
-    body
+    body.has-background-secondary.has-text-white
         div#app
-            nav.navbar.is-primary
-                .navbar-brand
+            nav.navbar.is-primary.is-flex
+                .navbar-brand.is-flex-grow-1
                     router-link.navbar-item(:to='{name:"home"}') N V Danced
-                .navbar-menu
-                    .navbar-start
-                        input.input
-                    .navbar-end
-                        a.navbar-item(href="/login", v-if="!auth") Log In
-                        a.navbar-item(v-if="auth != null", v-on:click="logOut") Log Out
-                        router-link.navbar-item(:to='{name:"user"}', v-if="auth != null") Me
-            router-view
+                    div.is-flex.is-flex-grow-1.is-justify-content-flex-end
+                        //input.input
+                        a.has-text-white.navbar-item(href="/login", v-show="!auth") Log In
+                        a.has-text-white.navbar-item(v-show="auth != null", v-on:click="logOut") Log Out
+                        router-link.has-text-white.navbar-item(:to='{name:"user"}', v-if="auth != null") Me
+            router-view.p-3
         script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
         script(src='https://unpkg.com/http-vue-loader')
         script(src='https://unpkg.com/vue/dist/vue.js')
