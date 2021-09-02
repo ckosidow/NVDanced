@@ -22,6 +22,9 @@
                 <p>
                     Popularity: {{overallPop}}
                 </p>
+                <p>
+                    Tempo: {{overallTempo}}
+                </p>
             </div>
             <div class="column is-3">
                 <button v-on:click="sortByDanceability">Danceability</button>
@@ -30,7 +33,7 @@
             </div>
         </div>
         <div class="columns is-mobile is-multiline">
-            <div class="column is-4" v-for="track in playlist.tracks.items">
+            <div class="column is-4-desktop is-6-tablet is-12-mobile" v-for="track in playlist.tracks.items">
                 <div class="columns is-mobile">
                     <div class="column is-4 is-flex is-justify-content-center">
                         <figure class="image is-96x96">
@@ -71,6 +74,7 @@
             return {
                 playlist: null,
                 overallPop: null,
+                overallTempo: null,
                 overallDance: null
             }
         },
@@ -79,6 +83,7 @@
                 this.playlist = response.data.playlist;
                 this.overallDance = response.data.overallDance;
                 this.overallPop = response.data.overallPop;
+                this.overallTempo = response.data.overallTempo;
             });
         },
         methods: {
@@ -96,6 +101,10 @@
                 this.playlist.tracks.items = this.playlist.tracks.items.sort((a, b) => {
                     return (b.track.popularity + b.track.danceability) - (a.track.popularity + a.track.danceability);
                 });
+            }
+        },
+        watch:{
+            $route (to, from){
             }
         }
     }

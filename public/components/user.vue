@@ -13,12 +13,15 @@
             </div>
         </div>
         <div class="columns is-mobile is-multiline">
-            <div v-for="playlist in playlists.items" class="column is-4">
-                <div class="columns">
+            <div v-for="playlist in playlists.items" class="column is-4-desktop is-6-tablet is-12-mobile">
+                <div class="columns is-mobile">
                     <div class="column is-3">
-                        <figure class="image">
-                            <img class="is-96x96" :src="playlist.images[0].url"/>
-                        </figure>
+                        <router-link
+                                :to="{path: '/playlist?user_id=' + playlist.owner.id + '&playlist_id=' + playlist.id}">
+                            <figure class="image">
+                                <img class="is-96x96" :src="playlist.images[0].url"/>
+                            </figure>
+                        </router-link>
                     </div>
                     <div class="column is-9">
                         <router-link
