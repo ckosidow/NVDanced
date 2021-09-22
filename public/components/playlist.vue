@@ -12,7 +12,7 @@
                     {{playlist.name}}
                 </h1>
                 <p>
-                    <router-link :to="{path: '/other?user_id=' + playlist.owner.id}">
+                    <router-link class="has-text-white" :to="{path: '/other?user_id=' + playlist.owner.id}">
                         {{playlist.owner.display_name}}
                     </router-link>
                 </p>
@@ -36,7 +36,7 @@
             <div class="column is-4-desktop is-6-tablet is-12-mobile" v-for="track in playlist.tracks.items">
                 <div class="columns is-mobile">
                     <div class="column is-4 is-flex is-justify-content-center">
-                        <figure class="image is-96x96">
+                        <figure class="image is-64x64">
                             <img :src="track.track.album.images[2] ? track.track.album.images[2].url : ''"/>
                         </figure>
                     </div>
@@ -53,13 +53,13 @@
                             </span>
                         </h6>
                         <p>
-                            Danceability: {{track.track.danceability}}
+                            Danceability: {{track.track.danceability.toFixed(2)}}
                         </p>
                         <p>
                             Popularity: {{track.track.popularity}}
                         </p>
                         <p>
-                            Tempo: {{track.track.tempo}}
+                            Tempo: {{track.track.tempo.toFixed(2)}}
                         </p>
                     </div>
                 </div>

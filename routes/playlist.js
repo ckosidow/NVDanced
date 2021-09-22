@@ -41,7 +41,7 @@ router.get('/', function (req, res) {
                 if (features[i]) {
                     for (let j = 0; j < tracks.length; j++) {
                         if (features[i].id === tracks[j].track.id) {
-                            tracks[j].track.danceability = (features[i].danceability * 100).toFixed(2);
+                            tracks[j].track.danceability = features[i].danceability * 100;
                             tracks[j].track.tempo = features[i].tempo;
                             break;
                         }
