@@ -45,7 +45,10 @@
                             {{track.track.name}}
                         </h5>
                         <h6 class="is-size-6">
-                            {{track.track.album.name}}
+                            <router-link class="has-text-white"
+                                         :to="{path: '/album?album_id=' + track.track.album.id}">
+                                {{track.track.album.name}}
+                            </router-link>
                         </h6>
                         <h6 class="is-size-6">
                             <span v-for="(artist, i) in track.track.artists">

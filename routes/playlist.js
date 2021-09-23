@@ -25,7 +25,6 @@ router.get('/', function (req, res) {
         const tracks = playlist.tracks.items;
         const ids = [];
         let overallPop = 0;
-        let overallTempo = 0;
 
         for (let i = 0; i < tracks.length; i++) {
             ids.push(tracks[i].track.id);
@@ -36,6 +35,7 @@ router.get('/', function (req, res) {
         request.get('https://api.spotify.com/v1/audio-features?ids=' + ids, options, function (err, resp, body) {
             const features = JSON.parse(body).audio_features;
             let overallDance = 0;
+            let overallTempo = 0;
 
             for (let i = 0; i < features.length; i++) {
                 if (features[i]) {

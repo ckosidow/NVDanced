@@ -3,13 +3,15 @@ const login = httpVueLoader('../components/login.vue');
 const home = httpVueLoader('../components/home.vue');
 const other = httpVueLoader('../components/other.vue');
 const playlist = httpVueLoader('../components/playlist.vue');
+const album = httpVueLoader('../components/album.vue');
 
 const routes = [
     { path: '/user', name: 'user', component: user },
     { path: '/home', name: 'home', component: home },
     { path: '/login', name: 'login', component: login },
-    { path: '/other', name: 'other', component: other, props: true},
-    { path: '/playlist', name: 'playlist', component: playlist, props: true}
+    { path: '/album', name: 'album', component: album, props: true },
+    { path: '/other', name: 'other', component: other, props: true },
+    { path: '/playlist', name: 'playlist', component: playlist, props: true }
 ];
 
 const router = new VueRouter({
