@@ -26,9 +26,9 @@
         </div>
         <div class="columns is-mobile is-multiline">
             <div class="column is-4" v-for="track in tracks">
-                <h4 class="is-size-4">
+                <h5 class="is-size-5">
                     {{track.name}}
-                </h4>
+                </h5>
                 <p>
                     Danceability: {{track.danceability.toFixed(2)}}
                 </p>
@@ -52,13 +52,23 @@
             }
         },
         mounted() {
-            axios.get("/album?album_id=" + this.$route.query.album_id).then((response) => {
-                this.album = response.data.album;
-                this.tracks = response.data.tracks;
-                this.overallDance = response.data.overallDance;
-                this.overallPop = response.data.overallPop;
-                this.overallTempo = response.data.overallTempo;
-            });
+            this.updatePage();
+        },
+        methods: {
+            updatePage() {
+                axios.get("/album?album_id=" + this.$route.query.album_id).then((response) => {
+                    this.album = response.data.album;
+                    this.tracks = response.data.tracks;
+                    this.overallDance = response.data.overallDance;
+                    this.overallPop = response.data.overallPop;
+                    this.overallTempo = response.data.overallTempo;
+                });
+            }
+        },
+        watch:{
+            $route (to, from){
+                this.updatePage();
+            }
         }
     }
 </script>

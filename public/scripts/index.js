@@ -22,7 +22,11 @@ const app = new Vue({
     router,
     el: "#app",
     data: {
-        auth: null
+        auth: null,
+        query: null,
+        suggestedAlbums: [],
+        suggestedArtists: [],
+        suggestedPlaylists: []
     },
     methods: {
         logOut() {
@@ -31,9 +35,27 @@ const app = new Vue({
             this.auth = null;
 
             this.$router.push({name: 'home'});
+        },
+        search() {
+            axios.get("/search?query=" + this.query).then((response) => {
+                this.suggestedAlbums = response.data.albums.items;
+                // this.suggestedArtists = response.data.artists.items;
+                this.suggestedPlaylists = response.data.playlists.items;
+            });
+        },
+        clearSuggestions() {
+            this.suggestedPlaylists = [];
+            this.suggestedAlbums = [];
+            this.suggestedArtists = [];
         }
     },
     mounted() {
         this.auth = $cookies.get('auth');
+    },
+    created: function() {
+        window.addEventListener('click', this.clearSuggestions);
+    },
+    destroyed: function() {
+        window.removeEventListener('click', this.clearSuggestions);
     }
 });

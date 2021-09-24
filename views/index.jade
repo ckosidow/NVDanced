@@ -12,8 +12,28 @@ html(lang='en')
             nav.navbar.is-primary.is-flex#nvd-navbar
                 .navbar-brand.is-flex-grow-1
                     router-link.navbar-item(:to='{name:"home"}') N V Danced
+                    div.is-flex.is-flex-grow-1.is-justify-content-center
+                        div.p-1
+                            input.is-flex.input(v-model="query", v-on:input="search()", placeholder="search")
+                            div.dropdown(:class="{'is-active': suggestedArtists.length || suggestedPlaylists.length || suggestedAlbums.length}")
+                                div.dropdown-menu#dropdown-menu(role="menu")
+                                    div.dropdown-content
+                                        div.dropdown-item
+                                            p Artists
+                                        div.dropdown-item(v-for="artist in suggestedArtists")
+                                            //a.dropdown-item(href="") {{artist.name}}
+                                            //hr.dropdown-divider
+                                        div.dropdown-item
+                                            p Albums
+                                        div.dropdown-item(v-for="album in suggestedAlbums")
+                                            router-link.dropdown-item(:to="{path: '/album?album_id=' + album.id}") {{album.name}}
+                                        div.dropdown-item
+                                            hr.dropdown-divider
+                                        div.dropdown-item
+                                            p Playlists
+                                        div.dropdown-item(v-for="playlist in suggestedPlaylists")
+                                            router-link.dropdown-item(:to="{path: '/playlist?user_id=' + playlist.owner.id + '&playlist_id=' + playlist.id}") {{playlist.name}}
                     div.is-flex.is-flex-grow-1.is-justify-content-flex-end
-                        //input.input
                         a.has-text-white.navbar-item(href="/login", v-show="!auth") Log In
                         a.has-text-white.navbar-item(v-show="auth != null", v-on:click="logOut") Log Out
                         router-link.has-text-white.navbar-item(:to='{name:"user"}', v-if="auth != null") Me

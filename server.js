@@ -14,6 +14,7 @@ const playlist = require("./routes/playlist");
 const other = require("./routes/other");
 const song = require("./routes/song");
 const album = require("./routes/album");
+const search = require("./routes/search");
 
 // configuration =================
 app.use(express.static(__dirname + '/public'));    // set the static files location /public/img will be /img for users
@@ -33,6 +34,7 @@ app.use("/other", other);
 app.use("/playlist", playlist);
 app.use("/song", song);
 app.use("/album", album);
+app.use("/search", search);
 
 function refresh(req, fn) {
     request.post('https://accounts.spotify.com/api/token', {

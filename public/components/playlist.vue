@@ -55,13 +55,13 @@
                                 {{artist.name}}<span v-if="i != track.track.artists.length - 1">, </span>
                             </span>
                         </h6>
-                        <p>
+                        <p v-if="track.track.danceability">
                             Danceability: {{track.track.danceability.toFixed(2)}}
                         </p>
                         <p>
                             Popularity: {{track.track.popularity}}
                         </p>
-                        <p>
+                        <p v-if="track.track.tempo">
                             Tempo: {{track.track.tempo.toFixed(2)}}
                         </p>
                     </div>
@@ -82,14 +82,17 @@
             }
         },
         mounted() {
-            axios.get("/playlist?user_id=" + this.$route.query.user_id + "&playlist_id=" + this.$route.query.playlist_id).then((response) => {
-                this.playlist = response.data.playlist;
-                this.overallDance = response.data.overallDance;
-                this.overallPop = response.data.overallPop;
-                this.overallTempo = response.data.overallTempo;
-            });
+            this.updatePage();
         },
         methods: {
+            updatePage() {
+                axios.get("/playlist?user_id=" + this.$route.query.user_id + "&playlist_id=" + this.$route.query.playlist_id).then((response) => {
+                    this.playlist = response.data.playlist;
+                    this.overallDance = response.data.overallDance;
+                    this.overallPop = response.data.overallPop;
+                    this.overallTempo = response.data.overallTempo;
+                });
+            },
             sortByDanceability() {
                 this.playlist.tracks.items = this.playlist.tracks.items.sort((a, b) => {
                     return b.track.danceability - a.track.danceability;
@@ -108,6 +111,7 @@
         },
         watch:{
             $route (to, from){
+                this.updatePage();
             }
         }
     }
