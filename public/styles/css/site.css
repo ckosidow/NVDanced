@@ -22233,4 +22233,9 @@ readers do not read off random characters that represent icons */
   background-image: linear-gradient(to right, #108e5c, #1AB879);
 }
 
+/* line 12, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+#nvd-navbar #nvd-search {
+  width: 1em;
+}
+
 /*# sourceMappingURL=site.css.map */
