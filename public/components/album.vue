@@ -1,45 +1,50 @@
 <template>
-    <div class="container p-5" v-if="album">
-        <div class="columns is-mobile">
-            <div class="column is-3">
-                <figure class="image">
-                    <img :src="album.images[1] ? album.images[1].url : ''"/>
-                </figure>
+    <div>
+        <div id="nvd-img-header"></div>
+        <div class="container p-5" v-if="album">
+            <div class="columns is-mobile is-multiline">
+                <div class="column is-6">
+                    <h4 class="is-size-4">
+                        {{album.name}}
+                    </h4>
+                    <p v-for="artist in album.artists">
+                        {{artist.name}}
+                    </p>
+                </div>
+                <div class="column is-6">
+                    <p>
+                        Danceability: {{overallDance}}
+                    </p>
+                    <p>
+                        Tempo: {{overallTempo}}
+                    </p>
+                    <p>
+                        Popularity: {{overallPop}}
+                    </p>
+                </div>
+                <div class="column is-12">
+                    <button class="button is-primary" v-on:click="sortByDanceability">Danceability</button>
+                </div>
             </div>
-            <div class="column is-6">
-                <h4 class="is-size-4">
-                    {{album.name}}
-                </h4>
-                <p v-for="artist in album.artists">
-                    {{artist.name}}
-                </p>
-                <p>
-                    Danceability: {{overallDance}}
-                </p>
-                <p>
-                    Tempo: {{overallTempo}}
-                </p>
-                <p>
-                    Popularity: {{overallPop}}
-                </p>
-            </div>
-        </div>
-        <div class="columns is-mobile is-multiline">
-            <div class="column is-4" v-for="track in tracks">
-                <h5 class="is-size-5">
-                    {{track.name}}
-                </h5>
-                <p>
-                    Danceability: {{track.danceability.toFixed(2)}}
-                </p>
-                <p>
-                    Tempo: {{track.tempo.toFixed(2)}}
-                </p>
+            <div class="columns is-mobile is-multiline">
+                <div class="column is-4" v-for="track in tracks">
+                    <h5 class="is-size-5">
+                        {{track.name}}
+                    </h5>
+                    <p>
+                        Danceability: {{track.danceability.toFixed(2)}}
+                    </p>
+                    <p>
+                        Tempo: {{track.tempo.toFixed(2)}}
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 </template>
 <script>
+    let nvdImageHeader;
+
     module.exports = {
         props: ['album_id'],
         data() {
@@ -52,6 +57,8 @@
             }
         },
         mounted() {
+            nvdImageHeader = document.getElementById("nvd-img-header");
+
             this.updatePage();
         },
         methods: {
@@ -62,13 +69,33 @@
                     this.overallDance = response.data.overallDance;
                     this.overallPop = response.data.overallPop;
                     this.overallTempo = response.data.overallTempo;
+
+                    if (this.album.images[1]) {
+                        nvdImageHeader.style.backgroundImage = 'url(' + this.album.images[1].url + ')';
+                    } else if (this.album.images[0]) {
+                        nvdImageHeader.style.backgroundImage = 'url(' + this.album.images[0].url + ')';
+                    }
                 });
+            },
+            sortByDanceability() {
+                this.tracks = this.tracks.sort((a, b) => {
+                    return b.danceability - a.danceability;
+                });
+            },
+            resizeHeaderImage() {
+                nvdImageHeader.style.backgroundSize = "auto " + (175 + (window.scrollY / 5)) + "%";
             }
         },
         watch:{
             $route (to, from){
                 this.updatePage();
             }
+        },
+        created() {
+            window.addEventListener('scroll', this.resizeHeaderImage);
+        },
+        destroyed() {
+            window.removeEventListener('scroll', this.resizeHeaderImage);
         }
     }
 </script>

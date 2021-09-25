@@ -2,8 +2,8 @@
     <div>
         <div id="nvd-img-header"></div>
         <div class="container p-5" v-if="playlist">
-            <div class="columns is-mobile">
-                <div class="column is-3">
+            <div class="columns is-mobile is-multiline">
+                <div class="column is-6">
                     <h1 class="is-size-1">
                         {{playlist.name}}
                     </h1>
@@ -24,19 +24,21 @@
                         Tempo: {{overallTempo}}
                     </p>
                 </div>
-                <div class="column is-3">
-                    <button v-on:click="sortByDanceability">Danceability</button>
-                    <button v-on:click="sortByPopularity">Popularity</button>
-                    <button v-on:click="sortByBest">Best</button>
+                <div class="column is-12">
+                    <button class="button is-primary" v-on:click="sortByDanceability">Danceability</button>
+                    <button class="button is-primary" v-on:click="sortByPopularity">Popularity</button>
+                    <button class="button is-primary" v-on:click="sortByBest">Best</button>
                 </div>
             </div>
             <div class="columns is-mobile is-multiline">
                 <div class="column is-4-desktop is-6-tablet is-12-mobile" v-for="track in playlist.tracks.items">
-                    <div class="columns is-mobile">
+                    <div class="columns is-mobile" v-if="track.track">
                         <div class="column is-4 is-flex is-justify-content-center">
-                            <figure class="image is-64x64">
-                                <img :src="track.track.album.images[2] ? track.track.album.images[2].url : ''"/>
-                            </figure>
+                            <router-link :to="{path: '/album?album_id=' + track.track.album.id}">
+                                <figure class="image is-64x64">
+                                    <img :src="track.track.album.images[2] ? track.track.album.images[2].url : ''"/>
+                                </figure>
+                            </router-link>
                         </div>
                         <div class="column is-8">
                             <h5 class="is-size-5">
@@ -86,8 +88,6 @@
             nvdImageHeader = document.getElementById("nvd-img-header");
 
             this.updatePage();
-
-            window.addEventListener('scroll', this.resizeHeaderImage);
         },
         methods: {
             updatePage() {
@@ -120,10 +120,7 @@
                 });
             },
             resizeHeaderImage() {
-                nvdImageHeader.style.backgroundSize = "auto " + (175 + this.getBaseLog(1.1, 1 + window.scrollY)) + "%";
-            },
-            getBaseLog(x, y) {
-                return Math.log(y) / Math.log(x);
+                nvdImageHeader.style.backgroundSize = "auto " + (175 + (window.scrollY / 5)) + "%";
             }
         },
         watch: {

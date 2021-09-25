@@ -22,6 +22,8 @@ router.get('/', function (req, res) {
             return null;
         }
 
+        playlist.tracks.items = playlist.tracks.items.filter((track) => {return track.track != null});
+
         const tracks = playlist.tracks.items;
         const ids = [];
         let overallPop = 0;
@@ -29,7 +31,9 @@ router.get('/', function (req, res) {
         for (let i = 0; i < tracks.length; i++) {
             ids.push(tracks[i].track.id);
 
-            overallPop += tracks[i].track.popularity;
+            if (tracks[i].track.popularity) {
+                overallPop += tracks[i].track.popularity;
+            }
         }
 
         request.get('https://api.spotify.com/v1/audio-features?ids=' + ids, options, function (err, resp, body) {

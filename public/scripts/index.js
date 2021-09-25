@@ -38,9 +38,19 @@ const app = new Vue({
         },
         search() {
             axios.get("/search?query=" + this.query).then((response) => {
-                this.suggestedAlbums = response.data.albums.items;
-                // this.suggestedArtists = response.data.artists.items;
-                this.suggestedPlaylists = response.data.playlists.items;
+                if (response.data) {
+                    if (response.data.albums) {
+                        this.suggestedAlbums = response.data.albums.items;
+                    }
+
+                    // if (response.data.suggestedArtists) {
+                    // this.suggestedArtists = response.data.artists.items;
+                    // }
+
+                    if (response.data.playlists) {
+                        this.suggestedPlaylists = response.data.playlists.items;
+                    }
+                }
             });
         },
         clearSuggestions() {
