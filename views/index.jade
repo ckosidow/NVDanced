@@ -36,9 +36,14 @@ html(lang='en')
                         a.has-text-white.navbar-item(v-show="auth != null", v-on:click="logOut") Log Out
                         router-link.has-text-white.navbar-item(:to='{name:"user"}', v-if="auth != null") Me
             router-view
+            div#nvd-playback.is-flex.is-justify-content-center
+                button#prev.button.is-primary(v-on:click="playPrev") Prev
+                button#toggle-play.button.is-primary(v-on:click="togglePlay") Play/Pause
+                button#next.button.is-primary(v-on:click="playNext") Next
         script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
         script(src='https://unpkg.com/http-vue-loader')
         script(src='https://unpkg.com/vue/dist/vue.js')
         script(src='https://unpkg.com/vue-router/dist/vue-router.js')
         script(src="https://unpkg.com/vue-cookies@1.7.4/vue-cookies.js")
         script(src='../scripts/index.js')
+        script(src="https://sdk.scdn.co/spotify-player.js")

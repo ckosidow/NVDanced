@@ -22249,4 +22249,10 @@ readers do not read off random characters that represent icons */
   background-size: auto 175%;
 }
 
+/* line 24, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+#nvd-playback {
+  position: sticky;
+  bottom: 0;
+}
+
 /*# sourceMappingURL=site.css.map */

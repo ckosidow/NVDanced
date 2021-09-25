@@ -18,6 +18,8 @@ const router = new VueRouter({
     routes // short for `routes: routes`
 });
 
+let spotifyPlayer;
+
 const app = new Vue({
     router,
     el: "#app",
@@ -57,6 +59,21 @@ const app = new Vue({
             this.suggestedPlaylists = [];
             this.suggestedAlbums = [];
             this.suggestedArtists = [];
+        },
+        togglePlay() {
+            spotifyPlayer.togglePlay().then(() => {
+                // console.log('Toggled playback!');
+            });
+        },
+        playNext() {
+            spotifyPlayer.nextTrack().then(() => {
+                // console.log('Skipped to next track!');
+            });
+        },
+        playPrev() {
+            spotifyPlayer.previousTrack().then(() => {
+                // console.log('Back to previous track!');
+            });
         }
     },
     mounted() {
@@ -64,6 +81,48 @@ const app = new Vue({
     },
     created() {
         window.addEventListener('click', this.clearSuggestions);
+
+        window.onSpotifyWebPlaybackSDKReady = () => {
+            spotifyPlayer = new Spotify.Player({
+                name: 'N V Danced',
+                getOAuthToken: cb => {
+                    cb($cookies.get('auth'));
+                },
+                volume : 0.5
+            });
+
+            // Ready
+            spotifyPlayer.addListener('ready', ({ device_id }) => {
+                console.log('Ready with Device ID', device_id);
+            });
+
+            // Not Ready
+            spotifyPlayer.addListener('not_ready', ({ device_id }) => {
+                console.log('Device ID has gone offline', device_id);
+            });
+
+            spotifyPlayer.addListener('initialization_error', ({ message }) => {
+                console.error(message);
+            });
+
+            spotifyPlayer.addListener('authentication_error', ({ message }) => {
+                console.error(message);
+            });
+
+            spotifyPlayer.addListener('account_error', ({ message }) => {
+                console.error(message);
+            });
+
+            spotifyPlayer.addListener('playback_error', ({ message }) => {
+                console.error(message);
+            });
+
+            spotifyPlayer.connect().then(success => {
+                if (success) {
+                    console.log("The Web Playback SDK successfully connected to Spotify!");
+                }
+            });
+        }
     },
     destroyed() {
         window.removeEventListener('click', this.clearSuggestions);
