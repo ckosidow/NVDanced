@@ -22253,6 +22253,8 @@ readers do not read off random characters that represent icons */
 #nvd-playback {
   position: sticky;
   bottom: 0;
+  background: #010101bb;
+  box-shadow: 0 0 75px 75px #010101bb;
 }
 
 /*# sourceMappingURL=site.css.map */

@@ -28,7 +28,10 @@ const app = new Vue({
         query: null,
         suggestedAlbums: [],
         suggestedArtists: [],
-        suggestedPlaylists: []
+        suggestedPlaylists: [],
+        deviceId: null,
+        isPlaying: false,
+        playingName: null
     },
     methods: {
         logOut() {
@@ -61,8 +64,21 @@ const app = new Vue({
             this.suggestedArtists = [];
         },
         togglePlay() {
-            spotifyPlayer.togglePlay().then(() => {
-                // console.log('Toggled playback!');
+            spotifyPlayer.getCurrentState().then(state => {
+                if (!state) {
+                    console.log('User is not playing music through the Web Playback SDK');
+
+                    axios.post("/me/start-player?device_id=" + this.deviceId).then((response) => {
+                        console.log("Switching playback");
+                    });
+                } else {
+                    spotifyPlayer.togglePlay().then(() => {
+                        // console.log('Toggled playback!');
+                    });
+                }
+
+                this.isPlaying = !this.isPlaying;
+                console.log(this.isPlaying);
             });
         },
         playNext() {
@@ -93,6 +109,8 @@ const app = new Vue({
 
             // Ready
             spotifyPlayer.addListener('ready', ({ device_id }) => {
+                this.deviceId = device_id;
+
                 console.log('Ready with Device ID', device_id);
             });
 
@@ -115,6 +133,19 @@ const app = new Vue({
 
             spotifyPlayer.addListener('playback_error', ({ message }) => {
                 console.error(message);
+            });
+
+            spotifyPlayer.addListener('player_state_changed', ({
+                position,
+                duration,
+                track_window: { current_track }}) => {
+                console.log('Currently Playing', current_track);
+                console.log('Position in Song', position);
+                console.log('Duration of Song', duration);
+
+                if (current_track) {
+                    this.playingName = current_track.name;
+                }
             });
 
             spotifyPlayer.connect().then(success => {

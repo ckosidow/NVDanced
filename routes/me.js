@@ -35,4 +35,27 @@ router.get("/", function (req, res) {
     });
 });
 
+router.post("/start-player", function (req, res) {
+    const auth = req.cookies['auth'];
+    const device_id = req.query.device_id;
+
+    const options = {
+        body: JSON.stringify({
+            device_ids: [device_id],
+            play: true
+        }),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + auth
+        }
+    };
+
+    request.put('https://api.spotify.com/v1/me/player', options, function (err, resp, body) {
+        // console.log(resp);
+    }).on("error", function (err) {
+        console.error("Error: " + err.message);
+    });
+});
+
 module.exports = router;

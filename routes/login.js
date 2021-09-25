@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
     res.redirect('https://accounts.spotify.com/authorize' +
         '?response_type=code' +
         '&client_id=' + clientId +
-        '&scope=' + encodeURIComponent('streaming user-read-email user-read-private')  +
+        '&scope=' + encodeURIComponent('streaming user-read-email user-read-private user-modify-playback-state')  +
         '&redirect_uri=' + encodeURIComponent(redirect));
 });
 

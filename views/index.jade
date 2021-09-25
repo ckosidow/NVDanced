@@ -10,7 +10,7 @@ html(lang='en')
         div#app
             nav.navbar.is-primary.is-flex#nvd-navbar
                 .navbar-brand.is-flex-grow-1
-                    router-link.navbar-item(:to='{name:"home"}') N V Danced
+                    router-link.navbar-item(:to='{name:auth ? "user" : "home"}') N V Danced
                     div.is-align-self-center.is-flex.is-flex-grow-1
                         div.dropdown(:class="{'is-active': suggestedArtists.length || suggestedPlaylists.length || suggestedAlbums.length}")
                             div.dropdown-menu#dropdown-menu(role="menu")
@@ -33,13 +33,19 @@ html(lang='en')
                         input#nvd-search.is-flex-grow-1.input(v-model="query", v-on:input="search()", placeholder="search")
                     div.is-flex.is-flex-grow-0.is-justify-content-flex-end
                         a.has-text-white.navbar-item(href="/login", v-show="!auth") Log In
-                        a.has-text-white.navbar-item(v-show="auth != null", v-on:click="logOut") Log Out
-                        router-link.has-text-white.navbar-item(:to='{name:"user"}', v-if="auth != null") Me
+                        a.has-text-white.navbar-item(v-show="auth", v-on:click="logOut") Log Out
             router-view
-            div#nvd-playback.is-flex.is-justify-content-center
-                button#prev.button.is-primary(v-on:click="playPrev") Prev
-                button#toggle-play.button.is-primary(v-on:click="togglePlay") Play/Pause
-                button#next.button.is-primary(v-on:click="playNext") Next
+            div#nvd-playback.is-flex.is-justify-content-center.pb-4(v-if="auth")
+                span.is-flex.is-align-self-center.pr-4(v-if="playingName") {{ playingName }}
+                button#prev.button.is-primary(v-on:click="playPrev")
+                    span.icon
+                        i.fa.fa-backward
+                button#toggle-play.button.is-primary.mx-4(v-on:click="togglePlay")
+                    span.icon
+                        i.fa(:class="isPlaying ? 'fa-pause' : 'fa-play'")
+                button#next.button.is-primary(v-on:click="playNext")
+                    span.icon
+                        i.fa.fa-forward
         script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
         script(src='https://unpkg.com/http-vue-loader')
         script(src='https://unpkg.com/vue/dist/vue.js')
