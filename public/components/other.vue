@@ -1,7 +1,7 @@
 <template>
     <div class="container pt-5" v-if="user">
         <div class="columns is-mobile">
-            <div class="column is-3">
+            <div class="column is-3" v-if="user.images.length">
                 <figure class="image">
                     <img class="is-96x96" :src="user.images[0] ? user.images[0].url : ''"/>
                 </figure>
@@ -15,7 +15,7 @@
         <div class="columns is-mobile is-multiline">
             <div v-for="playlist in playlists.items" class="column is-4-desktop is-6-tablet is-12-mobile">
                 <div class="columns is-mobile">
-                    <div class="column is-3">
+                    <div class="column is-3" v-if="playlist.images.length">
                         <router-link
                                 :to="{path: '/playlist?user_id=' + playlist.owner.id + '&playlist_id=' + playlist.id}">
                             <figure class="image">
