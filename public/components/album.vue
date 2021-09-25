@@ -1,5 +1,5 @@
 <template>
-    <div class="container" v-if="album">
+    <div class="container p-5" v-if="album">
         <div class="columns is-mobile">
             <div class="column is-3">
                 <figure class="image">

@@ -35,7 +35,7 @@ html(lang='en')
                         a.has-text-white.navbar-item(href="/login", v-show="!auth") Log In
                         a.has-text-white.navbar-item(v-show="auth != null", v-on:click="logOut") Log Out
                         router-link.has-text-white.navbar-item(:to='{name:"user"}', v-if="auth != null") Me
-            router-view.p-3
+            router-view
         script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
         script(src='https://unpkg.com/http-vue-loader')
         script(src='https://unpkg.com/vue/dist/vue.js')

@@ -1,5 +1,5 @@
 <template>
-    <div class="container pt-5" v-if="user">
+    <div class="container p-5" v-if="user">
         <div class="columns is-mobile">
             <div class="column is-3" v-if="user.images.length">
                 <figure class="image">

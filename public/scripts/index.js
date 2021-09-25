@@ -52,10 +52,10 @@ const app = new Vue({
     mounted() {
         this.auth = $cookies.get('auth');
     },
-    created: function() {
+    created() {
         window.addEventListener('click', this.clearSuggestions);
     },
-    destroyed: function() {
+    destroyed() {
         window.removeEventListener('click', this.clearSuggestions);
     }
 });
