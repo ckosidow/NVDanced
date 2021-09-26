@@ -29,7 +29,9 @@
             <div class="columns is-mobile is-multiline">
                 <div class="column is-4" v-for="track in tracks">
                     <h5 class="is-size-5">
-                        {{track.name}}
+                        <a class="has-text-white" v-on:click="$parent.playSong(track.uri)">
+                            {{track.name}}
+                        </a>
                     </h5>
                     <p>
                         Danceability: {{track.danceability.toFixed(2)}}

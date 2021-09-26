@@ -143,10 +143,6 @@ const app = new Vue({
                 position,
                 duration,
                 track_window: { current_track }}) => {
-                console.log('Currently Playing', current_track);
-                console.log('Position in Song', position);
-                console.log('Duration of Song', duration);
-
                 if (current_track) {
                     this.playingName = current_track.name;
                 }
