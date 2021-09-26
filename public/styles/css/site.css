@@ -22252,9 +22252,11 @@ readers do not read off random characters that represent icons */
 /* line 24, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-page-body {
   box-shadow: 0 -35px 50px -15px black;
+  width: 100%;
+  max-width: 100%;
 }
 
-/* line 27, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 30, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback {
   position: sticky;
   bottom: 0;

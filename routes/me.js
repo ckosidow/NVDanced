@@ -56,6 +56,34 @@ router.post("/start-player", function (req, res) {
     }).on("error", function (err) {
         console.error("Error: " + err.message);
     });
+
+    res.json({});
+});
+
+router.post("/play-song", function (req, res) {
+    const auth = req.cookies['auth'];
+    const device_id = req.query.device_id;
+    const uri = req.query.uri;
+
+    const options = {
+        body: JSON.stringify({
+            device_id: [device_id],
+            uris: [uri]
+        }),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + auth
+        }
+    };
+
+    request.put('https://api.spotify.com/v1/me/player/play', options, function (err, resp, body) {
+        // console.log("sent: " + uri);
+    }).on("error", function (err) {
+        console.error("Error: " + err.message);
+    });
+
+    res.json({});
 });
 
 module.exports = router;

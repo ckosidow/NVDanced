@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="nvd-img-header"></div>
-        <div class="container p-5" id="nvd-page-body" v-if="album">
+        <div class="container p-5 mx-0" id="nvd-page-body" v-if="album">
             <div class="columns is-mobile is-multiline">
                 <div class="column is-6">
                     <h4 class="is-size-4">

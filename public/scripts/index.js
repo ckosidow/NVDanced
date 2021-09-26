@@ -18,8 +18,6 @@ const router = new VueRouter({
     routes // short for `routes: routes`
 });
 
-let spotifyPlayer;
-
 const app = new Vue({
     router,
     el: "#app",
@@ -31,7 +29,8 @@ const app = new Vue({
         suggestedPlaylists: [],
         deviceId: null,
         isPlaying: false,
-        playingName: null
+        playingName: null,
+        spotifyPlayer: null
     },
     methods: {
         logOut() {
@@ -64,7 +63,7 @@ const app = new Vue({
             this.suggestedArtists = [];
         },
         togglePlay() {
-            spotifyPlayer.getCurrentState().then(state => {
+            this.spotifyPlayer.getCurrentState().then(state => {
                 if (!state) {
                     console.log('User is not playing music through the Web Playback SDK');
 
@@ -72,7 +71,7 @@ const app = new Vue({
                         console.log("Switching playback");
                     });
                 } else {
-                    spotifyPlayer.togglePlay().then(() => {
+                    this.spotifyPlayer.togglePlay().then(() => {
                         // console.log('Toggled playback!');
                     });
                 }
@@ -82,13 +81,18 @@ const app = new Vue({
             });
         },
         playNext() {
-            spotifyPlayer.nextTrack().then(() => {
+            this.spotifyPlayer.nextTrack().then(() => {
                 // console.log('Skipped to next track!');
             });
         },
         playPrev() {
-            spotifyPlayer.previousTrack().then(() => {
+            this.spotifyPlayer.previousTrack().then(() => {
                 // console.log('Back to previous track!');
+            });
+        },
+        playSong(uri) {
+            axios.post("/me/play-song?device_id=" + this.deviceId + "&uri=" + uri).then((response) => {
+                console.log("Playing song");
             });
         }
     },
@@ -99,7 +103,7 @@ const app = new Vue({
         window.addEventListener('click', this.clearSuggestions);
 
         window.onSpotifyWebPlaybackSDKReady = () => {
-            spotifyPlayer = new Spotify.Player({
+            this.spotifyPlayer = new Spotify.Player({
                 name: 'N V Danced',
                 getOAuthToken: cb => {
                     cb($cookies.get('auth'));
@@ -108,34 +112,34 @@ const app = new Vue({
             });
 
             // Ready
-            spotifyPlayer.addListener('ready', ({ device_id }) => {
+            this.spotifyPlayer.addListener('ready', ({ device_id }) => {
                 this.deviceId = device_id;
 
                 console.log('Ready with Device ID', device_id);
             });
 
             // Not Ready
-            spotifyPlayer.addListener('not_ready', ({ device_id }) => {
+            this.spotifyPlayer.addListener('not_ready', ({ device_id }) => {
                 console.log('Device ID has gone offline', device_id);
             });
 
-            spotifyPlayer.addListener('initialization_error', ({ message }) => {
+            this.spotifyPlayer.addListener('initialization_error', ({ message }) => {
                 console.error(message);
             });
 
-            spotifyPlayer.addListener('authentication_error', ({ message }) => {
+            this.spotifyPlayer.addListener('authentication_error', ({ message }) => {
                 console.error(message);
             });
 
-            spotifyPlayer.addListener('account_error', ({ message }) => {
+            this.spotifyPlayer.addListener('account_error', ({ message }) => {
                 console.error(message);
             });
 
-            spotifyPlayer.addListener('playback_error', ({ message }) => {
+            this.spotifyPlayer.addListener('playback_error', ({ message }) => {
                 console.error(message);
             });
 
-            spotifyPlayer.addListener('player_state_changed', ({
+            this.spotifyPlayer.addListener('player_state_changed', ({
                 position,
                 duration,
                 track_window: { current_track }}) => {
@@ -148,7 +152,7 @@ const app = new Vue({
                 }
             });
 
-            spotifyPlayer.connect().then(success => {
+            this.spotifyPlayer.connect().then(success => {
                 if (success) {
                     console.log("The Web Playback SDK successfully connected to Spotify!");
                 }

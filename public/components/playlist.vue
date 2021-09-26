@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="nvd-img-header"></div>
-        <div class="container p-5" id="nvd-page-body" v-if="playlist">
+        <div class="container p-5 mx-0" id="nvd-page-body" v-if="playlist">
             <div class="columns is-mobile is-multiline">
                 <div class="column is-6">
                     <h1 class="is-size-1">
@@ -34,15 +34,15 @@
                 <div class="column is-4-desktop is-6-tablet is-12-mobile" v-for="track in playlist.tracks.items">
                     <div class="columns is-mobile" v-if="track.track">
                         <div class="column is-4 is-flex is-justify-content-center">
-                            <router-link :to="{path: '/album?album_id=' + track.track.album.id}">
+                            <a v-on:click="$parent.playSong(track.track.uri)">
                                 <figure class="image is-64x64">
                                     <img :src="track.track.album.images[2] ? track.track.album.images[2].url : ''"/>
                                 </figure>
-                            </router-link>
+                            </a>
                         </div>
                         <div class="column is-8">
                             <h5 class="is-size-5">
-                                {{track.track.name}}
+                                <a class="has-text-white" v-on:click="$parent.playSong(track.track.uri)">{{track.track.name}}</a>
                             </h5>
                             <h6 class="is-size-6">
                                 <router-link class="has-text-white"
