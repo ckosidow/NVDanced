@@ -1,0 +1,295 @@
+/* line 33, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel {
+  border-radius: 6px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  font-size: 1rem;
+}
+
+/* line 37, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+/* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-white .panel-heading {
+  background-color: white;
+  color: #0a0a0a;
+}
+
+/* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-white .panel-tabs a.is-active {
+  border-bottom-color: white;
+}
+
+/* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-white .panel-block.is-active .panel-icon {
+  color: white;
+}
+
+/* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-black .panel-heading {
+  background-color: #0a0a0a;
+  color: white;
+}
+
+/* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-black .panel-tabs a.is-active {
+  border-bottom-color: #0a0a0a;
+}
+
+/* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-black .panel-block.is-active .panel-icon {
+  color: #0a0a0a;
+}
+
+/* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-light .panel-heading {
+  background-color: whitesmoke;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-light .panel-tabs a.is-active {
+  border-bottom-color: whitesmoke;
+}
+
+/* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-light .panel-block.is-active .panel-icon {
+  color: whitesmoke;
+}
+
+/* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-dark .panel-heading {
+  background-color: #363636;
+  color: #fff;
+}
+
+/* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-dark .panel-tabs a.is-active {
+  border-bottom-color: #363636;
+}
+
+/* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-dark .panel-block.is-active .panel-icon {
+  color: #363636;
+}
+
+/* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-primary .panel-heading {
+  background-color: #00d1b2;
+  color: #fff;
+}
+
+/* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-primary .panel-tabs a.is-active {
+  border-bottom-color: #00d1b2;
+}
+
+/* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-primary .panel-block.is-active .panel-icon {
+  color: #00d1b2;
+}
+
+/* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-link .panel-heading {
+  background-color: #485fc7;
+  color: #fff;
+}
+
+/* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-link .panel-tabs a.is-active {
+  border-bottom-color: #485fc7;
+}
+
+/* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-link .panel-block.is-active .panel-icon {
+  color: #485fc7;
+}
+
+/* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-info .panel-heading {
+  background-color: #3e8ed0;
+  color: #fff;
+}
+
+/* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-info .panel-tabs a.is-active {
+  border-bottom-color: #3e8ed0;
+}
+
+/* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-info .panel-block.is-active .panel-icon {
+  color: #3e8ed0;
+}
+
+/* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-success .panel-heading {
+  background-color: #48c78e;
+  color: #fff;
+}
+
+/* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-success .panel-tabs a.is-active {
+  border-bottom-color: #48c78e;
+}
+
+/* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-success .panel-block.is-active .panel-icon {
+  color: #48c78e;
+}
+
+/* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-warning .panel-heading {
+  background-color: #ffe08a;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-warning .panel-tabs a.is-active {
+  border-bottom-color: #ffe08a;
+}
+
+/* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-warning .panel-block.is-active .panel-icon {
+  color: #ffe08a;
+}
+
+/* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-danger .panel-heading {
+  background-color: #f14668;
+  color: #fff;
+}
+
+/* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-danger .panel-tabs a.is-active {
+  border-bottom-color: #f14668;
+}
+
+/* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel.is-danger .panel-block.is-active .panel-icon {
+  color: #f14668;
+}
+
+/* line 54, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-tabs:not(:last-child),
+.panel-block:not(:last-child) {
+  border-bottom: 1px solid #ededed;
+}
+
+/* line 57, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-heading {
+  background-color: #ededed;
+  border-radius: 6px 6px 0 0;
+  color: #363636;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.25;
+  padding: 0.75em 1em;
+}
+
+/* line 66, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-tabs {
+  align-items: flex-end;
+  display: flex;
+  font-size: 0.875em;
+  justify-content: center;
+}
+
+/* line 71, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-tabs a {
+  border-bottom: 1px solid #dbdbdb;
+  margin-bottom: -1px;
+  padding: 0.5em;
+}
+
+/* line 76, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-tabs a.is-active {
+  border-bottom-color: #4a4a4a;
+  color: #363636;
+}
+
+/* line 81, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-list a {
+  color: #4a4a4a;
+}
+
+/* line 83, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-list a:hover {
+  color: #485fc7;
+}
+
+/* line 86, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-block {
+  align-items: center;
+  color: #363636;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5em 0.75em;
+}
+
+/* line 92, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-block input[type="checkbox"] {
+  margin-right: 0.75em;
+}
+
+/* line 94, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-block > .control {
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 100%;
+}
+
+/* line 98, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-block.is-wrapped {
+  flex-wrap: wrap;
+}
+
+/* line 100, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-block.is-active {
+  border-left-color: #485fc7;
+  color: #363636;
+}
+
+/* line 103, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-block.is-active .panel-icon {
+  color: #485fc7;
+}
+
+/* line 105, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-block:last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+/* line 109, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+a.panel-block,
+label.panel-block {
+  cursor: pointer;
+}
+
+/* line 112, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+a.panel-block:hover,
+label.panel-block:hover {
+  background-color: whitesmoke;
+}
+
+/* line 115, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-icon {
+  display: inline-block;
+  font-size: 14px;
+  height: 1em;
+  line-height: 1em;
+  text-align: center;
+  vertical-align: top;
+  width: 1em;
+  color: #7a7a7a;
+  margin-right: 0.75em;
+}
+
+/* line 119, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
+.panel-icon .fa {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/*# sourceMappingURL=panel.css.map */

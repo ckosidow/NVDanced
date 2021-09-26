@@ -1,0 +1,157 @@
+/* line 34, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+html {
+  background-color: white;
+  font-size: 16px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-width: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+}
+
+/* line 45, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section {
+  display: block;
+}
+
+/* line 54, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+body,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+/* line 62, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+code,
+pre {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+  font-family: monospace;
+}
+
+/* line 68, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+body {
+  color: #4a4a4a;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* line 76, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+a {
+  color: #485fc7;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* line 80, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+a strong {
+  color: currentColor;
+}
+
+/* line 82, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+a:hover {
+  color: #363636;
+}
+
+/* line 85, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+code {
+  background-color: whitesmoke;
+  color: #da1039;
+  font-size: 0.875em;
+  font-weight: normal;
+  padding: 0.25em 0.5em 0.25em;
+}
+
+/* line 92, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+hr {
+  background-color: whitesmoke;
+  border: none;
+  display: block;
+  height: 2px;
+  margin: 1.5rem 0;
+}
+
+/* line 99, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* line 103, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+input[type="checkbox"],
+input[type="radio"] {
+  vertical-align: baseline;
+}
+
+/* line 107, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+small {
+  font-size: 0.875em;
+}
+
+/* line 110, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+span {
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+/* line 114, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+strong {
+  color: #363636;
+  font-weight: 700;
+}
+
+/* line 120, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+fieldset {
+  border: none;
+}
+
+/* line 123, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+pre {
+  -webkit-overflow-scrolling: touch;
+  background-color: whitesmoke;
+  color: #4a4a4a;
+  font-size: 0.875em;
+  overflow-x: auto;
+  padding: 1.25rem 1.5rem;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+/* line 132, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+pre code {
+  background-color: transparent;
+  color: currentColor;
+  font-size: 1em;
+  padding: 0;
+}
+
+/* line 139, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+table td,
+table th {
+  vertical-align: top;
+}
+
+/* line 142, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+table td:not([align]),
+table th:not([align]) {
+  text-align: inherit;
+}
+
+/* line 144, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/base/generic.sass */
+table th {
+  color: #363636;
+}
+
+/*# sourceMappingURL=generic.css.map */

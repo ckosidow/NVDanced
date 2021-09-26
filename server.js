@@ -1,25 +1,26 @@
 // set up ========================
-var express = require('express');
-var app = express();                               // create our app w/ express
-var path = require("path");
-var logger = require('morgan');             // log requests to the console (express4)
-var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
-var cookieParser = require('cookie-parser');
-var request = require("request");
+const express = require('express');
+const app = express();                               // create our app w/ express
+const path = require("path");
+const logger = require('morgan');             // log requests to the console (express4)
+const bodyParser = require('body-parser');    // pull information from HTML POST (express4)
+const cookieParser = require('cookie-parser');
+const request = require("request");
 
-var index = require("./routes/index");
-var login = require("./routes/login");
-var me = require("./routes/me");
-var playlist = require("./routes/playlist");
-var other = require("./routes/other");
-var song = require("./routes/song");
-var album = require("./routes/album");
+const index = require("./routes/index");
+const login = require("./routes/login");
+const me = require("./routes/me");
+const playlist = require("./routes/playlist");
+const other = require("./routes/other");
+const song = require("./routes/song");
+const album = require("./routes/album");
+const search = require("./routes/search");
 
 // configuration =================
-app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
-app.use(logger('dev'));                                         // log every request to the console
-app.use(bodyParser.urlencoded({extended: false}));            // parse application/x-www-form-urlencoded
-app.use(bodyParser.json());                                     // parse application/json
+app.use(express.static(__dirname + '/public'));    // set the static files location /public/img will be /img for users
+app.use(logger('dev'));                            // log every request to the console
+app.use(bodyParser.urlencoded({extended: false})); // parse application/x-www-form-urlencoded
+app.use(bodyParser.json());                        // parse application/json
 app.use(cookieParser());
 
 // view engine setup
@@ -33,6 +34,7 @@ app.use("/other", other);
 app.use("/playlist", playlist);
 app.use("/song", song);
 app.use("/album", album);
+app.use("/search", search);
 
 function refresh(req, fn) {
     request.post('https://accounts.spotify.com/api/token', {
@@ -46,7 +48,7 @@ function refresh(req, fn) {
             Authorization: 'Basic ' + new Buffer(clientId + ':' + clientSecret).toString('base64')
         }
     }, function (err, resp, body) {
-        var auth = JSON.parse(body);
+        const auth = JSON.parse(body);
 
         resp.cookie("auth", auth.access_token);
         resp.cookie("refresh", auth.refresh_token);

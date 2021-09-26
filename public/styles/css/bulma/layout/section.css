@@ -1,0 +1,21 @@
+/* line 8, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/section.sass */
+.section {
+  padding: 3rem 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  /* line 8, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/section.sass */
+  .section {
+    padding: 3rem 3rem;
+  }
+  /* line 14, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/section.sass */
+  .section.is-medium {
+    padding: 9rem 4.5rem;
+  }
+  /* line 16, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/section.sass */
+  .section.is-large {
+    padding: 18rem 6rem;
+  }
+}
+
+/*# sourceMappingURL=section.css.map */

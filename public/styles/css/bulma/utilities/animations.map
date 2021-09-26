@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "animations.css",
+	"sources": [
+		"../../../sass/bulma/utilities/animations.sass"
+	],
+	"sourcesContent": [
+		"@warn \"The animations.sass file has MOVED. It is now in the /base folder. Please import sass/base/animations instead.\";\n"
+	],
+	"names": [],
+	"mappings": ""
+}

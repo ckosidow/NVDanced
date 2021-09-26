@@ -1,16 +1,56 @@
-html
-head
-    title NVDanced
-    include ./includes/head.jade
-body
-    include ./includes/nav.jade
-
-    main
-        div.pure-g
-            div.pure-u
-                h1 NVDanced
-        div.pure-g
-            div.pure-u
-                p NVDanced is an app that allows you to see stats about your playlists and songs. Among them is danceability.
-    
-    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js")
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1, minimum-scale=1')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='description' content='Uses the Spotify API and its data to show danceability metrics among others')
+        link(rel='stylesheet' href='../styles/css/site.css')
+        title N V Danced
+    body.has-background-secondary.has-text-white
+        div#app
+            nav.navbar.is-primary.is-flex#nvd-navbar
+                .navbar-brand.is-flex-grow-1
+                    router-link.navbar-item(:to='{name:auth ? "user" : "home"}') N V Danced
+                    div.is-align-self-center.is-flex.is-flex-grow-1
+                        div.dropdown(:class="{'is-active': suggestedArtists.length || suggestedPlaylists.length || suggestedAlbums.length}")
+                            div.dropdown-menu#dropdown-menu(role="menu")
+                                div.dropdown-content
+                                    //div.dropdown-item
+                                    //    p Artists
+                                    //div.dropdown-item(v-for="artist in suggestedArtists")
+                                        //a.dropdown-item(href="") {{artist.name}}
+                                        //hr.dropdown-divider
+                                    div.dropdown-item
+                                        p Albums
+                                    div.dropdown-item(v-for="album in suggestedAlbums")
+                                        router-link.dropdown-item(:to="{path: '/album?album_id=' + album.id}") {{album.name}}
+                                    div.dropdown-item
+                                        hr.dropdown-divider
+                                    div.dropdown-item
+                                        p Playlists
+                                    div.dropdown-item(v-for="playlist in suggestedPlaylists")
+                                        router-link.dropdown-item(:to="{path: '/playlist?user_id=' + playlist.owner.id + '&playlist_id=' + playlist.id}") {{playlist.name}}
+                        input#nvd-search.is-flex-grow-1.input(v-model="query", v-on:input="search()", placeholder="search")
+                    div.is-flex.is-flex-grow-0.is-justify-content-flex-end
+                        a.has-text-white.navbar-item(href="/login", v-show="!auth") Log In
+                        a.has-text-white.navbar-item(v-show="auth", v-on:click="logOut") Log Out
+            router-view
+            div#nvd-playback.is-flex.is-justify-content-center.py-4(v-if="auth")
+                span.is-flex.is-align-self-center.pr-4(v-if="playingName") {{ playingName }}
+                button#prev.button.is-primary(v-on:click="playPrev")
+                    span.icon
+                        i.fa.fa-backward
+                button#toggle-play.button.is-primary.mx-4(v-on:click="togglePlay")
+                    span.icon
+                        i.fa(:class="isPlaying ? 'fa-pause' : 'fa-play'")
+                button#next.button.is-primary(v-on:click="playNext")
+                    span.icon
+                        i.fa.fa-forward
+                button#use-this-device.button.is-primary.ml-4(v-on:click="useThisDevice") Use this device
+        script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
+        script(src='https://unpkg.com/http-vue-loader')
+        script(src='https://unpkg.com/vue/dist/vue.js')
+        script(src='https://unpkg.com/vue-router/dist/vue-router.js')
+        script(src="https://unpkg.com/vue-cookies@1.7.4/vue-cookies.js")
+        script(src='../scripts/index.js')
+        script(src="https://sdk.scdn.co/spotify-player.js")
