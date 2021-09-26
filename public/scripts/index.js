@@ -128,11 +128,14 @@ const app = new Vue({
             if (this.currDeviceId !== this.deviceId) {
                 this.spotifyPlayer.activateElement();
 
-                axios.post("/me/start-player?device_id=" + this.deviceId + "&play=" + this.isPlaying).then((response) => {
-                    // console.log("Switching playback");
-                });
+                setTimeout(() => {
+                    axios.post("/me/start-player?device_id=" + this.deviceId + "&play=" + this.isPlaying).then((response) => {
+                        // console.log("Switching playback");
+                        this.currDeviceId = this.deviceId;
+                    });
 
-                this.currDeviceId = this.deviceId;
+                    alert(this.deviceId);
+                }, 10000);
             }
         }
     },
