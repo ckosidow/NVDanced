@@ -8,6 +8,7 @@ const album = httpVueLoader('../components/album.vue');
 const routes = [
     { path: '/user', name: 'user', component: user },
     { path: '/home', name: 'home', component: home },
+    { path: '/', name: 'home', component: home },
     { path: '/login', name: 'login', component: login },
     { path: '/album', name: 'album', component: album, props: true },
     { path: '/other', name: 'other', component: other, props: true },
