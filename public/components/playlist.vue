@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="nvd-img-header"></div>
-        <div class="container p-5" v-if="playlist">
+        <div class="container p-5" id="nvd-page-body" v-if="playlist">
             <div class="columns is-mobile is-multiline">
                 <div class="column is-6">
                     <h1 class="is-size-1">
@@ -120,7 +120,7 @@
                 });
             },
             resizeHeaderImage() {
-                nvdImageHeader.style.backgroundSize = "auto " + (175 + (window.scrollY / 5)) + "%";
+                nvdImageHeader.style.backgroundSize = "auto " + (200 + (window.scrollY / 10)) + "%";
             }
         },
         watch: {

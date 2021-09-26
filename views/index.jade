@@ -35,7 +35,7 @@ html(lang='en')
                         a.has-text-white.navbar-item(href="/login", v-show="!auth") Log In
                         a.has-text-white.navbar-item(v-show="auth", v-on:click="logOut") Log Out
             router-view
-            div#nvd-playback.is-flex.is-justify-content-center.pb-4(v-if="auth")
+            div#nvd-playback.is-flex.is-justify-content-center.py-4(v-if="auth")
                 span.is-flex.is-align-self-center.pr-4(v-if="playingName") {{ playingName }}
                 button#prev.button.is-primary(v-on:click="playPrev")
                     span.icon

@@ -22246,15 +22246,20 @@ readers do not read off random characters that represent icons */
   height: 300px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto 175%;
+  background-size: auto 200%;
 }
 
 /* line 24, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+#nvd-page-body {
+  box-shadow: 0 -35px 50px -15px black;
+}
+
+/* line 27, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback {
   position: sticky;
   bottom: 0;
-  background: #010101bb;
-  box-shadow: 0 0 75px 75px #010101bb;
+  background: #01010150;
+  box-shadow: 0 0 30px 20px #01010150;
 }
 
 /*# sourceMappingURL=site.css.map */
