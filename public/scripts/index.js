@@ -151,7 +151,6 @@ const app = new Vue({
             // Ready
             this.spotifyPlayer.addListener('ready', ({ device_id }) => {
                 this.deviceId = device_id;
-                alert("Ready");
 
                 // console.log('Ready with Device ID', device_id);
             });
@@ -164,22 +163,18 @@ const app = new Vue({
 
             this.spotifyPlayer.addListener('initialization_error', ({ message }) => {
                 console.error(message);
-                alert(message);
             });
 
             this.spotifyPlayer.addListener('authentication_error', ({ message }) => {
                 console.error(message);
-                alert(message);
             });
 
             this.spotifyPlayer.addListener('account_error', ({ message }) => {
                 console.error(message);
-                alert(message);
             });
 
             this.spotifyPlayer.addListener('playback_error', ({ message }) => {
                 console.error(message);
-                alert(message);
             });
 
             this.spotifyPlayer.addListener('player_state_changed', ({
