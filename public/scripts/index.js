@@ -159,24 +159,27 @@ const app = new Vue({
             // Not Ready
             this.spotifyPlayer.addListener('not_ready', ({ device_id }) => {
                 this.deviceId = device_id;
-                alert("Not ready");
                 // console.log('Device ID has gone offline', device_id);
             });
 
             this.spotifyPlayer.addListener('initialization_error', ({ message }) => {
                 console.error(message);
+                alert(message);
             });
 
             this.spotifyPlayer.addListener('authentication_error', ({ message }) => {
                 console.error(message);
+                alert(message);
             });
 
             this.spotifyPlayer.addListener('account_error', ({ message }) => {
                 console.error(message);
+                alert(message);
             });
 
             this.spotifyPlayer.addListener('playback_error', ({ message }) => {
                 console.error(message);
+                alert(message);
             });
 
             this.spotifyPlayer.addListener('player_state_changed', ({
@@ -190,8 +193,7 @@ const app = new Vue({
 
             this.spotifyPlayer.connect().then(success => {
                 if (success) {
-                    console.log("The Web Playback SDK successfully connected to Spotify!");
-                    alert("The Web Playback SDK successfully connected to Spotify!");
+                    // console.log("The Web Playback SDK successfully connected to Spotify!");
                 }
             });
         };
