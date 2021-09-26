@@ -25,9 +25,11 @@ router.get("/", function (req, res) {
             });
         }).on('error', function (err) {
             console.log("Error: " + err.message);
+            res.json(null);
         });
     }).on("error", function (err) {
         console.log("Error: " + err.message);
+        res.json(null);
     });
 });
 

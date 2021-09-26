@@ -30,7 +30,8 @@ const app = new Vue({
         deviceId: null,
         isPlaying: false,
         playingName: null,
-        spotifyPlayer: null
+        spotifyPlayer: null,
+        currDeviceId: null
     },
     methods: {
         logOut() {
@@ -63,36 +64,68 @@ const app = new Vue({
             this.suggestedArtists = [];
         },
         togglePlay() {
-            this.spotifyPlayer.getCurrentState().then(state => {
-                if (!state) {
-                    console.log('User is not playing music through the Web Playback SDK');
-
-                    axios.post("/me/start-player?device_id=" + this.deviceId).then((response) => {
-                        console.log("Switching playback");
-                    });
-                } else {
-                    this.spotifyPlayer.togglePlay().then(() => {
-                        // console.log('Toggled playback!');
+            if (this.isPlaying) {
+                axios.post("/me/pause").then((response) => {
+                    // console.log("Pausing");
+                    this.isPlaying = false;
+                });
+            } else {
+                if (!this.currDeviceId) {
+                    axios.post("/me/start-player?device_id=" + this.deviceId + "&play=true").then((response) => {
+                        // console.log("Switching playback");
+                        this.currDeviceId = this.deviceId;
                     });
                 }
 
-                this.isPlaying = !this.isPlaying;
-                console.log(this.isPlaying);
-            });
+                axios.post("/me/play-song").then((response) => {
+                    // console.log("Playing");
+                });
+
+                this.isPlaying = true;
+            }
         },
         playNext() {
-            this.spotifyPlayer.nextTrack().then(() => {
-                // console.log('Skipped to next track!');
+            if (!this.currDeviceId) {
+                axios.post("/me/start-player?device_id=" + this.deviceId).then((response) => {
+                    // console.log("Switching playback");
+                    this.currDeviceId = this.deviceId;
+                });
+            }
+
+            axios.post("/me/next").then((response) => {
+                // console.log("Playing");
             });
+
+            this.isPlaying = true;
         },
         playPrev() {
-            this.spotifyPlayer.previousTrack().then(() => {
-                // console.log('Back to previous track!');
+            if (!this.currDeviceId) {
+                axios.post("/me/start-player?device_id=" + this.deviceId).then((response) => {
+                    // console.log("Switching playback");
+                    this.currDeviceId = this.deviceId;
+                });
+            }
+
+            axios.post("/me/previous").then((response) => {
+                // console.log("Playing");
             });
+
+            this.isPlaying = true;
         },
         playSong(uri) {
-            axios.post("/me/play-song?device_id=" + this.deviceId + "&uri=" + uri).then((response) => {
-                console.log("Playing song");
+            if (!this.currDeviceId) {
+                axios.post("/me/start-player?device_id=" + this.deviceId).then((response) => {
+                    // console.log("Switching playback");
+                });
+            }
+
+            axios.post("/me/play-song?uri=" + uri).then((response) => {
+                // console.log("Playing song");
+            });
+        },
+        useThisDevice() {
+            axios.post("/me/start-player?device_id=" + this.deviceId + "&play=" + this.isPlaying).then((response) => {
+                // console.log("Switching playback");
             });
         }
     },
@@ -115,12 +148,12 @@ const app = new Vue({
             this.spotifyPlayer.addListener('ready', ({ device_id }) => {
                 this.deviceId = device_id;
 
-                console.log('Ready with Device ID', device_id);
+                // console.log('Ready with Device ID', device_id);
             });
 
             // Not Ready
             this.spotifyPlayer.addListener('not_ready', ({ device_id }) => {
-                console.log('Device ID has gone offline', device_id);
+                // console.log('Device ID has gone offline', device_id);
             });
 
             this.spotifyPlayer.addListener('initialization_error', ({ message }) => {
@@ -153,7 +186,25 @@ const app = new Vue({
                     console.log("The Web Playback SDK successfully connected to Spotify!");
                 }
             });
-        }
+        };
+
+        axios.get("/me/get-playback").then((response) => {
+            if (response.data) {
+                const currPlaying = response.data;
+
+                if (currPlaying.is_playing) {
+                    this.isPlaying = currPlaying.is_playing;
+
+                    if (currPlaying.item) {
+                        this.playingName = currPlaying.item.name;
+                    }
+                }
+
+                if (currPlaying.device) {
+                    this.currDeviceId = currPlaying.device.id;
+                }
+            }
+        });
     },
     destroyed() {
         window.removeEventListener('click', this.clearSuggestions);

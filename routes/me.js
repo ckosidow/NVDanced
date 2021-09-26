@@ -26,24 +26,27 @@ router.get("/", function (req, res) {
                 res.json(response);
             }).on('error', function (err) {
                 console.error("Error: " + err.message);
+                res.status(500);
             });
         }).on('error', function (err) {
             console.error("Error: " + err.message);
+            res.status(500);
         });
     }).on("error", function (err) {
         console.error("Error: " + err.message);
+        res.status(500);
     });
 });
 
 router.post("/start-player", function (req, res) {
     const auth = req.cookies['auth'];
     const device_id = req.query.device_id;
+    const play = req.query.play;
 
     const options = {
-        body: JSON.stringify({
-            device_ids: [device_id],
-            play: true
-        }),
+        body: {
+            device_ids: [device_id]
+        },
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -51,13 +54,21 @@ router.post("/start-player", function (req, res) {
         }
     };
 
+    if (play) {
+        options.body.play = play;
+    }
+
+    options.body = JSON.stringify(options.body);
+
     request.put('https://api.spotify.com/v1/me/player', options, function (err, resp, body) {
         // console.log(resp);
+        res.status(200);
+        res.json(null);
     }).on("error", function (err) {
         console.error("Error: " + err.message);
+        res.status(500);
+        res.json(null);
     });
-
-    res.json({});
 });
 
 router.post("/play-song", function (req, res) {
@@ -66,10 +77,7 @@ router.post("/play-song", function (req, res) {
     const uri = req.query.uri;
 
     const options = {
-        body: JSON.stringify({
-            device_id: [device_id],
-            uris: [uri]
-        }),
+        body: {},
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -77,13 +85,153 @@ router.post("/play-song", function (req, res) {
         }
     };
 
+    if (uri) {
+        options.body.uris = [uri];
+    }
+
+    if (device_id) {
+        options.body.device_id = [device_id];
+    }
+
+    options.body = JSON.stringify(options.body);
+
     request.put('https://api.spotify.com/v1/me/player/play', options, function (err, resp, body) {
         // console.log("sent: " + uri);
+        res.status(200);
+        res.json(null);
     }).on("error", function (err) {
         console.error("Error: " + err.message);
+        res.status(500);
+        res.json(null);
     });
+});
 
-    res.json({});
+router.post("/pause", function (req, res) {
+    const auth = req.cookies['auth'];
+    const device_id = req.query.device_id;
+    const uri = req.query.uri;
+
+    const options = {
+        body: {},
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + auth
+        }
+    };
+
+    if (uri) {
+        options.body.uris = [uri];
+    }
+
+    if (device_id) {
+        options.body.device_id = [device_id];
+    }
+
+    options.body = JSON.stringify(options.body);
+
+    request.put('https://api.spotify.com/v1/me/player/pause', options, function (err, resp, body) {
+        // console.log("sent: " + uri);
+        res.status(200);
+        res.json(null);
+    }).on("error", function (err) {
+        console.error("Error: " + err.message);
+        res.status(500);
+        res.json(null);
+    });
+});
+
+router.post("/previous", function (req, res) {
+    const auth = req.cookies['auth'];
+    const device_id = req.query.device_id;
+    const uri = req.query.uri;
+
+    const options = {
+        body: {},
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + auth
+        }
+    };
+
+    if (uri) {
+        options.body.uris = [uri];
+    }
+
+    if (device_id) {
+        options.body.device_id = [device_id];
+    }
+
+    options.body = JSON.stringify(options.body);
+
+    request.post('https://api.spotify.com/v1/me/player/previous', options, function (err, resp, body) {
+        // console.log("sent: " + uri);
+        res.status(200);
+        res.json(null);
+    }).on("error", function (err) {
+        console.error("Error: " + err.message);
+        res.status(500);
+        res.json(null);
+    });
+});
+
+router.post("/next", function (req, res) {
+    const auth = req.cookies['auth'];
+    const device_id = req.query.device_id;
+    const uri = req.query.uri;
+
+    const options = {
+        body: {},
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + auth
+        }
+    };
+
+    if (uri) {
+        options.body.uris = [uri];
+    }
+
+    if (device_id) {
+        options.body.device_id = [device_id];
+    }
+
+    options.body = JSON.stringify(options.body);
+
+    request.post('https://api.spotify.com/v1/me/player/next', options, function (err, resp, body) {
+        // console.log("sent: " + uri);
+        res.status(200);
+        res.json(null);
+    }).on("error", function (err) {
+        console.error("Error: " + err.message);
+        res.status(500);
+        res.json(null);
+    });
+});
+
+router.get("/get-playback", function (req, res) {
+    const auth = req.cookies['auth'];
+
+    const options = {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + auth
+        }
+    };
+
+    request.get('https://api.spotify.com/v1/me/player', options, function (err, resp, body) {
+        // console.log("sent: " + uri);
+        if (body) {
+            res.json(JSON.parse(body));
+        }
+    }).on("error", function (err) {
+        console.error("Error: " + err.message);
+        res.status(500);
+        res.json(null);
+    });
 });
 
 module.exports = router;

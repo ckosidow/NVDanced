@@ -5,7 +5,7 @@ const request = require("request");
 router.get('/', function (req, res) {
     const auth = req.cookies['auth'];
     const albumId = req.query.album_id;
-    let album;
+
     const options = {
         headers: {
             'Content-Type': 'application/json',
@@ -54,6 +54,7 @@ router.get('/', function (req, res) {
         });
     }).on('error', function (err) {
         console.log("Error: " + err.message);
+        res.json(null);
     });
 });
 

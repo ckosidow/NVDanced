@@ -34,11 +34,11 @@
                 <div class="column is-4-desktop is-6-tablet is-12-mobile" v-for="track in playlist.tracks.items">
                     <div class="columns is-mobile" v-if="track.track">
                         <div class="column is-4 is-flex is-justify-content-center">
-                            <a v-on:click="$parent.playSong(track.track.uri)">
-                                <figure class="image is-64x64">
+                            <figure class="image is-64x64">
+                                <a v-on:click="$parent.playSong(track.track.uri)">
                                     <img :src="track.track.album.images[2] ? track.track.album.images[2].url : ''"/>
-                                </figure>
-                            </a>
+                                </a>
+                            </figure>
                         </div>
                         <div class="column is-8">
                             <h5 class="is-size-5">

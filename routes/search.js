@@ -17,6 +17,7 @@ router.get("/", function (req, res) {
         res.json(JSON.parse(body));
     }).on("error", function (err) {
         console.error("Error: " + err.message);
+        res.json(null);
     });
 });
 
