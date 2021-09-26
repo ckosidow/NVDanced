@@ -189,9 +189,9 @@ const app = new Vue({
             });
 
             this.spotifyPlayer.connect().then(success => {
-                alert("trying to connect");
                 if (success) {
                     console.log("The Web Playback SDK successfully connected to Spotify!");
+                    alert("The Web Playback SDK successfully connected to Spotify!");
                 }
             });
         };
