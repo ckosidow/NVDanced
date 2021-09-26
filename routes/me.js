@@ -226,6 +226,8 @@ router.get("/get-playback", function (req, res) {
         // console.log("sent: " + uri);
         if (body) {
             res.json(JSON.parse(body));
+        } else {
+            res.json(null);
         }
     }).on("error", function (err) {
         console.error("Error: " + err.message);
