@@ -126,16 +126,10 @@ const app = new Vue({
         },
         useThisDevice() {
             if (this.currDeviceId !== this.deviceId) {
-                this.spotifyPlayer.activateElement();
-
-                setTimeout(() => {
-                    axios.post("/me/start-player?device_id=" + this.deviceId + "&play=" + this.isPlaying).then((response) => {
-                        // console.log("Switching playback");
-                        this.currDeviceId = this.deviceId;
-                    });
-
-                    alert(this.deviceId);
-                }, 10000);
+                axios.post("/me/start-player?device_id=" + this.deviceId + "&play=" + this.isPlaying).then((response) => {
+                    // console.log("Switching playback");
+                    this.currDeviceId = this.deviceId;
+                });
             }
         }
     },
@@ -157,12 +151,15 @@ const app = new Vue({
             // Ready
             this.spotifyPlayer.addListener('ready', ({ device_id }) => {
                 this.deviceId = device_id;
+                alert("Ready");
 
                 // console.log('Ready with Device ID', device_id);
             });
 
             // Not Ready
             this.spotifyPlayer.addListener('not_ready', ({ device_id }) => {
+                this.deviceId = device_id;
+                alert("Not ready");
                 // console.log('Device ID has gone offline', device_id);
             });
 
