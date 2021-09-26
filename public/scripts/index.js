@@ -125,9 +125,15 @@ const app = new Vue({
             });
         },
         useThisDevice() {
-            axios.post("/me/start-player?device_id=" + this.deviceId + "&play=" + this.isPlaying).then((response) => {
-                // console.log("Switching playback");
-            });
+            if (this.currDeviceId !== this.deviceId) {
+                this.spotifyPlayer.activateElement();
+
+                axios.post("/me/start-player?device_id=" + this.deviceId + "&play=" + this.isPlaying).then((response) => {
+                    // console.log("Switching playback");
+                });
+
+                this.currDeviceId = this.deviceId;
+            }
         }
     },
     mounted() {
