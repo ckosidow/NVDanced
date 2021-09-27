@@ -36,17 +36,16 @@ html(lang='en')
                         a.has-text-white.navbar-item(v-show="auth", v-on:click="logOut") Log Out
             router-view
             div#nvd-playback.is-flex.is-justify-content-center.py-4(v-if="auth")
-                span.is-flex.is-align-self-center.pr-4(v-if="playingName") {{ playingName }}
-                button#prev.button.is-primary(v-on:click="playPrev")
-                    span.icon
-                        i.fa.fa-backward
-                button#toggle-play.button.is-primary.mx-4(v-on:click="togglePlay")
-                    span.icon
-                        i.fa(:class="isPlaying ? 'fa-pause' : 'fa-play'")
-                button#next.button.is-primary(v-on:click="playNext")
-                    span.icon
-                        i.fa.fa-forward
-                button#use-this-device.button.is-primary.ml-4(v-on:click="useThisDevice") Use this device
+                div#nvd-playback-card.card.p-4.is-flex
+                    div#nvd-now-playing.is-flex.is-align-self-center.pr-4.has-text-white
+                        span(v-if="playingName") {{ playingName }}
+                    button#toggle-play.button.mr-4.nvd-playback-button.p-1(v-on:click="togglePlay")
+                        span.icon.nvd-playback-button-text
+                            i.fa(:class="isPlaying ? 'fa-pause' : 'fa-play'")
+                    button#next.button.nvd-playback-button.p-1(v-on:click="playNext")
+                        span.icon.nvd-playback-button-text
+                            i.fa.fa-step-forward
+                    button#use-this-device.button.is-primary.ml-4(v-on:click="useThisDevice") Use this device
         script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
         script(src='https://unpkg.com/http-vue-loader')
         script(src='https://unpkg.com/vue/dist/vue.js')

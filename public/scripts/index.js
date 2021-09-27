@@ -99,20 +99,6 @@ const app = new Vue({
 
             this.isPlaying = true;
         },
-        playPrev() {
-            if (!this.currDeviceId) {
-                axios.post("/me/start-player?device_id=" + this.deviceId).then((response) => {
-                    // console.log("Switching playback");
-                    this.currDeviceId = this.deviceId;
-                });
-            }
-
-            axios.post("/me/previous").then((response) => {
-                // console.log("Playing");
-            });
-
-            this.isPlaying = true;
-        },
         playSong(uri) {
             if (!this.currDeviceId) {
                 axios.post("/me/start-player?device_id=" + this.deviceId).then((response) => {

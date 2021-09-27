@@ -31,3 +31,21 @@ $custom-colors : ("secondary":(#161616, #fff))
   bottom : 0
   background : #01010150
   box-shadow : 0 0 30px 20px #01010150
+
+  .nvd-playback-button
+    background : transparent
+    border : transparent
+
+    .nvd-playback-button-text
+      background : linear-gradient(to right, $primary, #1AB879)
+      -webkit-background-clip : text
+      -webkit-text-fill-color : transparent
+
+  #nvd-now-playing
+    width : 8em
+    overflow : hidden
+    white-space : nowrap
+
+  #nvd-playback-card
+    background-color : #108e5c88
+    backdrop-filter : blur(10px)

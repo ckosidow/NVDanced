@@ -22256,12 +22256,38 @@ readers do not read off random characters that represent icons */
   max-width: 100%;
 }
 
-/* line 30, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 29, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback {
   position: sticky;
   bottom: 0;
   background: #01010150;
   box-shadow: 0 0 30px 20px #01010150;
+}
+
+/* line 35, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+#nvd-playback .nvd-playback-button {
+  background: transparent;
+  border: transparent;
+}
+
+/* line 39, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+#nvd-playback .nvd-playback-button .nvd-playback-button-text {
+  background: linear-gradient(to right, #108e5c, #1AB879);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+#nvd-playback #nvd-now-playing {
+  width: 8em;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+#nvd-playback #nvd-playback-card {
+  background-color: #108e5c88;
+  backdrop-filter: blur(10px);
 }
 
 /*# sourceMappingURL=site.css.map */
