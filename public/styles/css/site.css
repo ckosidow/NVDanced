@@ -22262,32 +22262,40 @@ readers do not read off random characters that represent icons */
   bottom: 0;
   background: #01010150;
   box-shadow: 0 0 30px 20px #01010150;
+  pointer-events: none;
 }
 
-/* line 35, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 36, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback .nvd-playback-button {
   background: transparent;
   border: transparent;
 }
 
-/* line 39, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 40, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback .nvd-playback-button .nvd-playback-button-text {
   background: linear-gradient(to right, #108e5c, #1AB879);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 45, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback #nvd-now-playing {
-  width: 8em;
+  width: 10em;
   overflow: hidden;
   white-space: nowrap;
 }
 
-/* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 50, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+#nvd-playback #nvd-now-playing span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* line 54, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback #nvd-playback-card {
-  background-color: #108e5c88;
+  background: linear-gradient(90deg, #108e5c33, #1AB87933);
   backdrop-filter: blur(10px);
+  pointer-events: all;
 }
 
 /*# sourceMappingURL=site.css.map */

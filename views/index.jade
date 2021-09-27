@@ -35,17 +35,19 @@ html(lang='en')
                         a.has-text-white.navbar-item(href="/login", v-show="!auth") Log In
                         a.has-text-white.navbar-item(v-show="auth", v-on:click="logOut") Log Out
             router-view
-            div#nvd-playback.is-flex.is-justify-content-center.py-4(v-if="auth")
-                div#nvd-playback-card.card.p-4.is-flex
-                    div#nvd-now-playing.is-flex.is-align-self-center.pr-4.has-text-white
+            div#nvd-playback.is-flex.is-justify-content-center.p-4(v-if="auth")
+                div#nvd-playback-card.card.p-4.is-flex.is-flex-grow-1
+                    div#nvd-now-playing.is-flex.is-align-self-center.mx-4.has-text-white.is-flex-grow-1
                         span(v-if="playingName") {{ playingName }}
                     button#toggle-play.button.mr-4.nvd-playback-button.p-1(v-on:click="togglePlay")
                         span.icon.nvd-playback-button-text
                             i.fa(:class="isPlaying ? 'fa-pause' : 'fa-play'")
-                    button#next.button.nvd-playback-button.p-1(v-on:click="playNext")
+                    button#next.button.nvd-playback-button.p-1.mr-4(v-on:click="playNext")
                         span.icon.nvd-playback-button-text
                             i.fa.fa-step-forward
-                    button#use-this-device.button.is-primary.ml-4(v-on:click="useThisDevice") Use this device
+                    button#use-this-device.button.nvd-playback-button.p-1.mr-4(v-on:click="useThisDevice")
+                        span.icon.nvd-playback-button-text
+                            i.fa.fa-laptop
         script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
         script(src='https://unpkg.com/http-vue-loader')
         script(src='https://unpkg.com/vue/dist/vue.js')
