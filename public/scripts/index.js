@@ -183,6 +183,8 @@ const app = new Vue({
             if (response.data) {
                 const currPlaying = response.data;
 
+                console.log(currPlaying);
+
                 if (currPlaying.is_playing) {
                     this.isPlaying = currPlaying.is_playing;
 

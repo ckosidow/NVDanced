@@ -22258,40 +22258,41 @@ readers do not read off random characters that represent icons */
 
 /* line 29, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback {
-  position: sticky;
+  position: fixed;
   bottom: 0;
+  width: 100%;
   background: #01010150;
   box-shadow: 0 0 30px 20px #01010150;
   pointer-events: none;
 }
 
-/* line 36, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 37, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback .nvd-playback-button {
   background: transparent;
   border: transparent;
 }
 
-/* line 40, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 41, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback .nvd-playback-button .nvd-playback-button-text {
   background: linear-gradient(to right, #108e5c, #1AB879);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* line 45, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 46, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback #nvd-now-playing {
   width: 10em;
   overflow: hidden;
   white-space: nowrap;
 }
 
-/* line 50, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 51, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback #nvd-now-playing span {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* line 54, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 55, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback #nvd-playback-card {
   background: linear-gradient(90deg, #108e5c33, #1AB87933);
   backdrop-filter: blur(10px);
