@@ -33,6 +33,7 @@ const app = new Vue({
         deviceId: null,
         isPlaying: false,
         playingName: null,
+        playingImage: null,
         spotifyPlayer: null,
         currDeviceId: null,
         currDeviceName: null,
@@ -107,6 +108,8 @@ const app = new Vue({
             if (!this.currDeviceId) {
                 axios.post("/me/start-player?device_id=" + this.deviceId).then((response) => {
                     // console.log("Switching playback");
+                    this.currDeviceId = this.deviceId;
+                    this.currDeviceName = thisDeviceName;
                 });
             }
 
@@ -199,6 +202,14 @@ const app = new Vue({
                     } = arg;
 
                     if (current_track) {
+                        this.playingImage = null;
+
+                        if (current_track.album) {
+                            if (current_track.album.images) {
+                                this.playingImage = current_track.album.images[0].url;
+                            }
+                        }
+
                         this.playingName = current_track.name;
                     }
                 } else {

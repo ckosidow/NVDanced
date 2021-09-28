@@ -22313,8 +22313,16 @@ readers do not read off random characters that represent icons */
 }
 
 /* line 57, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+#nvd-playback #nvd-playback-image {
+  margin-top: -0.5em;
+  margin-bottom: -0.5em;
+  margin-left: -1em;
+}
+
+/* line 62, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback #nvd-playback-card {
-  background: linear-gradient(90deg, #108e5c33, #1AB87933);
+  overflow: hidden;
+  background: linear-gradient(90deg, #16161633, #108e5c33, #1AB87933);
   backdrop-filter: blur(10px);
   pointer-events: all;
 }

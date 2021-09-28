@@ -12,16 +12,15 @@ router.get("/", function (req, res) {
         }
     };
 
-    request.get('https://api.spotify.com/v1/tracks/' + req.query.song_id + '?market=ES', options, function (err, resp, body) {
+    request.get('https://api.spotify.com/v1/tracks/' + req.query.song_id, options, function (err, resp, body) {
         var song = JSON.parse(body);
 
-        res.render("song", {
-            song: song
-        });
+        res.json(song);
     }).on("error", function (err) {
         console.log("Error: " + err.message);
 
-        res.render("song");
+        res.status(500);
+        res.json(null);
     });
 });
 

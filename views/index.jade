@@ -40,14 +40,16 @@ html(lang='en')
             div#nvd-playback-padding
             div#nvd-playback.is-flex.is-justify-content-center.p-4(v-if="auth")
                 div#nvd-playback-card.card.p-2.px-4.is-flex.is-flex-grow-1
-                    span.nvd-text.is-align-self-center.mx-2.has-text-white.is-flex-grow-1(v-if="playingName") {{ playingName }}
+                    figure.image.mr-2.is-64x64#nvd-playback-image
+                        img(v-if="playingImage", :src="playingImage")
+                    span.nvd-text.is-align-self-center.mx-2.has-text-white.is-flex-grow-1 {{ playingName }}
                     button#toggle-play.button.mx-2.nvd-playback-button.p-1.is-align-self-center(v-on:click="togglePlay")
                         span.icon.nvd-playback-button-text
                             i.fa(:class="isPlaying ? 'fa-pause' : 'fa-play'")
                     button#next.button.nvd-playback-button.p-1.mx-2.is-align-self-center(v-on:click="playNext")
                         span.icon.nvd-playback-button-text
                             i.fa.fa-step-forward
-                    span.nvd-text.is-align-self-center.mx-2.p-1.has-text-white(v-if="currDeviceName") {{ currDeviceName }}
+                    span.nvd-text.is-align-self-center.mx-2.p-1.has-text-white {{ currDeviceName }}
                     button#use-this-device.button.nvd-playback-button.p-1.mx-2.is-align-self-center(v-on:click="useThisDevice")
                         span.icon.nvd-playback-button-text
                             i.fa(:class="currDeviceType === 'Smartphone' ? 'fa-mobile-alt' : 'fa-laptop'")
