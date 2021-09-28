@@ -11,6 +11,9 @@
             }
         },
         mounted() {
+            if ($cookies.get('auth')) {
+                router.push({ name: 'user' })
+            }
         }
     }
 </script>
