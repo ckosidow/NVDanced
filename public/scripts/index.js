@@ -115,6 +115,7 @@ const app = new Vue({
 
             axios.post("/me/play-song?uri=" + uri).then((response) => {
                 // console.log("Playing song");
+                this.checkPlayback();
             });
         },
         useThisDevice() {
@@ -137,6 +138,14 @@ const app = new Vue({
 
                         if (currPlaying.item) {
                             this.playingName = currPlaying.item.name;
+                        }
+                    }
+
+                    if (currPlaying.item) {
+                        if (currPlaying.item.album) {
+                            if (currPlaying.item.album.images) {
+                                this.playingImage = currPlaying.item.album.images[0].url;
+                            }
                         }
                     }
 
