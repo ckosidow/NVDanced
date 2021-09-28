@@ -1,14 +1,18 @@
-$primary: #108e5c
+$primary: #57768e
+$secondary : #8e686b
 
-$custom-colors : ("secondary":(#161616, #fff))
+$custom-colors : ("secondary":($secondary, #fff))
 
 @import "bulma/bulma.sass"
 @import "font-awesome/scss/fontawesome.scss"
 @import "font-awesome/scss/solid.scss"
 @import "font-awesome/scss/brands.scss"
 
+[v-cloak]
+  display : none
+
 #nvd-navbar
-  background-image : linear-gradient(to right, $primary, #1AB879)
+  background : linear-gradient(90deg, $primary, $secondary)
   position : sticky
   top : 0
 
@@ -36,8 +40,7 @@ $custom-colors : ("secondary":(#161616, #fff))
   position : fixed
   bottom : 0
   width : 100%
-  background : #01010150
-  box-shadow : 0 0 30px 20px #01010150
+  background : linear-gradient(180deg, rgba(#010101, 0), rgba(#010101, 0.5))
   pointer-events : none
 
   .nvd-playback-button
@@ -45,7 +48,7 @@ $custom-colors : ("secondary":(#161616, #fff))
     border : transparent
 
     .nvd-playback-button-text
-      background : linear-gradient(to right, $primary, #1AB879)
+      background : linear-gradient(90deg, $primary, $secondary)
       -webkit-background-clip : text
       -webkit-text-fill-color : transparent
 
@@ -55,16 +58,12 @@ $custom-colors : ("secondary":(#161616, #fff))
     white-space : nowrap
 
   #nvd-playback-image-fig
-    margin-top : -0.5em
-    margin-bottom : -0.5em
-    margin-left : -1em
-
     #nvd-playback-image
       height : 100%
       width : 100%
 
   #nvd-playback-card
     overflow : hidden
-    background : linear-gradient(90deg, #16161633, #108e5c33, #1AB87933);
+    background : linear-gradient(90deg, rgba(#161616, 0.5), rgba($primary, 0.5), rgba($secondary, 0.5), rgba(#161616, 0.5))
     backdrop-filter : blur(10px)
     pointer-events : all

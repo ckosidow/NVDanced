@@ -1140,14 +1140,14 @@ fieldset[disabled] .button.is-dark.is-inverted.is-outlined {
 
 /* line 143, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary {
-  background-color: #108e5c;
+  background-color: #57768e;
   border-color: transparent;
   color: #fff;
 }
 
 /* line 147, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary:hover, .button.is-primary.is-hovered {
-  background-color: #0f8355;
+  background-color: #526f86;
   border-color: transparent;
   color: #fff;
 }
@@ -1160,12 +1160,12 @@ fieldset[disabled] .button.is-dark.is-inverted.is-outlined {
 
 /* line 156, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary:focus:not(:active), .button.is-primary.is-focused:not(:active) {
-  box-shadow: 0 0 0 0.125em rgba(16, 142, 92, 0.25);
+  box-shadow: 0 0 0 0.125em rgba(87, 118, 142, 0.25);
 }
 
 /* line 158, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary:active, .button.is-primary.is-active {
-  background-color: #0d774d;
+  background-color: #4d697e;
   border-color: transparent;
   color: #fff;
 }
@@ -1173,7 +1173,7 @@ fieldset[disabled] .button.is-dark.is-inverted.is-outlined {
 /* line 163, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary[disabled],
 fieldset[disabled] .button.is-primary {
-  background-color: #108e5c;
+  background-color: #57768e;
   border-color: transparent;
   box-shadow: none;
 }
@@ -1181,7 +1181,7 @@ fieldset[disabled] .button.is-primary {
 /* line 168, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary.is-inverted {
   background-color: #fff;
-  color: #108e5c;
+  color: #57768e;
 }
 
 /* line 171, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
@@ -1195,7 +1195,7 @@ fieldset[disabled] .button.is-primary.is-inverted {
   background-color: #fff;
   border-color: transparent;
   box-shadow: none;
-  color: #108e5c;
+  color: #57768e;
 }
 
 /* line 181, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
@@ -1206,20 +1206,20 @@ fieldset[disabled] .button.is-primary.is-inverted {
 /* line 183, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary.is-outlined {
   background-color: transparent;
-  border-color: #108e5c;
-  color: #108e5c;
+  border-color: #57768e;
+  color: #57768e;
 }
 
 /* line 187, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary.is-outlined:hover, .button.is-primary.is-outlined.is-hovered, .button.is-primary.is-outlined:focus, .button.is-primary.is-outlined.is-focused {
-  background-color: #108e5c;
-  border-color: #108e5c;
+  background-color: #57768e;
+  border-color: #57768e;
   color: #fff;
 }
 
 /* line 195, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary.is-outlined.is-loading::after {
-  border-color: transparent transparent #108e5c #108e5c !important;
+  border-color: transparent transparent #57768e #57768e !important;
 }
 
 /* line 201, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
@@ -1231,9 +1231,9 @@ fieldset[disabled] .button.is-primary.is-inverted {
 .button.is-primary.is-outlined[disabled],
 fieldset[disabled] .button.is-primary.is-outlined {
   background-color: transparent;
-  border-color: #108e5c;
+  border-color: #57768e;
   box-shadow: none;
-  color: #108e5c;
+  color: #57768e;
 }
 
 /* line 209, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
@@ -1246,12 +1246,12 @@ fieldset[disabled] .button.is-primary.is-outlined {
 /* line 213, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary.is-inverted.is-outlined:hover, .button.is-primary.is-inverted.is-outlined.is-hovered, .button.is-primary.is-inverted.is-outlined:focus, .button.is-primary.is-inverted.is-outlined.is-focused {
   background-color: #fff;
-  color: #108e5c;
+  color: #57768e;
 }
 
 /* line 224, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary.is-inverted.is-outlined.is-loading:hover::after, .button.is-primary.is-inverted.is-outlined.is-loading.is-hovered::after, .button.is-primary.is-inverted.is-outlined.is-loading:focus::after, .button.is-primary.is-inverted.is-outlined.is-loading.is-focused::after {
-  border-color: transparent transparent #108e5c #108e5c !important;
+  border-color: transparent transparent #57768e #57768e !important;
 }
 
 /* line 226, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
@@ -1265,22 +1265,22 @@ fieldset[disabled] .button.is-primary.is-inverted.is-outlined {
 
 /* line 236, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary.is-light {
-  background-color: #edfdf6;
-  color: #17ca83;
+  background-color: #f2f5f7;
+  color: #57768e;
 }
 
 /* line 239, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary.is-light:hover, .button.is-primary.is-light.is-hovered {
-  background-color: #e1fcf1;
+  background-color: #eaeff2;
   border-color: transparent;
-  color: #17ca83;
+  color: #57768e;
 }
 
 /* line 244, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-primary.is-light:active, .button.is-primary.is-light.is-active {
-  background-color: #d6faec;
+  background-color: #e3e9ee;
   border-color: transparent;
-  color: #17ca83;
+  color: #57768e;
 }
 
 /* line 143, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
@@ -2010,14 +2010,14 @@ fieldset[disabled] .button.is-danger.is-inverted.is-outlined {
 
 /* line 143, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary {
-  background-color: #161616;
+  background-color: #8e686b;
   border-color: transparent;
   color: #fff;
 }
 
 /* line 147, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary:hover, .button.is-secondary.is-hovered {
-  background-color: #101010;
+  background-color: #876365;
   border-color: transparent;
   color: #fff;
 }
@@ -2030,12 +2030,12 @@ fieldset[disabled] .button.is-danger.is-inverted.is-outlined {
 
 /* line 156, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary:focus:not(:active), .button.is-secondary.is-focused:not(:active) {
-  box-shadow: 0 0 0 0.125em rgba(22, 22, 22, 0.25);
+  box-shadow: 0 0 0 0.125em rgba(142, 104, 107, 0.25);
 }
 
 /* line 158, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary:active, .button.is-secondary.is-active {
-  background-color: #090909;
+  background-color: #7f5d60;
   border-color: transparent;
   color: #fff;
 }
@@ -2043,7 +2043,7 @@ fieldset[disabled] .button.is-danger.is-inverted.is-outlined {
 /* line 163, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary[disabled],
 fieldset[disabled] .button.is-secondary {
-  background-color: #161616;
+  background-color: #8e686b;
   border-color: transparent;
   box-shadow: none;
 }
@@ -2051,7 +2051,7 @@ fieldset[disabled] .button.is-secondary {
 /* line 168, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary.is-inverted {
   background-color: #fff;
-  color: #161616;
+  color: #8e686b;
 }
 
 /* line 171, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
@@ -2065,7 +2065,7 @@ fieldset[disabled] .button.is-secondary.is-inverted {
   background-color: #fff;
   border-color: transparent;
   box-shadow: none;
-  color: #161616;
+  color: #8e686b;
 }
 
 /* line 181, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
@@ -2076,20 +2076,20 @@ fieldset[disabled] .button.is-secondary.is-inverted {
 /* line 183, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary.is-outlined {
   background-color: transparent;
-  border-color: #161616;
-  color: #161616;
+  border-color: #8e686b;
+  color: #8e686b;
 }
 
 /* line 187, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary.is-outlined:hover, .button.is-secondary.is-outlined.is-hovered, .button.is-secondary.is-outlined:focus, .button.is-secondary.is-outlined.is-focused {
-  background-color: #161616;
-  border-color: #161616;
+  background-color: #8e686b;
+  border-color: #8e686b;
   color: #fff;
 }
 
 /* line 195, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary.is-outlined.is-loading::after {
-  border-color: transparent transparent #161616 #161616 !important;
+  border-color: transparent transparent #8e686b #8e686b !important;
 }
 
 /* line 201, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
@@ -2101,9 +2101,9 @@ fieldset[disabled] .button.is-secondary.is-inverted {
 .button.is-secondary.is-outlined[disabled],
 fieldset[disabled] .button.is-secondary.is-outlined {
   background-color: transparent;
-  border-color: #161616;
+  border-color: #8e686b;
   box-shadow: none;
-  color: #161616;
+  color: #8e686b;
 }
 
 /* line 209, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
@@ -2116,12 +2116,12 @@ fieldset[disabled] .button.is-secondary.is-outlined {
 /* line 213, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary.is-inverted.is-outlined:hover, .button.is-secondary.is-inverted.is-outlined.is-hovered, .button.is-secondary.is-inverted.is-outlined:focus, .button.is-secondary.is-inverted.is-outlined.is-focused {
   background-color: #fff;
-  color: #161616;
+  color: #8e686b;
 }
 
 /* line 224, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary.is-inverted.is-outlined.is-loading:hover::after, .button.is-secondary.is-inverted.is-outlined.is-loading.is-hovered::after, .button.is-secondary.is-inverted.is-outlined.is-loading:focus::after, .button.is-secondary.is-inverted.is-outlined.is-loading.is-focused::after {
-  border-color: transparent transparent #161616 #161616 !important;
+  border-color: transparent transparent #8e686b #8e686b !important;
 }
 
 /* line 226, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
@@ -2135,22 +2135,22 @@ fieldset[disabled] .button.is-secondary.is-inverted.is-outlined {
 
 /* line 236, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary.is-light {
-  background-color: whitesmoke;
-  color: #8f8f8f;
+  background-color: #f6f3f3;
+  color: #846164;
 }
 
 /* line 239, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary.is-light:hover, .button.is-secondary.is-light.is-hovered {
-  background-color: #eeeeee;
+  background-color: #f1ecec;
   border-color: transparent;
-  color: #8f8f8f;
+  color: #846164;
 }
 
 /* line 244, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
 .button.is-secondary.is-light:active, .button.is-secondary.is-light.is-active {
-  background-color: #e8e8e8;
+  background-color: #ece5e5;
   border-color: transparent;
-  color: #8f8f8f;
+  color: #846164;
 }
 
 /* line 250, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/button.sass */
@@ -2925,14 +2925,14 @@ div.icon-text {
 
 /* line 43, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/notification.sass */
 .notification.is-primary {
-  background-color: #108e5c;
+  background-color: #57768e;
   color: #fff;
 }
 
 /* line 50, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/notification.sass */
 .notification.is-primary.is-light {
-  background-color: #edfdf6;
-  color: #17ca83;
+  background-color: #f2f5f7;
+  color: #57768e;
 }
 
 /* line 43, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/notification.sass */
@@ -2997,14 +2997,14 @@ div.icon-text {
 
 /* line 43, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/notification.sass */
 .notification.is-secondary {
-  background-color: #161616;
+  background-color: #8e686b;
   color: #fff;
 }
 
 /* line 50, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/notification.sass */
 .notification.is-secondary.is-light {
-  background-color: whitesmoke;
-  color: #8f8f8f;
+  background-color: #f6f3f3;
+  color: #846164;
 }
 
 /* line 11, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/progress.sass */
@@ -3123,22 +3123,22 @@ div.icon-text {
 
 /* line 35, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/progress.sass */
 .progress.is-primary::-webkit-progress-value {
-  background-color: #108e5c;
+  background-color: #57768e;
 }
 
 /* line 37, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/progress.sass */
 .progress.is-primary::-moz-progress-bar {
-  background-color: #108e5c;
+  background-color: #57768e;
 }
 
 /* line 39, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/progress.sass */
 .progress.is-primary::-ms-fill {
-  background-color: #108e5c;
+  background-color: #57768e;
 }
 
 /* line 41, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/progress.sass */
 .progress.is-primary:indeterminate {
-  background-image: linear-gradient(to right, #108e5c 30%, #ededed 30%);
+  background-image: linear-gradient(to right, #57768e 30%, #ededed 30%);
 }
 
 /* line 35, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/progress.sass */
@@ -3243,22 +3243,22 @@ div.icon-text {
 
 /* line 35, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/progress.sass */
 .progress.is-secondary::-webkit-progress-value {
-  background-color: #161616;
+  background-color: #8e686b;
 }
 
 /* line 37, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/progress.sass */
 .progress.is-secondary::-moz-progress-bar {
-  background-color: #161616;
+  background-color: #8e686b;
 }
 
 /* line 39, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/progress.sass */
 .progress.is-secondary::-ms-fill {
-  background-color: #161616;
+  background-color: #8e686b;
 }
 
 /* line 41, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/progress.sass */
 .progress.is-secondary:indeterminate {
-  background-image: linear-gradient(to right, #161616 30%, #ededed 30%);
+  background-image: linear-gradient(to right, #8e686b 30%, #ededed 30%);
 }
 
 /* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/progress.sass */
@@ -3363,8 +3363,8 @@ div.icon-text {
 /* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/table.sass */
 .table td.is-primary,
 .table th.is-primary {
-  background-color: #108e5c;
-  border-color: #108e5c;
+  background-color: #57768e;
+  border-color: #57768e;
   color: #fff;
 }
 
@@ -3411,8 +3411,8 @@ div.icon-text {
 /* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/table.sass */
 .table td.is-secondary,
 .table th.is-secondary {
-  background-color: #161616;
-  border-color: #161616;
+  background-color: #8e686b;
+  border-color: #8e686b;
   color: #fff;
 }
 
@@ -3426,7 +3426,7 @@ div.icon-text {
 /* line 52, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/table.sass */
 .table td.is-selected,
 .table th.is-selected {
-  background-color: #108e5c;
+  background-color: #57768e;
   color: #fff;
 }
 
@@ -3456,7 +3456,7 @@ div.icon-text {
 
 /* line 65, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/table.sass */
 .table tr.is-selected {
-  background-color: #108e5c;
+  background-color: #57768e;
   color: #fff;
 }
 
@@ -3689,14 +3689,14 @@ div.icon-text {
 
 /* line 81, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/tag.sass */
 .tag:not(body).is-primary {
-  background-color: #108e5c;
+  background-color: #57768e;
   color: #fff;
 }
 
 /* line 88, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/tag.sass */
 .tag:not(body).is-primary.is-light {
-  background-color: #edfdf6;
-  color: #17ca83;
+  background-color: #f2f5f7;
+  color: #57768e;
 }
 
 /* line 81, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/tag.sass */
@@ -3761,14 +3761,14 @@ div.icon-text {
 
 /* line 81, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/tag.sass */
 .tag:not(body).is-secondary {
-  background-color: #161616;
+  background-color: #8e686b;
   color: #fff;
 }
 
 /* line 88, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/tag.sass */
 .tag:not(body).is-secondary.is-light {
-  background-color: whitesmoke;
-  color: #8f8f8f;
+  background-color: #f6f3f3;
+  color: #846164;
 }
 
 /* line 92, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/elements/tag.sass */
@@ -4163,12 +4163,12 @@ fieldset[disabled] .select select:-ms-input-placeholder,
 
 /* line 17, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/input-textarea.sass */
 .is-primary.input, .is-primary.textarea {
-  border-color: #108e5c;
+  border-color: #57768e;
 }
 
 /* line 19, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/input-textarea.sass */
 .is-primary.input:focus, .is-primary.textarea:focus, .is-primary.is-focused.input, .is-primary.is-focused.textarea, .is-primary.input:active, .is-primary.textarea:active, .is-primary.is-active.input, .is-primary.is-active.textarea {
-  box-shadow: 0 0 0 0.125em rgba(16, 142, 92, 0.25);
+  box-shadow: 0 0 0 0.125em rgba(87, 118, 142, 0.25);
 }
 
 /* line 17, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/input-textarea.sass */
@@ -4223,12 +4223,12 @@ fieldset[disabled] .select select:-ms-input-placeholder,
 
 /* line 17, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/input-textarea.sass */
 .is-secondary.input, .is-secondary.textarea {
-  border-color: #161616;
+  border-color: #8e686b;
 }
 
 /* line 19, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/input-textarea.sass */
 .is-secondary.input:focus, .is-secondary.textarea:focus, .is-secondary.is-focused.input, .is-secondary.is-focused.textarea, .is-secondary.input:active, .is-secondary.textarea:active, .is-secondary.is-active.input, .is-secondary.is-active.textarea {
-  box-shadow: 0 0 0 0.125em rgba(22, 22, 22, 0.25);
+  box-shadow: 0 0 0 0.125em rgba(142, 104, 107, 0.25);
 }
 
 /* line 25, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/input-textarea.sass */
@@ -4482,22 +4482,22 @@ fieldset[disabled] .select select:hover {
 
 /* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/select.sass */
 .select.is-primary:not(:hover)::after {
-  border-color: #108e5c;
+  border-color: #57768e;
 }
 
 /* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/select.sass */
 .select.is-primary select {
-  border-color: #108e5c;
+  border-color: #57768e;
 }
 
 /* line 51, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/select.sass */
 .select.is-primary select:hover, .select.is-primary select.is-hovered {
-  border-color: #0d774d;
+  border-color: #4d697e;
 }
 
 /* line 54, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/select.sass */
 .select.is-primary select:focus, .select.is-primary select.is-focused, .select.is-primary select:active, .select.is-primary select.is-active {
-  box-shadow: 0 0 0 0.125em rgba(16, 142, 92, 0.25);
+  box-shadow: 0 0 0 0.125em rgba(87, 118, 142, 0.25);
 }
 
 /* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/select.sass */
@@ -4602,22 +4602,22 @@ fieldset[disabled] .select select:hover {
 
 /* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/select.sass */
 .select.is-secondary:not(:hover)::after {
-  border-color: #161616;
+  border-color: #8e686b;
 }
 
 /* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/select.sass */
 .select.is-secondary select {
-  border-color: #161616;
+  border-color: #8e686b;
 }
 
 /* line 51, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/select.sass */
 .select.is-secondary select:hover, .select.is-secondary select.is-hovered {
-  border-color: #090909;
+  border-color: #7f5d60;
 }
 
 /* line 54, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/select.sass */
 .select.is-secondary select:focus, .select.is-secondary select.is-focused, .select.is-secondary select:active, .select.is-secondary select.is-active {
-  box-shadow: 0 0 0 0.125em rgba(22, 22, 22, 0.25);
+  box-shadow: 0 0 0 0.125em rgba(142, 104, 107, 0.25);
 }
 
 /* line 60, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/select.sass */
@@ -4797,14 +4797,14 @@ fieldset[disabled] .select select:hover {
 
 /* line 27, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/file.sass */
 .file.is-primary .file-cta {
-  background-color: #108e5c;
+  background-color: #57768e;
   border-color: transparent;
   color: #fff;
 }
 
 /* line 33, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/file.sass */
 .file.is-primary:hover .file-cta, .file.is-primary.is-hovered .file-cta {
-  background-color: #0f8355;
+  background-color: #526f86;
   border-color: transparent;
   color: #fff;
 }
@@ -4812,13 +4812,13 @@ fieldset[disabled] .select select:hover {
 /* line 39, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/file.sass */
 .file.is-primary:focus .file-cta, .file.is-primary.is-focused .file-cta {
   border-color: transparent;
-  box-shadow: 0 0 0.5em rgba(16, 142, 92, 0.25);
+  box-shadow: 0 0 0.5em rgba(87, 118, 142, 0.25);
   color: #fff;
 }
 
 /* line 45, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/file.sass */
 .file.is-primary:active .file-cta, .file.is-primary.is-active .file-cta {
-  background-color: #0d774d;
+  background-color: #4d697e;
   border-color: transparent;
   color: #fff;
 }
@@ -4965,14 +4965,14 @@ fieldset[disabled] .select select:hover {
 
 /* line 27, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/file.sass */
 .file.is-secondary .file-cta {
-  background-color: #161616;
+  background-color: #8e686b;
   border-color: transparent;
   color: #fff;
 }
 
 /* line 33, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/file.sass */
 .file.is-secondary:hover .file-cta, .file.is-secondary.is-hovered .file-cta {
-  background-color: #101010;
+  background-color: #876365;
   border-color: transparent;
   color: #fff;
 }
@@ -4980,13 +4980,13 @@ fieldset[disabled] .select select:hover {
 /* line 39, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/file.sass */
 .file.is-secondary:focus .file-cta, .file.is-secondary.is-focused .file-cta {
   border-color: transparent;
-  box-shadow: 0 0 0.5em rgba(22, 22, 22, 0.25);
+  box-shadow: 0 0 0.5em rgba(142, 104, 107, 0.25);
   color: #fff;
 }
 
 /* line 45, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/file.sass */
 .file.is-secondary:active .file-cta, .file.is-secondary.is-active .file-cta {
-  background-color: #090909;
+  background-color: #7f5d60;
   border-color: transparent;
   color: #fff;
 }
@@ -5274,7 +5274,7 @@ fieldset[disabled] .select select:hover {
 
 /* line 29, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/tools.sass */
 .help.is-primary {
-  color: #108e5c;
+  color: #57768e;
 }
 
 /* line 29, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/tools.sass */
@@ -5304,7 +5304,7 @@ fieldset[disabled] .select select:hover {
 
 /* line 29, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/tools.sass */
 .help.is-secondary {
-  color: #161616;
+  color: #8e686b;
 }
 
 /* line 35, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/form/tools.sass */
@@ -6328,19 +6328,19 @@ button.dropdown-item.is-active {
 
 /* line 61, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/message.sass */
 .message.is-primary {
-  background-color: #edfdf6;
+  background-color: #f2f5f7;
 }
 
 /* line 63, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/message.sass */
 .message.is-primary .message-header {
-  background-color: #108e5c;
+  background-color: #57768e;
   color: #fff;
 }
 
 /* line 66, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/message.sass */
 .message.is-primary .message-body {
-  border-color: #108e5c;
-  color: #17ca83;
+  border-color: #57768e;
+  color: #57768e;
 }
 
 /* line 61, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/message.sass */
@@ -6430,19 +6430,19 @@ button.dropdown-item.is-active {
 
 /* line 61, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/message.sass */
 .message.is-secondary {
-  background-color: whitesmoke;
+  background-color: #f6f3f3;
 }
 
 /* line 63, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/message.sass */
 .message.is-secondary .message-header {
-  background-color: #161616;
+  background-color: #8e686b;
   color: #fff;
 }
 
 /* line 66, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/message.sass */
 .message.is-secondary .message-body {
-  border-color: #161616;
-  color: #8f8f8f;
+  border-color: #8e686b;
+  color: #846164;
 }
 
 /* line 70, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/message.sass */
@@ -6902,7 +6902,7 @@ button.dropdown-item.is-active {
 
 /* line 67, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/navbar.sass */
 .navbar.is-primary {
-  background-color: #108e5c;
+  background-color: #57768e;
   color: #fff;
 }
 
@@ -6917,7 +6917,7 @@ button.dropdown-item.is-active {
 .navbar.is-primary .navbar-brand .navbar-link:focus,
 .navbar.is-primary .navbar-brand .navbar-link:hover,
 .navbar.is-primary .navbar-brand .navbar-link.is-active {
-  background-color: #0d774d;
+  background-color: #4d697e;
   color: #fff;
 }
 
@@ -6950,7 +6950,7 @@ button.dropdown-item.is-active {
   .navbar.is-primary .navbar-end .navbar-link:focus,
   .navbar.is-primary .navbar-end .navbar-link:hover,
   .navbar.is-primary .navbar-end .navbar-link.is-active {
-    background-color: #0d774d;
+    background-color: #4d697e;
     color: #fff;
   }
   /* line 100, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/navbar.sass */
@@ -6962,12 +6962,12 @@ button.dropdown-item.is-active {
   .navbar.is-primary .navbar-item.has-dropdown:focus .navbar-link,
   .navbar.is-primary .navbar-item.has-dropdown:hover .navbar-link,
   .navbar.is-primary .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: #0d774d;
+    background-color: #4d697e;
     color: #fff;
   }
   /* line 109, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/navbar.sass */
   .navbar.is-primary .navbar-dropdown a.navbar-item.is-active {
-    background-color: #108e5c;
+    background-color: #57768e;
     color: #fff;
   }
 }
@@ -7334,7 +7334,7 @@ button.dropdown-item.is-active {
 
 /* line 67, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/navbar.sass */
 .navbar.is-secondary {
-  background-color: #161616;
+  background-color: #8e686b;
   color: #fff;
 }
 
@@ -7349,7 +7349,7 @@ button.dropdown-item.is-active {
 .navbar.is-secondary .navbar-brand .navbar-link:focus,
 .navbar.is-secondary .navbar-brand .navbar-link:hover,
 .navbar.is-secondary .navbar-brand .navbar-link.is-active {
-  background-color: #090909;
+  background-color: #7f5d60;
   color: #fff;
 }
 
@@ -7382,7 +7382,7 @@ button.dropdown-item.is-active {
   .navbar.is-secondary .navbar-end .navbar-link:focus,
   .navbar.is-secondary .navbar-end .navbar-link:hover,
   .navbar.is-secondary .navbar-end .navbar-link.is-active {
-    background-color: #090909;
+    background-color: #7f5d60;
     color: #fff;
   }
   /* line 100, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/navbar.sass */
@@ -7394,12 +7394,12 @@ button.dropdown-item.is-active {
   .navbar.is-secondary .navbar-item.has-dropdown:focus .navbar-link,
   .navbar.is-secondary .navbar-item.has-dropdown:hover .navbar-link,
   .navbar.is-secondary .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: #090909;
+    background-color: #7f5d60;
     color: #fff;
   }
   /* line 109, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/navbar.sass */
   .navbar.is-secondary .navbar-dropdown a.navbar-item.is-active {
-    background-color: #161616;
+    background-color: #8e686b;
     color: #fff;
   }
 }
@@ -8228,18 +8228,18 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 
 /* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
 .panel.is-primary .panel-heading {
-  background-color: #108e5c;
+  background-color: #57768e;
   color: #fff;
 }
 
 /* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
 .panel.is-primary .panel-tabs a.is-active {
-  border-bottom-color: #108e5c;
+  border-bottom-color: #57768e;
 }
 
 /* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
 .panel.is-primary .panel-block.is-active .panel-icon {
-  color: #108e5c;
+  color: #57768e;
 }
 
 /* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
@@ -8324,18 +8324,18 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 
 /* line 44, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
 .panel.is-secondary .panel-heading {
-  background-color: #161616;
+  background-color: #8e686b;
   color: #fff;
 }
 
 /* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
 .panel.is-secondary .panel-tabs a.is-active {
-  border-bottom-color: #161616;
+  border-bottom-color: #8e686b;
 }
 
 /* line 49, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
 .panel.is-secondary .panel-block.is-active .panel-icon {
-  color: #161616;
+  color: #8e686b;
 }
 
 /* line 54, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/components/panel.sass */
@@ -11060,47 +11060,47 @@ a.has-text-dark:hover, a.has-text-dark:focus {
 
 /* line 5, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 .has-text-primary {
-  color: #108e5c !important;
+  color: #57768e !important;
 }
 
 /* line 8, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 a.has-text-primary:hover, a.has-text-primary:focus {
-  color: #0b603e !important;
+  color: #445c6e !important;
 }
 
 /* line 11, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 .has-background-primary {
-  background-color: #108e5c !important;
+  background-color: #57768e !important;
 }
 
 /* line 17, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 .has-text-primary-light {
-  color: #edfdf6 !important;
+  color: #f2f5f7 !important;
 }
 
 /* line 20, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 a.has-text-primary-light:hover, a.has-text-primary-light:focus {
-  color: #bff8e1 !important;
+  color: #d3dce4 !important;
 }
 
 /* line 23, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 .has-background-primary-light {
-  background-color: #edfdf6 !important;
+  background-color: #f2f5f7 !important;
 }
 
 /* line 26, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 .has-text-primary-dark {
-  color: #17ca83 !important;
+  color: #57768e !important;
 }
 
 /* line 29, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 a.has-text-primary-dark:hover, a.has-text-primary-dark:focus {
-  color: #2ce79d !important;
+  color: #7190a8 !important;
 }
 
 /* line 32, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 .has-background-primary-dark {
-  background-color: #17ca83 !important;
+  background-color: #57768e !important;
 }
 
 /* line 5, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
@@ -11330,47 +11330,47 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 /* line 5, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 .has-text-secondary {
-  color: #161616 !important;
+  color: #8e686b !important;
 }
 
 /* line 8, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 a.has-text-secondary:hover, a.has-text-secondary:focus {
-  color: black !important;
+  color: #715255 !important;
 }
 
 /* line 11, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 .has-background-secondary {
-  background-color: #161616 !important;
+  background-color: #8e686b !important;
 }
 
 /* line 17, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 .has-text-secondary-light {
-  color: whitesmoke !important;
+  color: #f6f3f3 !important;
 }
 
 /* line 20, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 a.has-text-secondary-light:hover, a.has-text-secondary-light:focus {
-  color: #dbdbdb !important;
+  color: #e1d6d7 !important;
 }
 
 /* line 23, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 .has-background-secondary-light {
-  background-color: whitesmoke !important;
+  background-color: #f6f3f3 !important;
 }
 
 /* line 26, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 .has-text-secondary-dark {
-  color: #8f8f8f !important;
+  color: #846164 !important;
 }
 
 /* line 29, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
-  color: #a8a8a8 !important;
+  color: #9e7b7d !important;
 }
 
 /* line 32, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
 .has-background-secondary-dark {
-  background-color: #8f8f8f !important;
+  background-color: #846164 !important;
 }
 
 /* line 36, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/helpers/color.sass */
@@ -13835,7 +13835,7 @@ a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
 
 /* line 26, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/hero.sass */
 .hero.is-primary {
-  background-color: #108e5c;
+  background-color: #57768e;
   color: #fff;
 }
 
@@ -13864,7 +13864,7 @@ a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
 @media screen and (max-width: 1023px) {
   /* line 39, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/hero.sass */
   .hero.is-primary .navbar-menu {
-    background-color: #108e5c;
+    background-color: #57768e;
   }
 }
 
@@ -13878,7 +13878,7 @@ a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
 .hero.is-primary a.navbar-item:hover, .hero.is-primary a.navbar-item.is-active,
 .hero.is-primary .navbar-link:hover,
 .hero.is-primary .navbar-link.is-active {
-  background-color: #0d774d;
+  background-color: #4d697e;
   color: #fff;
 }
 
@@ -13895,7 +13895,7 @@ a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
 
 /* line 58, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/hero.sass */
 .hero.is-primary .tabs li.is-active a {
-  color: #108e5c !important;
+  color: #57768e !important;
   opacity: 1;
 }
 
@@ -13913,18 +13913,18 @@ a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
 .hero.is-primary .tabs.is-boxed li.is-active a, .hero.is-primary .tabs.is-boxed li.is-active a:hover, .hero.is-primary .tabs.is-toggle li.is-active a, .hero.is-primary .tabs.is-toggle li.is-active a:hover {
   background-color: #fff;
   border-color: #fff;
-  color: #108e5c;
+  color: #57768e;
 }
 
 /* line 75, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/hero.sass */
 .hero.is-primary.is-bold {
-  background-image: linear-gradient(141deg, #05662f 0%, #108e5c 71%, #0eaa86 100%);
+  background-image: linear-gradient(141deg, #3b6777 0%, #57768e 71%, #5a78a4 100%);
 }
 
 @media screen and (max-width: 768px) {
   /* line 80, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/hero.sass */
   .hero.is-primary.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, #05662f 0%, #108e5c 71%, #0eaa86 100%);
+    background-image: linear-gradient(141deg, #3b6777 0%, #57768e 71%, #5a78a4 100%);
   }
 }
 
@@ -14405,7 +14405,7 @@ a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
 
 /* line 26, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/hero.sass */
 .hero.is-secondary {
-  background-color: #161616;
+  background-color: #8e686b;
   color: #fff;
 }
 
@@ -14434,7 +14434,7 @@ a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
 @media screen and (max-width: 1023px) {
   /* line 39, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/hero.sass */
   .hero.is-secondary .navbar-menu {
-    background-color: #161616;
+    background-color: #8e686b;
   }
 }
 
@@ -14448,7 +14448,7 @@ a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
 .hero.is-secondary a.navbar-item:hover, .hero.is-secondary a.navbar-item.is-active,
 .hero.is-secondary .navbar-link:hover,
 .hero.is-secondary .navbar-link.is-active {
-  background-color: #090909;
+  background-color: #7f5d60;
   color: #fff;
 }
 
@@ -14465,7 +14465,7 @@ a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
 
 /* line 58, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/hero.sass */
 .hero.is-secondary .tabs li.is-active a {
-  color: #161616 !important;
+  color: #8e686b !important;
   opacity: 1;
 }
 
@@ -14483,18 +14483,18 @@ a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
 .hero.is-secondary .tabs.is-boxed li.is-active a, .hero.is-secondary .tabs.is-boxed li.is-active a:hover, .hero.is-secondary .tabs.is-toggle li.is-active a, .hero.is-secondary .tabs.is-toggle li.is-active a:hover {
   background-color: #fff;
   border-color: #fff;
-  color: #161616;
+  color: #8e686b;
 }
 
 /* line 75, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/hero.sass */
 .hero.is-secondary.is-bold {
-  background-image: linear-gradient(141deg, black 0%, #161616 71%, #242221 100%);
+  background-image: linear-gradient(141deg, #7a4955 0%, #8e686b 71%, #a0746f 100%);
 }
 
 @media screen and (max-width: 768px) {
   /* line 80, ../../../WebstormProjects/NVDanced/public/styles/sass/bulma/layout/hero.sass */
   .hero.is-secondary.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, black 0%, #161616 71%, #242221 100%);
+    background-image: linear-gradient(141deg, #7a4955 0%, #8e686b 71%, #a0746f 100%);
   }
 }
 
@@ -22247,19 +22247,24 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
-/* line 10, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 11, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+[v-cloak] {
+  display: none;
+}
+
+/* line 14, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-navbar {
-  background-image: linear-gradient(to right, #108e5c, #1AB879);
+  background: linear-gradient(90deg, #57768e, #8e686b);
   position: sticky;
   top: 0;
 }
 
-/* line 15, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 19, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-navbar #nvd-search {
   width: 1em;
 }
 
-/* line 18, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 22, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-img-header {
   width: 100%;
   height: 300px;
@@ -22268,67 +22273,59 @@ readers do not read off random characters that represent icons */
   background-size: auto 200%;
 }
 
-/* line 25, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 29, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-page-body {
   box-shadow: 0 -35px 50px -15px black;
   width: 100%;
   max-width: 100%;
 }
 
-/* line 30, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 34, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback-padding {
   display: block;
   width: 100%;
   height: 5em;
 }
 
-/* line 35, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 39, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: #01010150;
-  box-shadow: 0 0 30px 20px #01010150;
+  background: linear-gradient(180deg, rgba(1, 1, 1, 0), rgba(1, 1, 1, 0.5));
   pointer-events: none;
 }
 
-/* line 43, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 46, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback .nvd-playback-button {
   background: transparent;
   border: transparent;
 }
 
-/* line 47, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 50, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback .nvd-playback-button .nvd-playback-button-text {
-  background: linear-gradient(to right, #108e5c, #1AB879);
+  background: linear-gradient(90deg, #57768e, #8e686b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* line 52, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 55, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback .nvd-text {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* line 57, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
-#nvd-playback #nvd-playback-image-fig {
-  margin-top: -0.5em;
-  margin-bottom: -0.5em;
-  margin-left: -1em;
-}
-
-/* line 62, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 61, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback #nvd-playback-image-fig #nvd-playback-image {
   height: 100%;
   width: 100%;
 }
 
-/* line 66, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 65, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback #nvd-playback-card {
   overflow: hidden;
-  background: linear-gradient(90deg, #16161633, #108e5c33, #1AB87933);
+  background: linear-gradient(90deg, rgba(22, 22, 22, 0.5), rgba(87, 118, 142, 0.5), rgba(142, 104, 107, 0.5), rgba(22, 22, 22, 0.5));
   backdrop-filter: blur(10px);
   pointer-events: all;
 }
