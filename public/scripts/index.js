@@ -135,17 +135,13 @@ const app = new Vue({
 
                     if (currPlaying.is_playing) {
                         this.isPlaying = currPlaying.is_playing;
-
-                        if (currPlaying.item) {
-                            this.playingName = currPlaying.item.name;
-                        }
                     }
 
                     if (currPlaying.item) {
-                        if (currPlaying.item.album) {
-                            if (currPlaying.item.album.images) {
-                                this.playingImage = currPlaying.item.album.images[0].url;
-                            }
+                        this.playingName = currPlaying.item.name;
+
+                        if (currPlaying.item.album && currPlaying.item.album.images) {
+                            this.playingImage = currPlaying.item.album.images[0].url;
                         }
                     }
 
