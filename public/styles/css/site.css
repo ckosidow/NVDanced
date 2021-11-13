@@ -22265,6 +22265,13 @@ readers do not read off random characters that represent icons */
 }
 
 /* line 24, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+.song-album, .song-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 29, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-img-header {
   width: 100%;
   height: 300px;
@@ -22273,21 +22280,21 @@ readers do not read off random characters that represent icons */
   background-size: auto 200%;
 }
 
-/* line 31, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 36, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-page-body {
   box-shadow: 0 -35px 50px -15px black;
   width: 100%;
   max-width: 100%;
 }
 
-/* line 36, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 41, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback-padding {
   display: block;
   width: 100%;
   height: 5em;
 }
 
-/* line 41, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 46, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback {
   position: fixed;
   bottom: 0;
@@ -22296,33 +22303,33 @@ readers do not read off random characters that represent icons */
   pointer-events: none;
 }
 
-/* line 48, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 53, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback .nvd-playback-button {
   background: transparent;
   border: transparent;
 }
 
-/* line 52, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 57, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback .nvd-playback-button .nvd-playback-button-text {
   background: linear-gradient(90deg, #57768e, #8e686b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* line 57, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 62, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback .nvd-text {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* line 63, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 68, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback #nvd-playback-image-fig #nvd-playback-image {
   height: 100%;
   width: 100%;
 }
 
-/* line 67, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
+/* line 72, ../../../WebstormProjects/NVDanced/public/styles/sass/site.sass */
 #nvd-playback #nvd-playback-card {
   overflow: hidden;
   background: linear-gradient(90deg, rgba(22, 30, 41, 0.5), rgba(87, 118, 142, 0.5), rgba(142, 104, 107, 0.5), rgba(22, 30, 41, 0.5));
