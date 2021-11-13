@@ -31,41 +31,41 @@
                 </div>
             </div>
             <div class="columns is-mobile is-multiline">
-                <div class="column is-4-desktop is-6-tablet is-12-mobile" v-for="track in playlist.tracks.items">
-                    <div class="columns is-mobile" v-if="track.track">
-                        <div class="column is-4 is-flex is-justify-content-center">
-                            <figure class="image is-64x64">
-                                <a v-on:click="$parent.playSong(track.track.uri)">
-                                    <img :src="track.track.album.images[2] ? track.track.album.images[2].url : ''"/>
-                                </a>
-                            </figure>
-                        </div>
-                        <div class="column is-8">
-                            <h5 class="is-size-5">
-                                <a class="has-text-white" v-on:click="$parent.playSong(track.track.uri)">{{track.track.name}}</a>
-                            </h5>
-                            <h6 class="is-size-6">
-                                <router-link class="has-text-white"
-                                             :to="{path: '/album?album_id=' + track.track.album.id}">
-                                    {{track.track.album.name}}
-                                </router-link>
-                            </h6>
-                            <h6 class="is-size-6">
-                            <span v-for="(artist, i) in track.track.artists">
-                                {{artist.name}}<span v-if="i != track.track.artists.length - 1">, </span>
-                            </span>
-                            </h6>
-                            <p v-if="track.track.danceability">
-                                Danceability: {{track.track.danceability.toFixed(2)}}
-                            </p>
-                            <p>
-                                Popularity: {{track.track.popularity}}
-                            </p>
-                            <p v-if="track.track.tempo">
-                                Tempo: {{track.track.tempo.toFixed(2)}}
-                            </p>
-                        </div>
-                    </div>
+                <div class="column is-2-desktop is-3-tablet is-4-mobile"
+                     v-for="track in playlist.tracks.items">
+                    <figure class="image is-256x256">
+                        <a v-on:click="$parent.playSong(track.track.uri)">
+                            <img :src="track.track.album.images[1] ? track.track.album.images[1].url : ''"/>
+                        </a>
+                    </figure>
+                    <h5 class="is-size-5 song-title">
+                        <a class="has-text-white"
+                           v-on:click="$parent.playSong(track.track.uri)">
+                            {{track.track.name}}
+                        </a>
+                    </h5>
+                    <h6 class="is-size-6 song-album">
+                        <router-link class="has-text-white"
+                                     :to="{path: '/album?album_id=' + track.track.album.id}">
+                            {{track.track.album.name}}
+                        </router-link>
+                    </h6>
+                    <!--<div class="column is-8">-->
+                        <!--<h6 class="is-size-6">-->
+                        <!--<span v-for="(artist, i) in track.track.artists">-->
+                            <!--{{artist.name}}<span v-if="i != track.track.artists.length - 1">, </span>-->
+                        <!--</span>-->
+                        <!--</h6>-->
+                        <!--<p v-if="track.track.danceability">-->
+                            <!--Danceability: {{track.track.danceability.toFixed(2)}}-->
+                        <!--</p>-->
+                        <!--<p>-->
+                            <!--Popularity: {{track.track.popularity}}-->
+                        <!--</p>-->
+                        <!--<p v-if="track.track.tempo">-->
+                            <!--Tempo: {{track.track.tempo.toFixed(2)}}-->
+                        <!--</p>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
