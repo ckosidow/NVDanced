@@ -6,12 +6,12 @@ html(lang='en')
         meta(name='description' content='Uses the Spotify API and its data to show danceability metrics among others')
         link(rel='stylesheet' href='../styles/css/site.css')
         title N V Danced
-    body.has-background-secondary.has-text-white
+    body.has-background-under.has-text-white
         div#app
-            nav.navbar.is-primary.is-flex#nvd-navbar
+            nav.navbar.is-primary.is-flex.px-2#nvd-navbar
                 .navbar-brand.is-flex-grow-1
-                    router-link.navbar-item(:to='{name:auth ? "user" : "home"}') N V Danced
-                    div.is-align-self-center.is-flex.is-flex-grow-1
+                    router-link.px-2.navbar-item(:to='{name:auth ? "user" : "home"}') N V Danced
+                    div.is-align-self-center.is-flex.is-flex-grow-1.px-2
                         div.dropdown(:class="{'is-active': suggestedArtists.length || suggestedPlaylists.length || suggestedAlbums.length}")
                             div.dropdown-menu#dropdown-menu(role="menu")
                                 div.dropdown-content
@@ -31,22 +31,29 @@ html(lang='en')
                                     div.dropdown-item(v-for="playlist in suggestedPlaylists")
                                         router-link.dropdown-item(:to="{path: '/playlist?user_id=' + playlist.owner.id + '&playlist_id=' + playlist.id}") {{playlist.name}}
                         input#nvd-search.is-flex-grow-1.input(v-model="query", v-on:input="search()", placeholder="search")
-                    div.is-flex.is-flex-grow-0.is-justify-content-flex-end
-                        a.has-text-white.navbar-item(href="/login", v-show="!auth") Log In
-                        a.has-text-white.navbar-item(v-show="auth", v-on:click="logOut") Log Out
+                    div.is-flex.is-flex-grow-0.is-justify-content-flex-end.px-2
+                        a.has-text-white.navbar-item(href="www.spotify.com")
+                            span.icon
+                                i.fab.fa-spotify.has-white-text
+                        a.has-text-white.navbar-item(v-show="!auth", href='/login') Log In
+                        a.has-text-white.navbar-item(v-show="auth", v-cloak, v-on:click="logOut") Log Out
             router-view
-            div#nvd-playback.is-flex.is-justify-content-center.py-4(v-if="auth")
-                span.is-flex.is-align-self-center.pr-4(v-if="playingName") {{ playingName }}
-                button#prev.button.is-primary(v-on:click="playPrev")
-                    span.icon
-                        i.fa.fa-backward
-                button#toggle-play.button.is-primary.mx-4(v-on:click="togglePlay")
-                    span.icon
-                        i.fa(:class="isPlaying ? 'fa-pause' : 'fa-play'")
-                button#next.button.is-primary(v-on:click="playNext")
-                    span.icon
-                        i.fa.fa-forward
-                button#use-this-device.button.is-primary.ml-4(v-on:click="useThisDevice") Use this device
+            div#nvd-playback-padding
+            div#nvd-playback.is-flex.is-justify-content-center.p-4(v-if="auth")
+                div#nvd-playback-card.card.p-2.px-4.is-flex.is-flex-grow-1
+                    figure.image.mr-2.is-64x64.is-flex-shrink-0#nvd-playback-image-fig
+                        img#nvd-playback-image(v-if="playingImage", :src="playingImage")
+                    span.nvd-text.is-align-self-center.mx-2.has-text-white.is-flex-grow-1(v-cloak) {{ playingName }}
+                    button#toggle-play.button.mx-2.nvd-playback-button.p-1.is-align-self-center(v-on:click="togglePlay")
+                        span.icon.nvd-playback-button-text
+                            i.fa(:class="isPlaying ? 'fa-pause' : 'fa-play'")
+                    button#next.button.nvd-playback-button.p-1.mx-2.is-align-self-center(v-on:click="playNext")
+                        span.icon.nvd-playback-button-text
+                            i.fa.fa-step-forward
+                    span.nvd-text.is-align-self-center.mx-2.p-1.has-text-white(v-cloak) {{ currDeviceName }}
+                    button#use-this-device.button.nvd-playback-button.p-1.mx-2.is-align-self-center(v-on:click="useThisDevice")
+                        span.icon.nvd-playback-button-text
+                            i.fa(:class="currDeviceType === 'Smartphone' ? 'fa-mobile-alt' : 'fa-laptop'")
         script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
         script(src='https://unpkg.com/http-vue-loader')
         script(src='https://unpkg.com/vue/dist/vue.js')

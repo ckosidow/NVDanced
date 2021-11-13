@@ -19,6 +19,8 @@ const router = new VueRouter({
     routes // short for `routes: routes`
 });
 
+const thisDeviceName = 'N V Danced';
+
 const app = new Vue({
     router,
     el: "#app",
@@ -31,8 +33,11 @@ const app = new Vue({
         deviceId: null,
         isPlaying: false,
         playingName: null,
+        playingImage: null,
         spotifyPlayer: null,
-        currDeviceId: null
+        currDeviceId: null,
+        currDeviceName: null,
+        currDeviceType: null
     },
     methods: {
         logOut() {
@@ -99,29 +104,18 @@ const app = new Vue({
 
             this.isPlaying = true;
         },
-        playPrev() {
-            if (!this.currDeviceId) {
-                axios.post("/me/start-player?device_id=" + this.deviceId).then((response) => {
-                    // console.log("Switching playback");
-                    this.currDeviceId = this.deviceId;
-                });
-            }
-
-            axios.post("/me/previous").then((response) => {
-                // console.log("Playing");
-            });
-
-            this.isPlaying = true;
-        },
         playSong(uri) {
             if (!this.currDeviceId) {
                 axios.post("/me/start-player?device_id=" + this.deviceId).then((response) => {
                     // console.log("Switching playback");
+                    this.currDeviceId = this.deviceId;
+                    this.currDeviceName = thisDeviceName;
                 });
             }
 
             axios.post("/me/play-song?uri=" + uri).then((response) => {
                 // console.log("Playing song");
+                this.checkPlayback();
             });
         },
         useThisDevice() {
@@ -129,8 +123,35 @@ const app = new Vue({
                 axios.post("/me/start-player?device_id=" + this.deviceId + "&play=" + this.isPlaying).then((response) => {
                     // console.log("Switching playback");
                     this.currDeviceId = this.deviceId;
+                    this.currDeviceName = thisDeviceName;
+                    this.currDeviceType = 'Computer';
                 });
             }
+        },
+        checkPlayback() {
+            axios.get("/me/get-playback").then((response) => {
+                if (response.data) {
+                    const currPlaying = response.data;
+
+                    if (currPlaying.is_playing) {
+                        this.isPlaying = currPlaying.is_playing;
+                    }
+
+                    if (currPlaying.item) {
+                        this.playingName = currPlaying.item.name;
+
+                        if (currPlaying.item.album && currPlaying.item.album.images) {
+                            this.playingImage = currPlaying.item.album.images[0].url;
+                        }
+                    }
+
+                    if (currPlaying.device) {
+                        this.currDeviceId = currPlaying.device.id;
+                        this.currDeviceName = currPlaying.device.name;
+                        this.currDeviceType = currPlaying.device.type;
+                    }
+                }
+            });
         }
     },
     mounted() {
@@ -141,7 +162,7 @@ const app = new Vue({
 
         window.onSpotifyWebPlaybackSDKReady = () => {
             this.spotifyPlayer = new Spotify.Player({
-                name: 'N V Danced',
+                name: thisDeviceName,
                 getOAuthToken: cb => {
                     cb($cookies.get('auth'));
                 },
@@ -177,14 +198,31 @@ const app = new Vue({
                 console.error(message);
             });
 
-            this.spotifyPlayer.addListener('player_state_changed', ({
-                position,
-                duration,
-                track_window: { current_track }}) => {
-                if (current_track) {
-                    this.playingName = current_track.name;
+            const playbackListener = (arg) => {
+                if (arg) {
+                    const {
+                        position,
+                        duration,
+                        track_window: {current_track}
+                    } = arg;
+
+                    if (current_track) {
+                        this.playingImage = null;
+
+                        if (current_track.album) {
+                            if (current_track.album.images) {
+                                this.playingImage = current_track.album.images[0].url;
+                            }
+                        }
+
+                        this.playingName = current_track.name;
+                    }
+                } else {
+                    this.checkPlayback();
                 }
-            });
+            };
+
+            this.spotifyPlayer.addListener('player_state_changed', playbackListener);
 
             this.spotifyPlayer.connect().then(success => {
                 if (success) {
@@ -193,23 +231,7 @@ const app = new Vue({
             });
         };
 
-        axios.get("/me/get-playback").then((response) => {
-            if (response.data) {
-                const currPlaying = response.data;
-
-                if (currPlaying.is_playing) {
-                    this.isPlaying = currPlaying.is_playing;
-
-                    if (currPlaying.item) {
-                        this.playingName = currPlaying.item.name;
-                    }
-                }
-
-                if (currPlaying.device) {
-                    this.currDeviceId = currPlaying.device.id;
-                }
-            }
-        });
+        this.checkPlayback();
     },
     destroyed() {
         window.removeEventListener('click', this.clearSuggestions);
