@@ -14,7 +14,6 @@ router.get('/', function (req, res, next) {
             'streaming ' +
             'user-read-email ' +
             'user-read-private ' +
-            'user-modify-playback-state ' +
             'user-read-currently-playing ' +
             'user-read-playback-state ' +
             'user-modify-playback-state') +
