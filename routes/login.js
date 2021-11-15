@@ -4,6 +4,7 @@ const request = require("request");
 const clientId = process.env.clientId;
 const clientSecret = process.env.clientSecret;
 const redirect = process.env.redirect;
+const env = process.env.env;
 
 router.get('/', function (req, res, next) {
     res.redirect('https://accounts.spotify.com/authorize' +
@@ -16,7 +17,7 @@ router.get('/', function (req, res, next) {
             'user-modify-playback-state ' +
             'user-read-currently-playing ' +
             'user-read-playback-state ' +
-            'user-modify-playback-state')  +
+            'user-modify-playback-state') +
         '&redirect_uri=' + encodeURIComponent(redirect));
 });
 
@@ -37,7 +38,7 @@ router.get("/token", function (req, res, next) {
         res.cookie("auth", auth.access_token);
         res.cookie("refresh", auth.refresh_token);
 
-        res.redirect("../#/user");
+        res.redirect((env === 'dev' ? "http://localhost:8081" : '') + "/#/user");
     }).on("error", function (err) {
         console.log("Error: " + err.message);
     });
