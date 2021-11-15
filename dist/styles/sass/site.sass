@@ -1,0 +1,76 @@
+$primary: #57768e
+$secondary : #8e686b
+$under : #161e29
+
+$custom-colors : ("secondary":($secondary, #fff))
+$custom-colors : ("under":($under, #fff))
+
+@import "bulma/bulma.sass"
+@import "font-awesome/scss/fontawesome.scss"
+@import "font-awesome/scss/solid.scss"
+@import "font-awesome/scss/brands.scss"
+
+[v-cloak]
+  display : none
+
+#nvd-navbar
+  background : linear-gradient(90deg, $primary, $secondary)
+  position : sticky
+  top : 0
+
+  #nvd-search
+    width : 1em
+
+.song-album, .song-title
+  overflow : hidden
+  text-overflow : ellipsis
+  white-space : nowrap
+
+#nvd-img-header
+  width : 100%
+  height : 300px
+  background-repeat : no-repeat
+  background-position : center
+  background-size : auto 200%
+
+#nvd-page-body
+  box-shadow : 0 -35px 50px -15px black
+  width : 100%
+  max-width : 100%
+
+#nvd-playback-padding
+  display : block
+  width : 100%
+  height : 5em
+
+#nvd-playback
+  position : fixed
+  bottom : 0
+  width : 100%
+  background : linear-gradient(180deg, rgba(#010101, 0), rgba(#010101, 0.75))
+  pointer-events : none
+
+  .nvd-playback-button
+    background : transparent
+    border : transparent
+
+    .nvd-playback-button-text
+      background : linear-gradient(90deg, $primary, $secondary)
+      -webkit-background-clip : text
+      -webkit-text-fill-color : transparent
+
+  .nvd-text
+    overflow : hidden
+    text-overflow : ellipsis
+    white-space : nowrap
+
+  #nvd-playback-image-fig
+    #nvd-playback-image
+      height : 100%
+      width : 100%
+
+  #nvd-playback-card
+    overflow : hidden
+    background : linear-gradient(90deg, rgba($under, 0.5), rgba($primary, 0.5), rgba($secondary, 0.5), rgba($under, 0.5))
+    backdrop-filter : blur(10px)
+    pointer-events : all
