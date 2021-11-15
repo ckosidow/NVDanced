@@ -15,7 +15,8 @@ const song = require("./routes/song");
 const album = require("./routes/album");
 const search = require("./routes/search");
 
-const contextPath = "/api";
+const env = process.env.env;
+const contextPath = env === 'dev' ? "/api" : '';
 
 // configuration =================
 app.use(express.static(__dirname + '/dist'));    // set the static files location /public/img will be /img for users
