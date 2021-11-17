@@ -10,6 +10,14 @@
         <h3 class="is-size-3">
           {{user.display_name}}
         </h3>
+        <p>
+          <a href="https://open.spotify.com" class="has-text-white">
+              <span class="icon">
+                <i class="fab fa-spotify has-white-text"></i>
+              </span>
+            <span class="is-size-7">Open Spotify</span>
+          </a>
+        </p>
       </div>
     </div>
     <div class="columns is-mobile is-multiline">

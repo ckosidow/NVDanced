@@ -9,6 +9,15 @@
             <router-link class="has-text-white" :to="{path: '/other', query: {user_id: playlist.owner.id}}"
                          v-html="playlist.owner.display_name"></router-link>
           </p>
+          <br/>
+          <p>
+            <a href="https://open.spotify.com" class="has-text-white">
+              <span class="icon">
+                <i class="fab fa-spotify has-white-text"></i>
+              </span>
+              <span class="is-size-7">Open Spotify</span>
+            </a>
+          </p>
         </div>
         <div class="column is-6">
           <p>
@@ -35,15 +44,15 @@
               <img :src="track.track.album.images[1] ? track.track.album.images[1].url : ''"/>
             </a>
           </figure>
-          <h5 class="is-size-5 song-title">
+          <h5 class="is-size-6 song-title">
             <a class="has-text-white"
                v-on:click="$root.playSong(track.track.uri)">
               {{track.track.name}}
             </a>
           </h5>
-          <h6 class="is-size-6 song-album">
+          <h6 class="is-size-7 song-album">
             <router-link class="has-text-white"
-                         :to="{path: '/album?album_id=' + track.track.album.id}">
+                         :to="{path: '/album', query: {album_id: track.track.album.id}}">
               {{track.track.album.name}}
             </router-link>
           </h6>

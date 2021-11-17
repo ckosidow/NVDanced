@@ -28,16 +28,16 @@
             </div>
             <div class="columns is-mobile is-multiline">
                 <div class="column is-4" v-for="track in tracks" :key="track">
-                    <h5 class="is-size-5">
+                    <h5 class="is-size-6">
                         <a class="has-text-white" v-on:click="$root.playSong(track.uri)">
                             {{track.name}}
                         </a>
                     </h5>
                     <p>
-                        Danceability: {{track.danceability.toFixed(2)}}
+                        <span class="is-size-7">Danceability: {{track.danceability.toFixed(2)}}</span>
                     </p>
                     <p>
-                        Tempo: {{track.tempo.toFixed(2)}}
+                        <span class="is-size-7">Tempo: {{track.tempo.toFixed(2)}}</span>
                     </p>
                 </div>
             </div>
