@@ -140,7 +140,7 @@
         try {
           data = context.getImageData(0, 0, width, height);
         } catch (e) {
-          console.log(e);
+//          console.log(e);
           /* security error, img on diff domain */
           return defaultRGB;
         }
@@ -163,8 +163,6 @@
 
         root.style.setProperty('--player-background',
             '#' + this.decimalToHex(rgb.r, 2) + this.decimalToHex(rgb.g, 2) + this.decimalToHex(rgb.b, 2) + '80');
-
-        console.log(rgb);
       },
       logOut() {
         $cookies.remove('auth');
