@@ -69,11 +69,6 @@
             <i class="fa" :class="isPlaying ? 'fa-pause' : 'fa-play'"></i>
         </span>
       </button>
-      <button id="next" class="button nvd-playback-button p-1 mx-2 is-align-self-center" v-on:click="playNext">
-        <span class="icon nvd-playback-button-text">
-            <i class="fa fa-step-forward"></i>
-        </span>
-      </button>
       <span class="nvd-text is-align-self-center mx-2 p-1 has-text-white" v-cloak v-html="currDeviceName"></span>
       <button id="use-this-device" class="button nvd-playback-button p-1 mx-2 is-align-self-center"
               v-on:click="useThisDevice">
@@ -220,20 +215,6 @@
 
           this.isPlaying = true;
         }
-      },
-      playNext() {
-        if (!this.currDeviceId) {
-          axios.post("api/me/start-player?device_id=" + this.deviceId).then(() => {
-            // console.log("Switching playback");
-            this.currDeviceId = this.deviceId;
-          });
-        }
-
-        axios.post("api/me/next").then(() => {
-          // console.log("Playing");
-        });
-
-        this.isPlaying = true;
       },
       playSong(uri) {
         if (!this.currDeviceId) {
