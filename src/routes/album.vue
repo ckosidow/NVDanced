@@ -28,7 +28,7 @@
             </div>
             <div class="columns is-mobile is-multiline">
                 <div class="column is-4" v-for="track in tracks" :key="track">
-                    <h5 class="is-size-6">
+                    <h5 class="is-size-6" :title="track.name">
                         <a class="has-text-white" v-on:click="$root.playSong(track.uri)">
                             {{track.name}}
                         </a>

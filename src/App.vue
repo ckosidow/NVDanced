@@ -52,9 +52,9 @@
         <img id="nvd-playback-image" crossorigin="anonymous" v-if="playingImage" :src="playingImage">
       </figure>
       <span class="nvd-text is-align-self-center mx-2 has-text-white is-flex-grow-1" v-cloak>
-        <span v-html="playingName"></span>
+        <span v-html="playingName" :title="playingName"></span>
         <br/>
-        <span class="is-size-7" v-html="playingArtists.join(', ')"></span>
+        <span class="is-size-7" v-html="playingArtists.join(', ')" :title="playingArtists.join(', ')"></span>
         <br/>
         <a href="https://open.spotify.com" class="has-text-white" v-if="playingName">
           <span class="icon">
@@ -69,7 +69,8 @@
             <i class="fa" :class="isPlaying ? 'fa-pause' : 'fa-play'"></i>
         </span>
       </button>
-      <span class="nvd-text is-align-self-center mx-2 p-1 has-text-white" v-cloak v-html="currDeviceName"></span>
+      <span class="nvd-text is-align-self-center mx-2 p-1 has-text-white" v-cloak v-html="currDeviceName"
+            :title="currDeviceName"></span>
       <button id="use-this-device" class="button nvd-playback-button p-1 mx-2 is-align-self-center"
               v-on:click="useThisDevice">
         <span class="icon nvd-playback-button-text">

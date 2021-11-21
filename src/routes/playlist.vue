@@ -44,17 +44,16 @@
               <img :src="track.track.album.images[1] ? track.track.album.images[1].url : ''"/>
             </a>
           </figure>
-          <h5 class="is-size-6 song-title">
+          <h5 class="is-size-6 song-title" :title="track.track.name">
             <a class="has-text-white"
                v-on:click="$root.playSong(track.track.uri)">
-              {{track.track.name}}
+              {{ track.track.name }}
             </a>
           </h5>
-          <h6 class="is-size-7 song-album">
-            <router-link class="has-text-white"
-                         :to="{path: '/album', query: {album_id: track.track.album.id}}">
-              {{track.track.album.name}}
-            </router-link>
+          <h6 class="is-size-7 song-album" :title="track.track.artists.map(artist => artist.name).join(', ')">
+            <span>
+              {{ track.track.artists.map(artist => artist.name).join(', ') }}
+            </span>
           </h6>
           <!--<div class="column is-8">-->
           <!--<h6 class="is-size-6">-->

@@ -31,11 +31,11 @@
         </router-link>
         <router-link :to="{path: '/playlist',
                                     query: {user_id: playlist.owner.id, playlist_id: playlist.id}}">
-          <h4 class="is-size-4 has-text-white">
+          <h4 class="is-size-5 has-text-white">
             {{playlist.name}}
           </h4>
         </router-link>
-        <p>
+        <p class="is-size-6">
           <router-link class="has-text-white"
                        :to="{path: '/other', query: {user_id: playlist.owner.id}}">
             {{playlist.owner.display_name}}
