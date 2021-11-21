@@ -82,6 +82,7 @@
 <script>
   import axios from 'axios'
   import $cookies from 'vue-cookies'
+  import { nextTick } from 'vue'
 
   const thisDeviceName = 'N V Danced';
   const blockSize = 5; // only visit every 5 pixels
@@ -118,6 +119,12 @@
 
         return hex;
       },
+      executeAfterImagesLoaded(callback) {
+        Promise.all(Array.from(document.images)
+            .filter(img => !img.complete)
+            .map(img => new Promise(resolve => { img.onload = img.onerror = resolve; })))
+            .then(callback);
+      },
       getAverageRGB() {
         const imgEl = document.getElementById('nvd-playback-image');
         const canvas = document.createElement('canvas');
@@ -129,6 +136,7 @@
             count = 0;
 
         if (!context || !imgEl) {
+//          console.log("default rgb");
           return defaultRGB;
         }
 
@@ -161,6 +169,7 @@
 
         let root = document.documentElement;
 
+//        console.log("changing color to: " + JSON.stringify(rgb));
         root.style.setProperty('--player-background',
             '#' + this.decimalToHex(rgb.r, 2) + this.decimalToHex(rgb.g, 2) + this.decimalToHex(rgb.b, 2) + '80');
       },
@@ -240,6 +249,9 @@
       },
       checkPlayback() {
         axios.get("api/me/get-playback").then((response) => {
+//          console.log("checking playback");
+//          console.log(response);
+
           if (response.data) {
             const currPlaying = response.data;
 
@@ -255,8 +267,6 @@
 
               if (currPlaying.item.album && currPlaying.item.album.images) {
                 this.playingImage = currPlaying.item.album.images[0].url;
-
-                this.getAverageRGB();
               }
             }
 
@@ -271,6 +281,13 @@
     },
     mounted() {
       this.auth = $cookies.get('auth');
+    },
+    watch: {
+      playingImage: function() {
+        nextTick().then(() => {
+          this.executeAfterImagesLoaded(this.getAverageRGB);
+        });
+      }
     },
     created() {
       window.addEventListener('click', this.clearSuggestions);
@@ -314,6 +331,8 @@
         });
 
         const playbackListener = (arg) => {
+//          console.log("state changed");
+
           if (arg) {
             const {
               track_window: {current_track}
@@ -325,8 +344,6 @@
               if (current_track.album) {
                 if (current_track.album.images) {
                   this.playingImage = current_track.album.images[0].url;
-
-                  this.getAverageRGB();
                 }
               }
 
